@@ -1,0 +1,683 @@
+{
+    "schema": "interactembed-project",
+    "version": 1,
+    "projectId": "19c6f62a-41ec-4d2f-bb1e-bb98775b6f44",
+    "metadata": {
+        "title": "Interactive guide — Discover Creator InteractEmbed"
+    },
+    "canvas": {
+        "width": 1920,
+        "height": 1080,
+        "aspectRatio": "16:9"
+    },
+    "settings": {
+        "navigation": true,
+        "completion": "last-scene",
+        "locale": "en",
+        "labels": {
+            "previous": "Previous",
+            "next": "Next",
+            "finish": "Finish",
+            "check": "Check answer",
+            "correct": "Correct",
+            "incorrect": "Try again",
+            "loaderror": "The content could not be loaded.",
+            "scene": "Scene",
+            "skip": "Skip to content",
+            "presentation": "Presentation navigation",
+            "continue": "Continue",
+            "captions": "Captions",
+            "transcript": "Transcript"
+        }
+    },
+    "scenes": [
+        {
+            "id": "247a9397-be4a-425c-80e5-6fcaf2c3faaa",
+            "title": "Welcome",
+            "style": {
+                "backgroundColor": "#123b66",
+                "backgroundImage": ""
+            },
+            "elements": [
+                {
+                    "id": "06e0c924-8c8b-447d-ac91-c46f6a40e538",
+                    "type": "text",
+                    "transform": {
+                        "x": 160,
+                        "y": 100,
+                        "width": 1600,
+                        "height": 180,
+                        "rotation": 0
+                    },
+                    "content": {
+                        "text": "Discover Creator InteractEmbed"
+                    },
+                    "style": {
+                        "fontSize": 72,
+                        "color": "#ffffff",
+                        "textAlign": "center"
+                    },
+                    "accessibility": {
+                        "label": "Title: Discover Creator InteractEmbed"
+                    }
+                },
+                {
+                    "id": "93a628c5-1ded-4a7f-af20-15fd9abf7b68",
+                    "type": "text",
+                    "transform": {
+                        "x": 180,
+                        "y": 310,
+                        "width": 1200,
+                        "height": 260,
+                        "rotation": 0
+                    },
+                    "content": {
+                        "text": "A practical pathway to create\nand make HTML5 content accessible.\nPublish and reuse — without coding."
+                    },
+                    "style": {
+                        "fontSize": 54,
+                        "color": "#dcecff",
+                        "textAlign": "center"
+                    },
+                    "accessibility": {
+                        "label": "Pathway introduction"
+                    }
+                },
+                {
+                    "id": "ceadd83e-a2e8-423c-89dc-14284ceca376",
+                    "type": "text",
+                    "transform": {
+                        "x": 210,
+                        "y": 620,
+                        "width": 1500,
+                        "height": 120,
+                        "rotation": 0
+                    },
+                    "content": {
+                        "text": "6 scenes • media • quiz • no code"
+                    },
+                    "style": {
+                        "fontSize": 54,
+                        "color": "#9fe8db",
+                        "textAlign": "center"
+                    },
+                    "accessibility": {
+                        "label": "This guide has six scenes, media, a quiz and requires no code"
+                    }
+                },
+                {
+                    "id": "3e820e40-72c8-49b6-b933-d84f547d17e3",
+                    "type": "button",
+                    "transform": {
+                        "x": 710,
+                        "y": 790,
+                        "width": 500,
+                        "height": 130,
+                        "rotation": 0
+                    },
+                    "content": {
+                        "text": "Start the pathway →",
+                        "action": "next",
+                        "targetSceneId": "",
+                        "href": ""
+                    },
+                    "style": {
+                        "fontSize": 40,
+                        "color": "#ffffff",
+                        "background": "#00a88f",
+                        "textAlign": "center",
+                        "borderRadius": 18
+                    },
+                    "accessibility": {
+                        "label": "Start the pathway"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "b0c7ed17-82f0-4c22-b893-c9703bcb9354",
+            "title": "1. Build with scenes",
+            "style": {
+                "backgroundColor": "#f3f7fc",
+                "backgroundImage": ""
+            },
+            "elements": [
+                {
+                    "id": "eb859b8c-8890-49a4-bee7-3f907d0cf438",
+                    "type": "text",
+                    "transform": {
+                        "x": 180,
+                        "y": 120,
+                        "width": 1560,
+                        "height": 180,
+                        "rotation": 0
+                    },
+                    "content": {
+                        "text": "Start with a clear story"
+                    },
+                    "style": {
+                        "fontSize": 60,
+                        "color": "#123b66",
+                        "textAlign": "center"
+                    },
+                    "accessibility": {
+                        "label": "Start with a clear story"
+                    }
+                },
+                {
+                    "id": "564ea891-a71d-4631-86e0-8cc5df50d5c7",
+                    "type": "text",
+                    "transform": {
+                        "x": 360,
+                        "y": 330,
+                        "width": 1200,
+                        "height": 390,
+                        "rotation": 0
+                    },
+                    "content": {
+                        "text": "• One scene = one main idea\n• Organise the pathway in the storyboard\n• Duplicate and reorder\n• Use the grid to align"
+                    },
+                    "style": {
+                        "fontSize": 54,
+                        "color": "#172033",
+                        "textAlign": "center"
+                    },
+                    "accessibility": {
+                        "label": "Tips for structuring a project with scenes"
+                    }
+                },
+                {
+                    "id": "db1fe3b4-13bc-4671-a9de-e528f69ae392",
+                    "type": "button",
+                    "transform": {
+                        "x": 710,
+                        "y": 790,
+                        "width": 500,
+                        "height": 130,
+                        "rotation": 0
+                    },
+                    "content": {
+                        "text": "View the elements →",
+                        "action": "next",
+                        "targetSceneId": "",
+                        "href": ""
+                    },
+                    "style": {
+                        "fontSize": 40,
+                        "color": "#ffffff",
+                        "background": "#2f67b3",
+                        "textAlign": "center",
+                        "borderRadius": 18
+                    },
+                    "accessibility": {
+                        "label": "View the elements →"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "6c52c373-260e-4b78-9297-819f681e6891",
+            "title": "2. Compose with elements",
+            "style": {
+                "backgroundColor": "#eef6ff",
+                "backgroundImage": ""
+            },
+            "elements": [
+                {
+                    "id": "ead10f1e-6ba0-49e1-944c-7f94b3e8351d",
+                    "type": "text",
+                    "transform": {
+                        "x": 80,
+                        "y": 90,
+                        "width": 1380,
+                        "height": 160,
+                        "rotation": 0
+                    },
+                    "content": {
+                        "text": "Combine text, shapes and media"
+                    },
+                    "style": {
+                        "fontSize": 60,
+                        "color": "#123b66",
+                        "textAlign": "center"
+                    },
+                    "accessibility": {
+                        "label": "Combine text, shapes and media"
+                    }
+                },
+                {
+                    "id": "126b32ee-4bc2-4cfe-a253-f1e7510e9fc8",
+                    "type": "shape",
+                    "transform": {
+                        "x": 60,
+                        "y": 340,
+                        "width": 440,
+                        "height": 440,
+                        "rotation": 0
+                    },
+                    "content": [],
+                    "style": {
+                        "background": "#cfe0f7",
+                        "borderRadius": 44
+                    },
+                    "accessibility": {
+                        "label": "Text and shapes: titles, lists, colours and layers"
+                    }
+                },
+                {
+                    "id": "16cfc190-64bd-4269-bb8f-4d7cac08deb8",
+                    "type": "shape",
+                    "transform": {
+                        "x": 540,
+                        "y": 340,
+                        "width": 440,
+                        "height": 440,
+                        "rotation": 0
+                    },
+                    "content": [],
+                    "style": {
+                        "background": "#cfe0f7",
+                        "borderRadius": 44
+                    },
+                    "accessibility": {
+                        "label": "Media: images, audio, video and captions"
+                    }
+                },
+                {
+                    "id": "7fc38014-ee48-4700-bc5c-6ef322c6a0d5",
+                    "type": "shape",
+                    "transform": {
+                        "x": 1020,
+                        "y": 340,
+                        "width": 440,
+                        "height": 440,
+                        "rotation": 0
+                    },
+                    "content": [],
+                    "style": {
+                        "background": "#cfe0f7",
+                        "borderRadius": 44
+                    },
+                    "accessibility": {
+                        "label": "Pathways: buttons, quizzes and guided choices"
+                    }
+                },
+                {
+                    "id": "32221dda-9286-4462-affa-8a7fd6ef671a",
+                    "type": "text",
+                    "transform": {
+                        "x": 90,
+                        "y": 400,
+                        "width": 380,
+                        "height": 320,
+                        "rotation": 0
+                    },
+                    "content": {
+                        "text": "TEXT + SHAPES\nTitles and lists\nColours and layers"
+                    },
+                    "style": {
+                        "fontSize": 54,
+                        "color": "#123b66",
+                        "textAlign": "center"
+                    },
+                    "accessibility": {
+                        "label": "Text and shapes: titles, lists, colours and layers"
+                    }
+                },
+                {
+                    "id": "8510494a-cf6b-4afb-9342-13e08d33c3d6",
+                    "type": "text",
+                    "transform": {
+                        "x": 570,
+                        "y": 400,
+                        "width": 380,
+                        "height": 320,
+                        "rotation": 0
+                    },
+                    "content": {
+                        "text": "MEDIA\nImages and audio\nVideo and captions"
+                    },
+                    "style": {
+                        "fontSize": 54,
+                        "color": "#123b66",
+                        "textAlign": "center"
+                    },
+                    "accessibility": {
+                        "label": "Media: images, audio, video and captions"
+                    }
+                },
+                {
+                    "id": "0c7a57db-6669-4af6-9fe4-9c1fc0db9e25",
+                    "type": "text",
+                    "transform": {
+                        "x": 1050,
+                        "y": 400,
+                        "width": 380,
+                        "height": 320,
+                        "rotation": 0
+                    },
+                    "content": {
+                        "text": "PATHWAYS\nButtons and quizzes\nGuided choices"
+                    },
+                    "style": {
+                        "fontSize": 54,
+                        "color": "#123b66",
+                        "textAlign": "center"
+                    },
+                    "accessibility": {
+                        "label": "Pathways: buttons, quizzes and guided choices"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "2ea9e01a-0c1a-4839-91ee-ae924343337b",
+            "title": "3. Create an interactive pathway",
+            "style": {
+                "backgroundColor": "#0f4c5c",
+                "backgroundImage": ""
+            },
+            "elements": [
+                {
+                    "id": "bf5e842c-fe71-4867-8bc3-75d5e863423e",
+                    "type": "text",
+                    "transform": {
+                        "x": 250,
+                        "y": 100,
+                        "width": 1420,
+                        "height": 220,
+                        "rotation": 0
+                    },
+                    "content": {
+                        "text": "Guide the learner\nwithout imposing one pathway"
+                    },
+                    "style": {
+                        "fontSize": 60,
+                        "color": "#ffffff",
+                        "textAlign": "center"
+                    },
+                    "accessibility": {
+                        "label": "Guide the learner\nwithout imposing one pathway"
+                    }
+                },
+                {
+                    "id": "3783eb82-84bd-4d95-bddc-4aaba9287bf0",
+                    "type": "text",
+                    "transform": {
+                        "x": 260,
+                        "y": 360,
+                        "width": 1400,
+                        "height": 280,
+                        "rotation": 0
+                    },
+                    "content": {
+                        "text": "Buttons can move forward, go back, open a specific scene or launch a link. Quizzes can also direct what comes next based on the answer."
+                    },
+                    "style": {
+                        "fontSize": 54,
+                        "color": "#e7f6f5",
+                        "textAlign": "center"
+                    },
+                    "accessibility": {
+                        "label": "Explanation of interactive pathways"
+                    }
+                },
+                {
+                    "id": "32fede09-a272-4e16-81e5-daef9e7b39ae",
+                    "type": "button",
+                    "transform": {
+                        "x": 160,
+                        "y": 780,
+                        "width": 360,
+                        "height": 110,
+                        "rotation": 0
+                    },
+                    "content": {
+                        "text": "I want to design",
+                        "action": "scene",
+                        "targetSceneId": "b0c7ed17-82f0-4c22-b893-c9703bcb9354",
+                        "href": ""
+                    },
+                    "style": {
+                        "fontSize": 40,
+                        "color": "#ffffff",
+                        "background": "#00a88f",
+                        "textAlign": "center",
+                        "borderRadius": 18
+                    },
+                    "accessibility": {
+                        "label": "Review how to design with scenes"
+                    }
+                },
+                {
+                    "id": "bb5c2bac-9565-42b4-992a-6f3a3f527d84",
+                    "type": "button",
+                    "transform": {
+                        "x": 600,
+                        "y": 780,
+                        "width": 360,
+                        "height": 110,
+                        "rotation": 0
+                    },
+                    "content": {
+                        "text": "I want to publish",
+                        "action": "scene",
+                        "targetSceneId": "a3c0ca88-a2d0-44d2-b097-74e7d3ee9995",
+                        "href": ""
+                    },
+                    "style": {
+                        "fontSize": 40,
+                        "color": "#ffffff",
+                        "background": "#2f80ed",
+                        "textAlign": "center",
+                        "borderRadius": 18
+                    },
+                    "accessibility": {
+                        "label": "Go to the publishing steps"
+                    }
+                },
+                {
+                    "id": "9e5bb4ad-9108-4bb2-99a0-ba1f7299eeed",
+                    "type": "button",
+                    "transform": {
+                        "x": 1040,
+                        "y": 780,
+                        "width": 360,
+                        "height": 110,
+                        "rotation": 0
+                    },
+                    "content": {
+                        "text": "Try a quiz →",
+                        "action": "scene",
+                        "targetSceneId": "2b70a931-2eeb-410a-a1fb-85278b43be73",
+                        "href": ""
+                    },
+                    "style": {
+                        "fontSize": 40,
+                        "color": "#183044",
+                        "background": "#ffb000",
+                        "textAlign": "center",
+                        "borderRadius": 18
+                    },
+                    "accessibility": {
+                        "label": "Try the demonstration quiz"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "2b70a931-2eeb-410a-a1fb-85278b43be73",
+            "title": "4. Check understanding",
+            "style": {
+                "backgroundColor": "#fff8e7",
+                "backgroundImage": ""
+            },
+            "elements": [
+                {
+                    "id": "77dcd49f-4e8d-489b-88f8-ef3eace53b4d",
+                    "type": "text",
+                    "transform": {
+                        "x": 360,
+                        "y": 100,
+                        "width": 1200,
+                        "height": 180,
+                        "rotation": 0
+                    },
+                    "content": {
+                        "text": "Your turn"
+                    },
+                    "style": {
+                        "fontSize": 60,
+                        "color": "#7a4500",
+                        "textAlign": "center"
+                    },
+                    "accessibility": {
+                        "label": "Your turn"
+                    }
+                },
+                {
+                    "id": "5cdc1ca9-d399-4103-b4d7-aa1b6af3c6a5",
+                    "type": "quiz",
+                    "transform": {
+                        "x": 360,
+                        "y": 300,
+                        "width": 1200,
+                        "height": 580,
+                        "rotation": 0
+                    },
+                    "content": {
+                        "question": "Which practices make Creator content durable and reusable?",
+                        "answers": [
+                            "Structure the pathway with scenes",
+                            "Add accessible names and captions",
+                            "Edit files directly inside the ZIP",
+                            "Publish a version before reusing it"
+                        ],
+                        "selectionMode": "multiple",
+                        "correctIndex": 0,
+                        "correctIndexes": [
+                            0,
+                            1,
+                            3
+                        ],
+                        "points": 5,
+                        "checkLabel": "Check answer",
+                        "correctFeedback": "Excellent! Structure, accessibility and publishing are the three good habits.",
+                        "incorrectFeedback": "Not quite. Review the structure and good practices before trying again.",
+                        "correctSceneId": "a3c0ca88-a2d0-44d2-b097-74e7d3ee9995",
+                        "incorrectSceneId": "b0c7ed17-82f0-4c22-b893-c9703bcb9354"
+                    },
+                    "style": {
+                        "background": "#ffffff",
+                        "color": "#172033"
+                    },
+                    "accessibility": {
+                        "label": "Quiz about Creator good practices"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "a3c0ca88-a2d0-44d2-b097-74e7d3ee9995",
+            "title": "5. Publish and reuse",
+            "style": {
+                "backgroundColor": "#f4f8fc",
+                "backgroundImage": ""
+            },
+            "elements": [
+                {
+                    "id": "e4f917ac-a85f-4139-9b0c-f6516831eec3",
+                    "type": "text",
+                    "transform": {
+                        "x": 360,
+                        "y": 70,
+                        "width": 1200,
+                        "height": 160,
+                        "rotation": 0
+                    },
+                    "content": {
+                        "text": "From your idea to Moodle"
+                    },
+                    "style": {
+                        "fontSize": 60,
+                        "color": "#123b66",
+                        "textAlign": "center"
+                    },
+                    "accessibility": {
+                        "label": "From your idea to Moodle"
+                    }
+                },
+                {
+                    "id": "8aa88d12-720a-4da6-8fc2-1b47b5ae1116",
+                    "type": "text",
+                    "transform": {
+                        "x": 80,
+                        "y": 260,
+                        "width": 720,
+                        "height": 520,
+                        "rotation": 0
+                    },
+                    "content": {
+                        "text": "✓ Save the project\n✓ Check accessibility\n✓ Test Preview mode\n✓ Publish an immutable version\n✓ Reuse it in an Activity or Block"
+                    },
+                    "style": {
+                        "fontSize": 48,
+                        "color": "#172033",
+                        "textAlign": "center"
+                    },
+                    "accessibility": {
+                        "label": "Steps for publishing and reusing a project"
+                    }
+                },
+                {
+                    "id": "ab940aee-f6aa-443d-b8a9-a90078165e93",
+                    "type": "image",
+                    "transform": {
+                        "x": 840,
+                        "y": 280,
+                        "width": 840,
+                        "height": 400,
+                        "rotation": 0
+                    },
+                    "content": {
+                        "assetPath": "creator-workflow.svg",
+                        "fit": "contain"
+                    },
+                    "style": [],
+                    "accessibility": {
+                        "alt": "Creator workflow diagram: create, verify, then publish in Moodle",
+                        "label": "Creator workflow diagram: create, verify, then publish in Moodle",
+                        "decorative": false
+                    }
+                },
+                {
+                    "id": "03c4bce2-bc32-454e-af86-6c888ae23026",
+                    "type": "button",
+                    "transform": {
+                        "x": 710,
+                        "y": 820,
+                        "width": 500,
+                        "height": 120,
+                        "rotation": 0
+                    },
+                    "content": {
+                        "text": "Restart the guide ↻",
+                        "action": "scene",
+                        "targetSceneId": "247a9397-be4a-425c-80e5-6fcaf2c3faaa",
+                        "href": ""
+                    },
+                    "style": {
+                        "fontSize": 40,
+                        "color": "#ffffff",
+                        "background": "#1769aa",
+                        "textAlign": "center",
+                        "borderRadius": 18
+                    },
+                    "accessibility": {
+                        "label": "Restart the guide at the first scene"
+                    }
+                }
+            ]
+        }
+    ]
+}

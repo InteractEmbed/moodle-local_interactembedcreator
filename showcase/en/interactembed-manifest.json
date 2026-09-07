@@ -1,0 +1,19 @@
+{
+    "schema": "interactembed-publication",
+    "version": 1,
+    "publicationId": "fadfcc9e-c03c-41c4-a354-835fe8beee9c",
+    "publicationNumber": 1,
+    "entrypoint": "index.html",
+    "title": "Interactive guide — Discover Creator InteractEmbed",
+    "locale": "en",
+    "aspectRatio": "16:9",
+    "runtime": {
+        "name": "interactembed-runtime",
+        "version": "0.4.2"
+    },
+    "capabilities": {
+        "progress": true,
+        "score": true,
+        "branching": true
+    }
+}

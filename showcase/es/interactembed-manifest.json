@@ -1,0 +1,19 @@
+{
+    "schema": "interactembed-publication",
+    "version": 1,
+    "publicationId": "d6e9451e-bdb0-4e96-9a74-2826cd80d7b1",
+    "publicationNumber": 1,
+    "entrypoint": "index.html",
+    "title": "Guía interactiva — Descubrir Creator InteractEmbed",
+    "locale": "es",
+    "aspectRatio": "16:9",
+    "runtime": {
+        "name": "interactembed-runtime",
+        "version": "0.4.2"
+    },
+    "capabilities": {
+        "progress": true,
+        "score": true,
+        "branching": true
+    }
+}

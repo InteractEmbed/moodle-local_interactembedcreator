@@ -1,0 +1,683 @@
+{
+    "schema": "interactembed-project",
+    "version": 1,
+    "projectId": "aaeafd1c-897a-48dd-adb7-b4aa133112da",
+    "metadata": {
+        "title": "Guide interactif — Découvrir Creator InteractEmbed"
+    },
+    "canvas": {
+        "width": 1920,
+        "height": 1080,
+        "aspectRatio": "16:9"
+    },
+    "settings": {
+        "navigation": true,
+        "completion": "last-scene",
+        "locale": "fr",
+        "labels": {
+            "previous": "Précédent",
+            "next": "Suivant",
+            "finish": "Terminer",
+            "check": "Vérifier la réponse",
+            "correct": "Bonne réponse",
+            "incorrect": "Essayez de nouveau",
+            "loaderror": "Le contenu n’a pas pu être chargé.",
+            "scene": "Scène",
+            "skip": "Aller au contenu",
+            "presentation": "Navigation de la présentation",
+            "continue": "Continuer",
+            "captions": "Sous-titres",
+            "transcript": "Transcription"
+        }
+    },
+    "scenes": [
+        {
+            "id": "35d88797-5a55-4198-af66-078f5328024b",
+            "title": "Bienvenue",
+            "style": {
+                "backgroundColor": "#123b66",
+                "backgroundImage": ""
+            },
+            "elements": [
+                {
+                    "id": "e199e1d8-ec30-4914-ae3c-d93169566fd3",
+                    "type": "text",
+                    "transform": {
+                        "x": 160,
+                        "y": 100,
+                        "width": 1600,
+                        "height": 180,
+                        "rotation": 0
+                    },
+                    "content": {
+                        "text": "Découvrez Creator InteractEmbed"
+                    },
+                    "style": {
+                        "fontSize": 72,
+                        "color": "#ffffff",
+                        "textAlign": "center"
+                    },
+                    "accessibility": {
+                        "label": "Titre : Découvrez Creator InteractEmbed"
+                    }
+                },
+                {
+                    "id": "2fc0d4ae-0b9f-4421-b23a-9c10f3b63635",
+                    "type": "text",
+                    "transform": {
+                        "x": 180,
+                        "y": 310,
+                        "width": 1200,
+                        "height": 260,
+                        "rotation": 0
+                    },
+                    "content": {
+                        "text": "Un parcours pratique pour créer\net rendre accessible du contenu HTML5.\nPubliez et réutilisez — sans programmation."
+                    },
+                    "style": {
+                        "fontSize": 54,
+                        "color": "#dcecff",
+                        "textAlign": "center"
+                    },
+                    "accessibility": {
+                        "label": "Présentation du parcours"
+                    }
+                },
+                {
+                    "id": "c5843905-9e4f-491c-be7e-520483334f5b",
+                    "type": "text",
+                    "transform": {
+                        "x": 210,
+                        "y": 620,
+                        "width": 1500,
+                        "height": 120,
+                        "rotation": 0
+                    },
+                    "content": {
+                        "text": "6 scènes • média • quiz • sans code"
+                    },
+                    "style": {
+                        "fontSize": 54,
+                        "color": "#9fe8db",
+                        "textAlign": "center"
+                    },
+                    "accessibility": {
+                        "label": "Ce guide contient six scènes, un média, un quiz et ne nécessite aucun code"
+                    }
+                },
+                {
+                    "id": "35c18615-c139-49a8-93af-93898927b87a",
+                    "type": "button",
+                    "transform": {
+                        "x": 710,
+                        "y": 790,
+                        "width": 500,
+                        "height": 130,
+                        "rotation": 0
+                    },
+                    "content": {
+                        "text": "Commencer le parcours →",
+                        "action": "next",
+                        "targetSceneId": "",
+                        "href": ""
+                    },
+                    "style": {
+                        "fontSize": 40,
+                        "color": "#ffffff",
+                        "background": "#00a88f",
+                        "textAlign": "center",
+                        "borderRadius": 18
+                    },
+                    "accessibility": {
+                        "label": "Commencer le parcours"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "118d5f0e-8b55-4c26-ad39-1561e267e370",
+            "title": "1. Construire avec des scènes",
+            "style": {
+                "backgroundColor": "#f3f7fc",
+                "backgroundImage": ""
+            },
+            "elements": [
+                {
+                    "id": "f2466226-bbaf-4d7c-8d8b-52400bd4d8ac",
+                    "type": "text",
+                    "transform": {
+                        "x": 180,
+                        "y": 120,
+                        "width": 1560,
+                        "height": 180,
+                        "rotation": 0
+                    },
+                    "content": {
+                        "text": "Commencez par une histoire claire"
+                    },
+                    "style": {
+                        "fontSize": 60,
+                        "color": "#123b66",
+                        "textAlign": "center"
+                    },
+                    "accessibility": {
+                        "label": "Commencez par une histoire claire"
+                    }
+                },
+                {
+                    "id": "a150b099-53ab-4c10-be7b-4723a63583a5",
+                    "type": "text",
+                    "transform": {
+                        "x": 360,
+                        "y": 330,
+                        "width": 1200,
+                        "height": 390,
+                        "rotation": 0
+                    },
+                    "content": {
+                        "text": "• Une scène = une idée principale\n• Organisez le parcours dans le scénarimage\n• Dupliquez et réordonnez\n• Utilisez la grille pour aligner"
+                    },
+                    "style": {
+                        "fontSize": 54,
+                        "color": "#172033",
+                        "textAlign": "center"
+                    },
+                    "accessibility": {
+                        "label": "Conseils pour structurer un projet avec des scènes"
+                    }
+                },
+                {
+                    "id": "686263fd-423d-4ec0-babd-04932e8f1a2d",
+                    "type": "button",
+                    "transform": {
+                        "x": 710,
+                        "y": 790,
+                        "width": 500,
+                        "height": 130,
+                        "rotation": 0
+                    },
+                    "content": {
+                        "text": "Voir les éléments →",
+                        "action": "next",
+                        "targetSceneId": "",
+                        "href": ""
+                    },
+                    "style": {
+                        "fontSize": 40,
+                        "color": "#ffffff",
+                        "background": "#2f67b3",
+                        "textAlign": "center",
+                        "borderRadius": 18
+                    },
+                    "accessibility": {
+                        "label": "Voir les éléments →"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "44379655-85f9-48c0-b03f-413d8f47985f",
+            "title": "2. Composer avec les éléments",
+            "style": {
+                "backgroundColor": "#eef6ff",
+                "backgroundImage": ""
+            },
+            "elements": [
+                {
+                    "id": "6c68486d-8b27-4f72-a8f3-8d44df29ce9a",
+                    "type": "text",
+                    "transform": {
+                        "x": 80,
+                        "y": 90,
+                        "width": 1380,
+                        "height": 160,
+                        "rotation": 0
+                    },
+                    "content": {
+                        "text": "Combinez texte, formes et médias"
+                    },
+                    "style": {
+                        "fontSize": 60,
+                        "color": "#123b66",
+                        "textAlign": "center"
+                    },
+                    "accessibility": {
+                        "label": "Combinez texte, formes et médias"
+                    }
+                },
+                {
+                    "id": "8827747a-8c43-4235-a498-0d55b2cdc245",
+                    "type": "shape",
+                    "transform": {
+                        "x": 60,
+                        "y": 340,
+                        "width": 440,
+                        "height": 440,
+                        "rotation": 0
+                    },
+                    "content": [],
+                    "style": {
+                        "background": "#cfe0f7",
+                        "borderRadius": 44
+                    },
+                    "accessibility": {
+                        "label": "Texte et formes : titres, listes, couleurs et calques"
+                    }
+                },
+                {
+                    "id": "01f9dd47-d28a-4b52-bbca-d6e11410d545",
+                    "type": "shape",
+                    "transform": {
+                        "x": 540,
+                        "y": 340,
+                        "width": 440,
+                        "height": 440,
+                        "rotation": 0
+                    },
+                    "content": [],
+                    "style": {
+                        "background": "#cfe0f7",
+                        "borderRadius": 44
+                    },
+                    "accessibility": {
+                        "label": "Médias : images, audio, vidéo et sous-titres"
+                    }
+                },
+                {
+                    "id": "4cf02d8f-51ff-454a-b324-587fd1e44f35",
+                    "type": "shape",
+                    "transform": {
+                        "x": 1020,
+                        "y": 340,
+                        "width": 440,
+                        "height": 440,
+                        "rotation": 0
+                    },
+                    "content": [],
+                    "style": {
+                        "background": "#cfe0f7",
+                        "borderRadius": 44
+                    },
+                    "accessibility": {
+                        "label": "Parcours : boutons, quiz et choix guidés"
+                    }
+                },
+                {
+                    "id": "190b4d7d-48c9-4fcf-8f8c-5ef366e8af3b",
+                    "type": "text",
+                    "transform": {
+                        "x": 90,
+                        "y": 400,
+                        "width": 380,
+                        "height": 320,
+                        "rotation": 0
+                    },
+                    "content": {
+                        "text": "TEXTE + FORMES\nTitres et listes\nCouleurs et calques"
+                    },
+                    "style": {
+                        "fontSize": 54,
+                        "color": "#123b66",
+                        "textAlign": "center"
+                    },
+                    "accessibility": {
+                        "label": "Texte et formes : titres, listes, couleurs et calques"
+                    }
+                },
+                {
+                    "id": "d1bce32a-7cb6-4896-8511-a3acc20fc1ce",
+                    "type": "text",
+                    "transform": {
+                        "x": 570,
+                        "y": 400,
+                        "width": 380,
+                        "height": 320,
+                        "rotation": 0
+                    },
+                    "content": {
+                        "text": "MÉDIAS\nImages et audio\nVidéo et sous-titres"
+                    },
+                    "style": {
+                        "fontSize": 54,
+                        "color": "#123b66",
+                        "textAlign": "center"
+                    },
+                    "accessibility": {
+                        "label": "Médias : images, audio, vidéo et sous-titres"
+                    }
+                },
+                {
+                    "id": "9b08f679-2b1c-4224-abfc-4278af9bea1a",
+                    "type": "text",
+                    "transform": {
+                        "x": 1050,
+                        "y": 400,
+                        "width": 380,
+                        "height": 320,
+                        "rotation": 0
+                    },
+                    "content": {
+                        "text": "PARCOURS\nBoutons et quiz\nChoix guidés"
+                    },
+                    "style": {
+                        "fontSize": 54,
+                        "color": "#123b66",
+                        "textAlign": "center"
+                    },
+                    "accessibility": {
+                        "label": "Parcours : boutons, quiz et choix guidés"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "833fade8-5c68-4318-93ff-ae5b2cb2924b",
+            "title": "3. Créer un parcours interactif",
+            "style": {
+                "backgroundColor": "#0f4c5c",
+                "backgroundImage": ""
+            },
+            "elements": [
+                {
+                    "id": "fa7f8416-6079-440a-a3ed-480979daa5a9",
+                    "type": "text",
+                    "transform": {
+                        "x": 250,
+                        "y": 100,
+                        "width": 1420,
+                        "height": 220,
+                        "rotation": 0
+                    },
+                    "content": {
+                        "text": "Guidez l’apprenant\nsans imposer un parcours unique"
+                    },
+                    "style": {
+                        "fontSize": 60,
+                        "color": "#ffffff",
+                        "textAlign": "center"
+                    },
+                    "accessibility": {
+                        "label": "Guidez l’apprenant\nsans imposer un parcours unique"
+                    }
+                },
+                {
+                    "id": "da768a1e-d538-4fb1-8e77-2329048a66ec",
+                    "type": "text",
+                    "transform": {
+                        "x": 260,
+                        "y": 360,
+                        "width": 1400,
+                        "height": 280,
+                        "rotation": 0
+                    },
+                    "content": {
+                        "text": "Les boutons peuvent avancer, revenir, ouvrir une scène précise ou lancer un lien. Les quiz peuvent aussi orienter la suite selon la réponse."
+                    },
+                    "style": {
+                        "fontSize": 54,
+                        "color": "#e7f6f5",
+                        "textAlign": "center"
+                    },
+                    "accessibility": {
+                        "label": "Explication des parcours interactifs"
+                    }
+                },
+                {
+                    "id": "2b350346-6c08-4a4e-bee9-85ad8e5257cd",
+                    "type": "button",
+                    "transform": {
+                        "x": 160,
+                        "y": 780,
+                        "width": 360,
+                        "height": 110,
+                        "rotation": 0
+                    },
+                    "content": {
+                        "text": "Je veux concevoir",
+                        "action": "scene",
+                        "targetSceneId": "118d5f0e-8b55-4c26-ad39-1561e267e370",
+                        "href": ""
+                    },
+                    "style": {
+                        "fontSize": 40,
+                        "color": "#ffffff",
+                        "background": "#00a88f",
+                        "textAlign": "center",
+                        "borderRadius": 18
+                    },
+                    "accessibility": {
+                        "label": "Revoir comment concevoir avec des scènes"
+                    }
+                },
+                {
+                    "id": "72b27866-7ced-40ea-93e8-c014eea29883",
+                    "type": "button",
+                    "transform": {
+                        "x": 600,
+                        "y": 780,
+                        "width": 360,
+                        "height": 110,
+                        "rotation": 0
+                    },
+                    "content": {
+                        "text": "Je veux publier",
+                        "action": "scene",
+                        "targetSceneId": "2a40b68e-5e69-4bb3-93f7-bfd45c56f721",
+                        "href": ""
+                    },
+                    "style": {
+                        "fontSize": 40,
+                        "color": "#ffffff",
+                        "background": "#2f80ed",
+                        "textAlign": "center",
+                        "borderRadius": 18
+                    },
+                    "accessibility": {
+                        "label": "Aller aux étapes de publication"
+                    }
+                },
+                {
+                    "id": "1beaccd1-aa59-4ca1-bf7b-2d784b872a3a",
+                    "type": "button",
+                    "transform": {
+                        "x": 1040,
+                        "y": 780,
+                        "width": 360,
+                        "height": 110,
+                        "rotation": 0
+                    },
+                    "content": {
+                        "text": "Essayer un quiz →",
+                        "action": "scene",
+                        "targetSceneId": "e22b4610-d91d-495b-93e1-4de379882465",
+                        "href": ""
+                    },
+                    "style": {
+                        "fontSize": 40,
+                        "color": "#183044",
+                        "background": "#ffb000",
+                        "textAlign": "center",
+                        "borderRadius": 18
+                    },
+                    "accessibility": {
+                        "label": "Essayer le quiz de démonstration"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "e22b4610-d91d-495b-93e1-4de379882465",
+            "title": "4. Vérifier la compréhension",
+            "style": {
+                "backgroundColor": "#fff8e7",
+                "backgroundImage": ""
+            },
+            "elements": [
+                {
+                    "id": "8ef3439a-83bd-4b8a-a850-a34787c12107",
+                    "type": "text",
+                    "transform": {
+                        "x": 360,
+                        "y": 100,
+                        "width": 1200,
+                        "height": 180,
+                        "rotation": 0
+                    },
+                    "content": {
+                        "text": "À vous de jouer"
+                    },
+                    "style": {
+                        "fontSize": 60,
+                        "color": "#7a4500",
+                        "textAlign": "center"
+                    },
+                    "accessibility": {
+                        "label": "À vous de jouer"
+                    }
+                },
+                {
+                    "id": "5255e657-e6e8-4294-bb75-57905b4977c1",
+                    "type": "quiz",
+                    "transform": {
+                        "x": 360,
+                        "y": 300,
+                        "width": 1200,
+                        "height": 580,
+                        "rotation": 0
+                    },
+                    "content": {
+                        "question": "Quelles pratiques rendent un contenu Creator durable et réutilisable ?",
+                        "answers": [
+                            "Structurer le parcours avec des scènes",
+                            "Ajouter des noms accessibles et des sous-titres",
+                            "Modifier directement les fichiers du ZIP",
+                            "Publier une version avant de la réutiliser"
+                        ],
+                        "selectionMode": "multiple",
+                        "correctIndex": 0,
+                        "correctIndexes": [
+                            0,
+                            1,
+                            3
+                        ],
+                        "points": 5,
+                        "checkLabel": "Vérifier la réponse",
+                        "correctFeedback": "Excellent ! Structure, accessibilité et publication sont les trois bons réflexes.",
+                        "incorrectFeedback": "Pas tout à fait. Revoyez la structure et les bonnes pratiques avant de réessayer.",
+                        "correctSceneId": "2a40b68e-5e69-4bb3-93f7-bfd45c56f721",
+                        "incorrectSceneId": "118d5f0e-8b55-4c26-ad39-1561e267e370"
+                    },
+                    "style": {
+                        "background": "#ffffff",
+                        "color": "#172033"
+                    },
+                    "accessibility": {
+                        "label": "Quiz sur les bonnes pratiques Creator"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "2a40b68e-5e69-4bb3-93f7-bfd45c56f721",
+            "title": "5. Publier et réutiliser",
+            "style": {
+                "backgroundColor": "#f4f8fc",
+                "backgroundImage": ""
+            },
+            "elements": [
+                {
+                    "id": "83dd1f52-c60c-4e93-81b7-df78235984b7",
+                    "type": "text",
+                    "transform": {
+                        "x": 360,
+                        "y": 70,
+                        "width": 1200,
+                        "height": 160,
+                        "rotation": 0
+                    },
+                    "content": {
+                        "text": "De votre idée à Moodle"
+                    },
+                    "style": {
+                        "fontSize": 60,
+                        "color": "#123b66",
+                        "textAlign": "center"
+                    },
+                    "accessibility": {
+                        "label": "De votre idée à Moodle"
+                    }
+                },
+                {
+                    "id": "5206a51c-0fa8-4e9e-a347-13f502b06c79",
+                    "type": "text",
+                    "transform": {
+                        "x": 80,
+                        "y": 260,
+                        "width": 720,
+                        "height": 520,
+                        "rotation": 0
+                    },
+                    "content": {
+                        "text": "✓ Enregistrez le projet\n✓ Contrôlez l’accessibilité\n✓ Testez le mode Aperçu\n✓ Publiez une version immuable\n✓ Réutilisez-la dans une Activité ou un Bloc"
+                    },
+                    "style": {
+                        "fontSize": 48,
+                        "color": "#172033",
+                        "textAlign": "center"
+                    },
+                    "accessibility": {
+                        "label": "Étapes pour publier et réutiliser un projet"
+                    }
+                },
+                {
+                    "id": "f002f402-47bd-4020-a079-3f5ce4a6e3aa",
+                    "type": "image",
+                    "transform": {
+                        "x": 840,
+                        "y": 280,
+                        "width": 840,
+                        "height": 400,
+                        "rotation": 0
+                    },
+                    "content": {
+                        "assetPath": "creator-workflow.svg",
+                        "fit": "contain"
+                    },
+                    "style": [],
+                    "accessibility": {
+                        "alt": "Schéma du processus Creator : créer, vérifier, puis publier dans Moodle",
+                        "label": "Schéma du processus Creator : créer, vérifier, puis publier dans Moodle",
+                        "decorative": false
+                    }
+                },
+                {
+                    "id": "20a5656f-edb0-4b2b-b1c7-7d57377f0fde",
+                    "type": "button",
+                    "transform": {
+                        "x": 710,
+                        "y": 820,
+                        "width": 500,
+                        "height": 120,
+                        "rotation": 0
+                    },
+                    "content": {
+                        "text": "Recommencer le guide ↻",
+                        "action": "scene",
+                        "targetSceneId": "35d88797-5a55-4198-af66-078f5328024b",
+                        "href": ""
+                    },
+                    "style": {
+                        "fontSize": 40,
+                        "color": "#ffffff",
+                        "background": "#1769aa",
+                        "textAlign": "center",
+                        "borderRadius": 18
+                    },
+                    "accessibility": {
+                        "label": "Recommencer le guide à la première scène"
+                    }
+                }
+            ]
+        }
+    ]
+}

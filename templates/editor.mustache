@@ -1,0 +1,309 @@
+<div id="iec-editor" class="iec-editor">
+    <header class="iec-editor__header">
+        <div class="iec-editor__identity">
+            <a class="iec-editor__back" href="{{libraryurl}}">← {{#str}}backtolibrary, local_interactembedcreator{{/str}}</a>
+            <div>
+                <p class="iec-eyebrow">{{#str}}editorworkspace, local_interactembedcreator{{/str}}</p>
+                <h2 class="iec-editor__title">{{name}}</h2>
+            </div>
+        </div>
+        <div class="iec-editor__document-actions">
+            <button id="iec-save" class="btn btn-primary" type="button">{{#str}}save, local_interactembedcreator{{/str}}</button>
+            <output id="iec-save-status" role="status" aria-live="polite"></output>
+            <div class="btn-group iec-workspace-controls" role="group" aria-label="{{#str}}workspaceview, local_interactembedcreator{{/str}}">
+                <button id="iec-toggle-scenes" class="btn btn-outline-secondary" type="button" aria-controls="iec-scenes-panel" aria-pressed="true">{{#str}}scenes, local_interactembedcreator{{/str}}</button>
+                <button id="iec-toggle-properties" class="btn btn-outline-secondary" type="button" aria-controls="iec-properties-panel" aria-pressed="true">{{#str}}properties, local_interactembedcreator{{/str}}</button>
+                <button id="iec-focus-mode" class="btn btn-outline-primary" type="button" aria-pressed="false">⛶ {{#str}}focusmode, local_interactembedcreator{{/str}}</button>
+            </div>
+            <a class="btn btn-link btn-sm" href="{{guideurl}}">{{#str}}guide, local_interactembedcreator{{/str}}</a>
+        </div>
+    </header>
+    <nav class="iec-editor__toolbar" aria-label="{{#str}}editortools, local_interactembedcreator{{/str}}">
+        <div class="iec-command-group iec-command-group--insert">
+            <span class="iec-command-group__label">{{#str}}insertcontent, local_interactembedcreator{{/str}}</span>
+            <div class="iec-command-group__controls">
+                <button id="iec-add-text" class="btn btn-outline-secondary" type="button" title="{{#str}}addtext, local_interactembedcreator{{/str}}">＋ {{#str}}elementtext, local_interactembedcreator{{/str}}</button>
+                <button id="iec-add-shape" class="btn btn-outline-secondary" type="button" title="{{#str}}addshape, local_interactembedcreator{{/str}}">＋ {{#str}}elementshape, local_interactembedcreator{{/str}}</button>
+                <button id="iec-add-button" class="btn btn-outline-secondary" type="button" title="{{#str}}addbutton, local_interactembedcreator{{/str}}">＋ {{#str}}elementbutton, local_interactembedcreator{{/str}}</button>
+                <button id="iec-add-quiz" class="btn btn-outline-secondary" type="button" title="{{#str}}addquiz, local_interactembedcreator{{/str}}">＋ {{#str}}elementquiz, local_interactembedcreator{{/str}}</button>
+                <a class="btn btn-outline-secondary" href="{{mediaurl}}" title="{{#str}}managemedia, local_interactembedcreator{{/str}}">＋ {{#str}}media, local_interactembedcreator{{/str}}</a>
+            </div>
+        </div>
+        <div class="iec-command-group">
+            <span class="iec-command-group__label">{{#str}}editingactions, local_interactembedcreator{{/str}}</span>
+            <div class="iec-command-group__controls">
+              <div class="btn-group" role="group" aria-label="{{#str}}history, local_interactembedcreator{{/str}}">
+                <button id="iec-undo" class="btn btn-outline-secondary" type="button" title="{{#str}}undohelp, local_interactembedcreator{{/str}}">↶ {{#str}}undo, local_interactembedcreator{{/str}}</button>
+                <button id="iec-redo" class="btn btn-outline-secondary" type="button" title="{{#str}}redohelp, local_interactembedcreator{{/str}}">↷ {{#str}}redo, local_interactembedcreator{{/str}}</button>
+              </div>
+              <div class="btn-group" role="group" aria-label="{{#str}}clipboard, local_interactembedcreator{{/str}}">
+                <button id="iec-copy" class="btn btn-outline-secondary" type="button">{{#str}}copy, local_interactembedcreator{{/str}}</button>
+                <button id="iec-cut" class="btn btn-outline-secondary" type="button">{{#str}}cut, local_interactembedcreator{{/str}}</button>
+                <button id="iec-paste" class="btn btn-outline-secondary" type="button">{{#str}}paste, local_interactembedcreator{{/str}}</button>
+                <button id="iec-duplicate" class="btn btn-outline-secondary" type="button">{{#str}}duplicate, local_interactembedcreator{{/str}}</button>
+                <button id="iec-delete-element" class="btn btn-outline-danger" type="button">{{#str}}deleteelement, local_interactembedcreator{{/str}}</button>
+              </div>
+            </div>
+        </div>
+        <div class="iec-command-group iec-command-group--review">
+            <span class="iec-command-group__label">{{#str}}reviewandpublish, local_interactembedcreator{{/str}}</span>
+            <div class="iec-command-group__controls">
+                <button id="iec-preview" class="btn btn-outline-primary" type="button">{{#str}}preview, local_interactembedcreator{{/str}}</button>
+                <button id="iec-check-accessibility" class="btn btn-outline-primary" type="button" title="{{#str}}checkaccessibility, local_interactembedcreator{{/str}}">{{#str}}accessibility, local_interactembedcreator{{/str}}</button>
+                <a class="btn btn-outline-secondary" href="{{publicationsurl}}">{{#str}}publications, local_interactembedcreator{{/str}}</a>
+                <form method="post" action="{{config.wwwroot}}/local/interactembedcreator/publish.php">
+                    <input type="hidden" name="id" value="{{projectid}}">
+                    <input type="hidden" name="sesskey" value="{{sesskey}}">
+                    <button class="btn btn-secondary" type="submit">{{#str}}publish, local_interactembedcreator{{/str}}</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <output id="iec-accessibility-status" class="iec-accessibility-status" role="status" aria-live="polite" hidden></output>
+    <div class="iec-editor__workspace">
+        <aside id="iec-scenes-panel" class="iec-scenes" aria-label="{{#str}}scenepanel, local_interactembedcreator{{/str}}">
+            <div class="iec-panel-heading">
+                <div>
+                    <p class="iec-eyebrow">{{#str}}storyboard, local_interactembedcreator{{/str}}</p>
+                    <h3>{{#str}}scenes, local_interactembedcreator{{/str}}</h3>
+                </div>
+                <button id="iec-add-scene" class="btn btn-sm btn-outline-primary" type="button">＋ {{#str}}addscene, local_interactembedcreator{{/str}}</button>
+            </div>
+            <div id="iec-scene-list"></div>
+            <details class="iec-panel-section" open>
+              <summary>{{#str}}scenesettings, local_interactembedcreator{{/str}}</summary>
+              <fieldset class="iec-property-group">
+                <legend>{{#str}}scenesettings, local_interactembedcreator{{/str}}</legend>
+                <label for="iec-scene-title">{{#str}}scenetitle, local_interactembedcreator{{/str}}</label>
+                <input id="iec-scene-title" class="form-control" type="text" maxlength="255">
+                <div class="iec-scene-actions mt-2">
+                    <button id="iec-scene-up" class="btn btn-sm btn-outline-secondary" type="button">↑ {{#str}}moveup, local_interactembedcreator{{/str}}</button>
+                    <button id="iec-scene-down" class="btn btn-sm btn-outline-secondary" type="button">↓ {{#str}}movedown, local_interactembedcreator{{/str}}</button>
+                    <button id="iec-duplicate-scene" class="btn btn-sm btn-outline-secondary" type="button">{{#str}}duplicatescene, local_interactembedcreator{{/str}}</button>
+                    <button id="iec-delete-scene" class="btn btn-sm btn-outline-danger" type="button">{{#str}}deletescene, local_interactembedcreator{{/str}}</button>
+                </div>
+              </fieldset>
+            </details>
+            <details class="iec-panel-section">
+              <summary>{{#str}}scenebackground, local_interactembedcreator{{/str}}</summary>
+              <fieldset class="iec-property-group">
+                <legend>{{#str}}scenebackground, local_interactembedcreator{{/str}}</legend>
+                <label for="iec-scene-background-color">{{#str}}backgroundcolor, local_interactembedcreator{{/str}}</label>
+                <input id="iec-scene-background-color" class="form-control" type="color" value="#ffffff">
+                <label for="iec-scene-background-image" class="mt-2">{{#str}}backgroundimage, local_interactembedcreator{{/str}}</label>
+                <select id="iec-scene-background-image" class="form-control"></select>
+              </fieldset>
+            </details>
+            <details class="iec-panel-section">
+              <summary>{{#str}}navigation, local_interactembedcreator{{/str}}</summary>
+              <fieldset class="iec-property-group">
+                <legend>{{#str}}navigation, local_interactembedcreator{{/str}}</legend>
+                <label class="iec-check-label" for="iec-show-navigation">
+                    <input id="iec-show-navigation" type="checkbox" checked>
+                    {{#str}}shownavigation, local_interactembedcreator{{/str}}
+                </label>
+                <small class="form-text text-muted">{{#str}}shownavigationhelp, local_interactembedcreator{{/str}}</small>
+              </fieldset>
+            </details>
+        </aside>
+        <main class="iec-stage-wrap">
+            <div class="iec-canvas-toolbar">
+              <div class="iec-canvas-title">
+                <strong>{{#str}}canvas, local_interactembedcreator{{/str}}</strong>
+                <span>16:9 · 1920 × 1080</span>
+              </div>
+              <div class="iec-zoom-control">
+                <label for="iec-zoom">{{#str}}zoom, local_interactembedcreator{{/str}}</label>
+                <input id="iec-zoom" type="range" min="50" max="150" step="10" value="100">
+                <output id="iec-zoom-value" for="iec-zoom">100%</output>
+                <span class="iec-toolbar-separator" aria-hidden="true"></span>
+                <label class="iec-check-label" for="iec-show-grid"><input id="iec-show-grid" type="checkbox" checked> {{#str}}showgrid, local_interactembedcreator{{/str}}</label>
+                <label class="iec-check-label" for="iec-snap-grid"><input id="iec-snap-grid" type="checkbox" checked> {{#str}}snaptogrid, local_interactembedcreator{{/str}}</label>
+                <label for="iec-grid-size">{{#str}}gridsize, local_interactembedcreator{{/str}}</label>
+                <select id="iec-grid-size" class="custom-select custom-select-sm">
+                    <option value="10">10</option>
+                    <option value="20" selected>20</option>
+                    <option value="40">40</option>
+                    <option value="80">80</option>
+                </select>
+              </div>
+            </div>
+            <div class="iec-stage-scroll">
+                <div id="iec-stage" class="iec-stage" tabindex="0" aria-label="{{#str}}canvas, local_interactembedcreator{{/str}} 16:9"></div>
+            </div>
+        </main>
+        <aside id="iec-properties-panel" class="iec-properties">
+            <div class="iec-panel-heading">
+                <div>
+                    <p class="iec-eyebrow">{{#str}}selectedelement, local_interactembedcreator{{/str}}</p>
+                    <h3>{{#str}}properties, local_interactembedcreator{{/str}}</h3>
+                </div>
+            </div>
+            <p id="iec-selection-count" class="iec-selection-count" hidden></p>
+            <p id="iec-property-empty">{{#str}}selectelement, local_interactembedcreator{{/str}}</p>
+            <div id="iec-property-form" hidden>
+              <div id="iec-text-properties">
+                <label for="iec-text-content">{{#str}}textcontent, local_interactembedcreator{{/str}}</label>
+                <textarea id="iec-text-content" class="form-control" rows="7"></textarea>
+              </div>
+              <div id="iec-quiz-properties" hidden>
+                <label for="iec-quiz-mode">{{#str}}quiztype, local_interactembedcreator{{/str}}</label>
+                <select id="iec-quiz-mode" class="form-control">
+                    <option value="single">{{#str}}quiztypesingle, local_interactembedcreator{{/str}}</option>
+                    <option value="multiple">{{#str}}quiztypemultiple, local_interactembedcreator{{/str}}</option>
+                    <option value="truefalse">{{#str}}quiztypetruefalse, local_interactembedcreator{{/str}}</option>
+                </select>
+                <label for="iec-quiz-question">{{#str}}quizquestion, local_interactembedcreator{{/str}}</label>
+                <textarea id="iec-quiz-question" class="form-control" rows="3"></textarea>
+                <label for="iec-quiz-answers" class="mt-2">{{#str}}quizanswers, local_interactembedcreator{{/str}}</label>
+                <textarea id="iec-quiz-answers" class="form-control" rows="5"></textarea>
+                <small class="form-text text-muted">{{#str}}quizanswershelp, local_interactembedcreator{{/str}}</small>
+                <label for="iec-quiz-correct" class="mt-2">{{#str}}quizcorrectanswers, local_interactembedcreator{{/str}}</label>
+                <input id="iec-quiz-correct" class="form-control" type="text" value="1">
+                <small class="form-text text-muted">{{#str}}quizcorrectanswershelp, local_interactembedcreator{{/str}}</small>
+                <label for="iec-quiz-points" class="mt-2">{{#str}}quizpoints, local_interactembedcreator{{/str}}</label>
+                <input id="iec-quiz-points" class="form-control" type="number" min="1" max="100" value="1">
+                <label for="iec-quiz-correct-feedback" class="mt-2">{{#str}}quizcorrectfeedback, local_interactembedcreator{{/str}}</label>
+                <textarea id="iec-quiz-correct-feedback" class="form-control" rows="2"></textarea>
+                <label for="iec-quiz-incorrect-feedback" class="mt-2">{{#str}}quizincorrectfeedback, local_interactembedcreator{{/str}}</label>
+                <textarea id="iec-quiz-incorrect-feedback" class="form-control" rows="2"></textarea>
+                <label for="iec-quiz-correct-scene" class="mt-2">{{#str}}quizcorrectscene, local_interactembedcreator{{/str}}</label>
+                <select id="iec-quiz-correct-scene" class="form-control"></select>
+                <label for="iec-quiz-incorrect-scene" class="mt-2">{{#str}}quizincorrectscene, local_interactembedcreator{{/str}}</label>
+                <select id="iec-quiz-incorrect-scene" class="form-control"></select>
+              </div>
+              <div id="iec-button-properties" hidden>
+                <label for="iec-button-action">{{#str}}buttonaction, local_interactembedcreator{{/str}}</label>
+                <select id="iec-button-action" class="form-control">
+                    <option value="next">{{#str}}actionnext, local_interactembedcreator{{/str}}</option>
+                    <option value="previous">{{#str}}actionprevious, local_interactembedcreator{{/str}}</option>
+                    <option value="scene">{{#str}}actionscene, local_interactembedcreator{{/str}}</option>
+                    <option value="url">{{#str}}actionurl, local_interactembedcreator{{/str}}</option>
+                    <option value="none">{{#str}}actionnone, local_interactembedcreator{{/str}}</option>
+                </select>
+                <div id="iec-button-scene-wrap" class="mt-2" hidden>
+                    <label for="iec-button-scene">{{#str}}targetscene, local_interactembedcreator{{/str}}</label>
+                    <select id="iec-button-scene" class="form-control"></select>
+                </div>
+                <div id="iec-button-url-wrap" class="mt-2" hidden>
+                    <label for="iec-button-url">{{#str}}linkurl, local_interactembedcreator{{/str}}</label>
+                    <input id="iec-button-url" class="form-control" type="url" placeholder="https://">
+                    <small class="form-text text-muted">{{#str}}linkurlhelp, local_interactembedcreator{{/str}}</small>
+                </div>
+              </div>
+              <div id="iec-image-properties" hidden>
+                <label for="iec-image-alt">{{#str}}alternativetext, local_interactembedcreator{{/str}}</label>
+                <textarea id="iec-image-alt" class="form-control" rows="3"></textarea>
+                <label class="iec-check-label mt-2" for="iec-image-decorative">
+                    <input id="iec-image-decorative" type="checkbox"> {{#str}}decorativeimage, local_interactembedcreator{{/str}}
+                </label>
+                <label for="iec-image-fit" class="mt-2">{{#str}}imagefit, local_interactembedcreator{{/str}}</label>
+                <select id="iec-image-fit" class="form-control">
+                    <option value="contain">{{#str}}imagefitcontain, local_interactembedcreator{{/str}}</option>
+                    <option value="cover">{{#str}}imagefitcover, local_interactembedcreator{{/str}}</option>
+                </select>
+              </div>
+              <div id="iec-media-properties" hidden>
+                <fieldset class="iec-property-group">
+                    <legend>{{#str}}mediaplayback, local_interactembedcreator{{/str}}</legend>
+                    <label class="iec-check-label" for="iec-media-controls"><input id="iec-media-controls" type="checkbox" checked> {{#str}}mediacontrols, local_interactembedcreator{{/str}}</label>
+                    <label class="iec-check-label" for="iec-media-loop"><input id="iec-media-loop" type="checkbox"> {{#str}}medialoop, local_interactembedcreator{{/str}}</label>
+                    <label class="iec-check-label" for="iec-media-muted"><input id="iec-media-muted" type="checkbox"> {{#str}}mediamuted, local_interactembedcreator{{/str}}</label>
+                </fieldset>
+                <div id="iec-video-properties">
+                    <label for="iec-media-poster" class="mt-2">{{#str}}videoposter, local_interactembedcreator{{/str}}</label>
+                    <select id="iec-media-poster" class="form-control"></select>
+                    <label for="iec-media-captions" class="mt-2">{{#str}}videocaptions, local_interactembedcreator{{/str}}</label>
+                    <select id="iec-media-captions" class="form-control"></select>
+                    <small class="form-text text-muted">{{#str}}videocaptionshelp, local_interactembedcreator{{/str}}</small>
+                </div>
+                <label for="iec-media-transcript" class="mt-2">{{#str}}transcript, local_interactembedcreator{{/str}}</label>
+                <textarea id="iec-media-transcript" class="form-control" rows="5"></textarea>
+              </div>
+              <div id="iec-accessibility-properties" hidden>
+                <label for="iec-accessibility-label" class="mt-2">{{#str}}accessibilitylabel, local_interactembedcreator{{/str}}</label>
+                <input id="iec-accessibility-label" class="form-control" type="text" maxlength="500">
+                <small class="form-text text-muted">{{#str}}accessibilitylabelhelp, local_interactembedcreator{{/str}}</small>
+              </div>
+              <fieldset class="iec-property-group mt-3">
+                <legend>{{#str}}positionandsize, local_interactembedcreator{{/str}}</legend>
+                <div class="iec-property-grid">
+                    <label for="iec-transform-x">X<input id="iec-transform-x" class="form-control" type="number" min="0" max="1920"></label>
+                    <label for="iec-transform-y">Y<input id="iec-transform-y" class="form-control" type="number" min="0" max="1080"></label>
+                    <label for="iec-transform-width">{{#str}}width, local_interactembedcreator{{/str}}<input id="iec-transform-width" class="form-control" type="number" min="80" max="1920"></label>
+                    <label for="iec-transform-height">{{#str}}height, local_interactembedcreator{{/str}}<input id="iec-transform-height" class="form-control" type="number" min="60" max="1080"></label>
+                    <label for="iec-transform-rotation">{{#str}}rotation, local_interactembedcreator{{/str}}<input id="iec-transform-rotation" class="form-control" type="number" min="-360" max="360"></label>
+                </div>
+              </fieldset>
+              <fieldset id="iec-text-style-properties" class="iec-property-group mt-3">
+                <legend>{{#str}}appearance, local_interactembedcreator{{/str}}</legend>
+                <label for="iec-font-size">{{#str}}fontsize, local_interactembedcreator{{/str}}</label>
+                <input id="iec-font-size" class="form-control" type="number" min="12" max="200">
+                <div class="iec-format-actions mt-2" role="group" aria-label="{{#str}}textformatting, local_interactembedcreator{{/str}}">
+                    <button id="iec-text-bold" class="btn btn-sm btn-outline-secondary" type="button" aria-pressed="false"><strong>B</strong></button>
+                    <button id="iec-text-italic" class="btn btn-sm btn-outline-secondary" type="button" aria-pressed="false"><em>I</em></button>
+                    <button id="iec-text-underline" class="btn btn-sm btn-outline-secondary" type="button" aria-pressed="false"><u>U</u></button>
+                    <button id="iec-text-align-left" class="btn btn-sm btn-outline-secondary" type="button">{{#str}}alignleft, local_interactembedcreator{{/str}}</button>
+                    <button id="iec-text-align-center" class="btn btn-sm btn-outline-secondary" type="button">{{#str}}aligncenter, local_interactembedcreator{{/str}}</button>
+                    <button id="iec-text-align-right" class="btn btn-sm btn-outline-secondary" type="button">{{#str}}alignright, local_interactembedcreator{{/str}}</button>
+                    <button id="iec-text-bullets" class="btn btn-sm btn-outline-secondary" type="button">{{#str}}bulletlist, local_interactembedcreator{{/str}}</button>
+                    <button id="iec-text-numbers" class="btn btn-sm btn-outline-secondary" type="button">{{#str}}numberedlist, local_interactembedcreator{{/str}}</button>
+                </div>
+                <div class="iec-property-grid mt-2">
+                    <label for="iec-text-color">{{#str}}textcolor, local_interactembedcreator{{/str}}<input id="iec-text-color" class="form-control" type="color"></label>
+                    <label for="iec-background-color">{{#str}}backgroundcolor, local_interactembedcreator{{/str}}<input id="iec-background-color" class="form-control" type="color"></label>
+                </div>
+                <div id="iec-text-link-properties">
+                    <label for="iec-text-link" class="mt-2">{{#str}}linkurl, local_interactembedcreator{{/str}}</label>
+                    <input id="iec-text-link" class="form-control" type="url" placeholder="https://">
+                    <small class="form-text text-muted">{{#str}}linkurlhelp, local_interactembedcreator{{/str}}</small>
+                </div>
+              </fieldset>
+              <div id="iec-element-actions" class="iec-element-actions mt-3">
+                <div class="iec-layer-actions mt-2" role="group" aria-label="{{#str}}layers, local_interactembedcreator{{/str}}">
+                    <button id="iec-layer-front" class="btn btn-sm btn-outline-secondary" type="button">{{#str}}bringtofront, local_interactembedcreator{{/str}}</button>
+                    <button id="iec-layer-forward" class="btn btn-sm btn-outline-secondary" type="button">{{#str}}bringforward, local_interactembedcreator{{/str}}</button>
+                    <button id="iec-layer-backward" class="btn btn-sm btn-outline-secondary" type="button">{{#str}}sendbackward, local_interactembedcreator{{/str}}</button>
+                    <button id="iec-layer-back" class="btn btn-sm btn-outline-secondary" type="button">{{#str}}sendtoback, local_interactembedcreator{{/str}}</button>
+                </div>
+              </div>
+            </div>
+            <div id="iec-multi-properties" hidden>
+                <p>{{#str}}multiselectionhelp, local_interactembedcreator{{/str}}</p>
+                <fieldset class="iec-property-group">
+                    <legend>{{#str}}alignment, local_interactembedcreator{{/str}}</legend>
+                    <div class="iec-align-actions" role="group" aria-label="{{#str}}alignment, local_interactembedcreator{{/str}}">
+                        <button id="iec-align-left" class="btn btn-sm btn-outline-secondary" type="button">{{#str}}alignleft, local_interactembedcreator{{/str}}</button>
+                        <button id="iec-align-center" class="btn btn-sm btn-outline-secondary" type="button">{{#str}}aligncenter, local_interactembedcreator{{/str}}</button>
+                        <button id="iec-align-right" class="btn btn-sm btn-outline-secondary" type="button">{{#str}}alignright, local_interactembedcreator{{/str}}</button>
+                        <button id="iec-align-top" class="btn btn-sm btn-outline-secondary" type="button">{{#str}}aligntop, local_interactembedcreator{{/str}}</button>
+                        <button id="iec-align-middle" class="btn btn-sm btn-outline-secondary" type="button">{{#str}}alignmiddle, local_interactembedcreator{{/str}}</button>
+                        <button id="iec-align-bottom" class="btn btn-sm btn-outline-secondary" type="button">{{#str}}alignbottom, local_interactembedcreator{{/str}}</button>
+                    </div>
+                </fieldset>
+                <fieldset class="iec-property-group mt-3">
+                    <legend>{{#str}}distribution, local_interactembedcreator{{/str}}</legend>
+                    <div class="iec-align-actions">
+                        <button id="iec-distribute-horizontal" class="btn btn-sm btn-outline-secondary" type="button">{{#str}}distributehorizontal, local_interactembedcreator{{/str}}</button>
+                        <button id="iec-distribute-vertical" class="btn btn-sm btn-outline-secondary" type="button">{{#str}}distributevertical, local_interactembedcreator{{/str}}</button>
+                    </div>
+                </fieldset>
+            </div>
+            <details class="iec-panel-section mt-3" open>
+                <summary>{{#str}}layerpanel, local_interactembedcreator{{/str}}</summary>
+                <div class="iec-panel-section__body">
+                    <p class="small text-muted">{{#str}}layerpanelhelp, local_interactembedcreator{{/str}}</p>
+                    <div id="iec-layer-list" class="iec-layer-list"></div>
+                </div>
+            </details>
+            <details class="iec-panel-section mt-3">
+                <summary>{{#str}}assetlibrary, local_interactembedcreator{{/str}}</summary>
+                <div class="iec-panel-section__body">
+                    <label for="iec-media-select">{{#str}}assets, local_interactembedcreator{{/str}}</label>
+                    <select id="iec-media-select" class="form-control"></select>
+                    <button id="iec-add-media" class="btn btn-secondary btn-block mt-2" type="button">{{#str}}addmedia, local_interactembedcreator{{/str}}</button>
+                </div>
+            </details>
+        </aside>
+    </div>
+</div>

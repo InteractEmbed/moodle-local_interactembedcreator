@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="local/interactembedcreator/db" VERSION="20260901" COMMENT="XMLDB file for local_interactembedcreator"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd">
+  <TABLES>
+    <TABLE NAME="local_iec_project" COMMENT="InteractEmbed editable projects">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="uuid" TYPE="char" LENGTH="36" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="contextid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="ownerid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="description" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="status" TYPE="char" LENGTH="20" NOTNULL="true" DEFAULT="draft" SEQUENCE="false"/>
+        <FIELD NAME="currentrevision" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="lockversion" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="defaultlocale" TYPE="char" LENGTH="20" NOTNULL="true" DEFAULT="en" SEQUENCE="false"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="contextfk" TYPE="foreign" FIELDS="contextid" REFTABLE="context" REFFIELDS="id"/>
+        <KEY NAME="ownerfk" TYPE="foreign" FIELDS="ownerid" REFTABLE="user" REFFIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="uuiduniq" UNIQUE="true" FIELDS="uuid"/>
+        <INDEX NAME="contextstatus" UNIQUE="false" FIELDS="contextid, status"/>
+        <INDEX NAME="ownerstatus" UNIQUE="false" FIELDS="ownerid, status"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="local_iec_revision" COMMENT="Immutable and autosaved project snapshots">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="projectid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="revisionno" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="schemaversion" TYPE="int" LENGTH="5" NOTNULL="true" DEFAULT="1" SEQUENCE="false"/>
+        <FIELD NAME="contentjson" TYPE="text" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="contenthash" TYPE="char" LENGTH="64" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="revisiontype" TYPE="char" LENGTH="20" NOTNULL="true" DEFAULT="manual" SEQUENCE="false"/>
+        <FIELD NAME="message" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="authorid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="projectfk" TYPE="foreign" FIELDS="projectid" REFTABLE="local_iec_project" REFFIELDS="id"/>
+        <KEY NAME="authorfk" TYPE="foreign" FIELDS="authorid" REFTABLE="user" REFFIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="projectrevisionuniq" UNIQUE="true" FIELDS="projectid, revisionno"/>
+        <INDEX NAME="projecttype" UNIQUE="false" FIELDS="projectid, revisiontype"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="local_iec_publication" COMMENT="Immutable HTML5 project publications">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="uuid" TYPE="char" LENGTH="36" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="projectid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="revisionid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="publicationno" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="status" TYPE="char" LENGTH="20" NOTNULL="true" DEFAULT="ready" SEQUENCE="false"/>
+        <FIELD NAME="entrypoint" TYPE="char" LENGTH="255" NOTNULL="true" DEFAULT="index.html" SEQUENCE="false"/>
+        <FIELD NAME="packagehash" TYPE="char" LENGTH="64" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="engineversion" TYPE="char" LENGTH="50" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="createdby" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="projectfk" TYPE="foreign" FIELDS="projectid" REFTABLE="local_iec_project" REFFIELDS="id"/>
+        <KEY NAME="revisionfk" TYPE="foreign" FIELDS="revisionid" REFTABLE="local_iec_revision" REFFIELDS="id"/>
+        <KEY NAME="creatorfk" TYPE="foreign" FIELDS="createdby" REFTABLE="user" REFFIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="uuiduniq" UNIQUE="true" FIELDS="uuid"/>
+        <INDEX NAME="projectpublicationuniq" UNIQUE="true" FIELDS="projectid, publicationno"/>
+      </INDEXES>
+    </TABLE>
+  </TABLES>
+</XMLDB>

@@ -1,0 +1,1406 @@
+.local-interactembedcreator-editor #page-content {
+    max-width: none;
+}
+
+.iec-library {
+    --iec-library-border: #d8dee8;
+    --iec-library-muted: #59697d;
+    --iec-library-surface: #f5f7fa;
+    margin: 0 auto;
+    max-width: 1180px;
+}
+
+.iec-library__hero {
+    align-items: center;
+    background: linear-gradient(135deg, #f7faff 0%, #eef4fc 100%);
+    border: 1px solid var(--iec-library-border);
+    border-radius: .85rem;
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    padding: 1.4rem 1.5rem;
+}
+
+.iec-library__intro h2 {
+    font-size: 1.8rem;
+    margin: .15rem 0 .45rem;
+}
+
+.iec-library__intro p:last-child {
+    color: var(--iec-library-muted);
+    margin: 0;
+    max-width: 680px;
+}
+
+.iec-library__hero-actions {
+    align-items: center;
+    display: flex;
+    flex: 0 0 auto;
+    flex-wrap: wrap;
+    gap: .5rem;
+    justify-content: flex-end;
+}
+
+.iec-eyebrow {
+    color: #53657d;
+    font-size: .78rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.iec-library__count {
+    background: #eef3ff;
+    border-radius: 999px;
+    color: #284e9b;
+    font-weight: 700;
+    padding: .45rem .8rem;
+}
+
+.iec-library__toolbar {
+    align-items: center;
+    background: #fff;
+    border: 1px solid var(--iec-library-border);
+    border-radius: .7rem;
+    display: grid;
+    gap: .75rem 1rem;
+    grid-template-columns: auto minmax(260px, 1fr) auto;
+    margin-bottom: 1rem;
+    padding: .7rem;
+}
+
+.iec-library__views {
+    align-items: center;
+    background: #eef1f5;
+    border-radius: .45rem;
+    display: flex;
+    padding: .2rem;
+}
+
+.iec-library__view {
+    border-radius: .35rem;
+    color: #43536a;
+    font-weight: 600;
+    padding: .45rem .7rem;
+    text-decoration: none;
+}
+
+.iec-library__view:hover,
+.iec-library__view:focus {
+    color: #244e8d;
+    text-decoration: none;
+}
+
+.iec-library__view.is-active {
+    background: #fff;
+    box-shadow: 0 1px 4px rgba(24, 38, 59, .14);
+    color: #244e8d;
+}
+
+.iec-library__search {
+    display: flex;
+    gap: .4rem;
+    margin: 0;
+    min-width: 0;
+}
+
+.iec-library__search input[type="search"] {
+    flex: 1 1 12rem;
+    min-width: 0;
+    width: auto;
+}
+
+.iec-library__import {
+    white-space: nowrap;
+}
+
+.iec-create-project {
+    background: #fff;
+    border: 1px solid var(--iec-library-border);
+    border-radius: .75rem;
+    box-shadow: 0 8px 22px rgba(21, 34, 54, .05);
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: minmax(230px, .75fr) minmax(420px, 1.5fr);
+    margin-bottom: 1.5rem;
+    padding: 1.15rem;
+    scroll-margin-top: 1rem;
+}
+
+.iec-create-project__intro {
+    align-items: flex-start;
+    display: flex;
+    gap: .8rem;
+}
+
+.iec-create-project__intro h3 {
+    font-size: 1.15rem;
+    margin: 0 0 .25rem;
+}
+
+.iec-create-project__intro p {
+    color: var(--iec-library-muted);
+    font-size: .9rem;
+    margin: 0;
+}
+
+.iec-create-project__icon {
+    align-items: center;
+    background: #eaf1fd;
+    border-radius: .55rem;
+    color: #255ca8;
+    display: flex;
+    flex: 0 0 2.5rem;
+    font-size: 1.35rem;
+    height: 2.5rem;
+    justify-content: center;
+}
+
+.iec-create-project__fields {
+    align-items: end;
+    display: grid;
+    gap: .75rem;
+    grid-template-columns: minmax(180px, 1.4fr) minmax(180px, 1fr) auto;
+}
+
+.iec-form-field label {
+    color: #344760;
+    display: block;
+    font-size: .82rem;
+    font-weight: 700;
+    margin-bottom: .3rem;
+}
+
+.iec-create-project__submit {
+    min-height: calc(1.5em + .75rem + 2px);
+}
+
+.iec-project-section {
+    margin-top: 1.5rem;
+}
+
+.iec-project-section__heading {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: .85rem;
+}
+
+.iec-project-section__heading h3 {
+    font-size: 1.35rem;
+    margin: .1rem 0 0;
+}
+
+.iec-library__empty {
+    align-items: center;
+    background: var(--iec-library-surface);
+    border: 1px dashed #b9c5d5;
+    border-radius: .75rem;
+    color: var(--iec-library-muted);
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+    padding: 2.5rem 1rem;
+    text-align: center;
+}
+
+.iec-library__empty span {
+    font-size: 2rem;
+}
+
+.iec-library__empty p {
+    margin: 0;
+}
+
+.iec-project-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.iec-project-card {
+    background: #fff;
+    border: 1px solid #dce3ed;
+    border-radius: .75rem;
+    box-shadow: 0 8px 24px rgba(21, 34, 54, .06);
+    overflow: hidden;
+    transition: box-shadow .15s ease, transform .15s ease;
+}
+
+.iec-project-card:hover {
+    box-shadow: 0 12px 30px rgba(21, 34, 54, .11);
+    transform: translateY(-2px);
+}
+
+.iec-project-card__preview {
+    align-items: center;
+    aspect-ratio: 16 / 9;
+    background:
+        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, .18), transparent 30%),
+        linear-gradient(135deg, #16335f, #4378bd);
+    color: rgba(255, 255, 255, .82);
+    display: flex;
+    font-size: 1.4rem;
+    font-weight: 700;
+    justify-content: center;
+    position: relative;
+}
+
+.iec-project-card__ratio {
+    border: 1px solid rgba(255, 255, 255, .4);
+    border-radius: .35rem;
+    font-size: .85rem;
+    letter-spacing: .06em;
+    padding: .3rem .45rem;
+}
+
+.iec-project-card__status {
+    background: rgba(255, 255, 255, .92);
+    border-radius: 999px;
+    color: #294a78;
+    font-size: .75rem;
+    left: .7rem;
+    padding: .25rem .55rem;
+    position: absolute;
+    top: .7rem;
+}
+
+.iec-project-card__body {
+    padding: 1rem;
+}
+
+.iec-guide {
+    margin: 0 auto;
+    max-width: 900px;
+}
+
+.iec-guide__steps {
+    display: grid;
+    gap: 1rem;
+}
+
+.iec-guide__steps section {
+    background: #fff;
+    border: 1px solid #dce3ed;
+    border-left: 5px solid #3769b2;
+    border-radius: .55rem;
+    padding: 1rem 1.25rem;
+}
+
+.iec-project-card__body h4 {
+    font-size: 1.15rem;
+    margin: 0 0 .35rem;
+}
+
+.iec-project-card__meta {
+    color: var(--iec-library-muted);
+    font-size: .82rem;
+    margin-bottom: .9rem;
+}
+
+.iec-project-card__primary {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+}
+
+.iec-project-card__primary form,
+.iec-project-more__menu form {
+    margin: 0;
+}
+
+.iec-project-more {
+    flex: 1 1 auto;
+}
+
+.iec-project-more > summary {
+    cursor: pointer;
+    list-style: none;
+    text-align: center;
+}
+
+.iec-project-more > summary::-webkit-details-marker {
+    display: none;
+}
+
+.iec-project-more__menu {
+    background: var(--iec-library-surface);
+    border: 1px solid var(--iec-library-border);
+    border-radius: .5rem;
+    display: grid;
+    gap: .15rem;
+    margin-top: .65rem;
+    padding: .45rem;
+}
+
+.iec-project-more__menu > a,
+.iec-project-more__menu > form > button,
+.iec-project-rename > summary {
+    background: transparent;
+    border: 0;
+    border-radius: .3rem;
+    color: #344760;
+    cursor: pointer;
+    display: block;
+    font: inherit;
+    padding: .45rem .55rem;
+    text-align: left;
+    text-decoration: none;
+    width: 100%;
+}
+
+.iec-project-more__menu > a:hover,
+.iec-project-more__menu > a:focus,
+.iec-project-more__menu > form > button:hover,
+.iec-project-more__menu > form > button:focus,
+.iec-project-rename > summary:hover,
+.iec-project-rename > summary:focus {
+    background: #e7edf5;
+    text-decoration: none;
+}
+
+.iec-project-rename > summary {
+    list-style: none;
+}
+
+.iec-project-rename > summary::-webkit-details-marker {
+    display: none;
+}
+
+.iec-project-rename form {
+    display: grid;
+    gap: .4rem;
+    padding: .35rem .55rem .65rem;
+}
+
+.iec-editor {
+    --iec-border: #d8dee8;
+    --iec-muted: #59697d;
+    --iec-panel: #fff;
+    --iec-surface: #f4f6f9;
+    background: var(--iec-surface);
+    border: 1px solid var(--iec-border);
+    border-radius: .75rem;
+    box-shadow: 0 12px 32px rgba(24, 38, 59, .08);
+    min-height: 760px;
+    overflow: hidden;
+}
+
+.iec-editor__header {
+    align-items: center;
+    background: var(--iec-panel);
+    display: grid;
+    gap: .75rem 1rem;
+    grid-template-columns: minmax(260px, 1fr) auto;
+    min-height: 62px;
+    padding: .55rem .75rem;
+}
+
+.iec-editor__identity,
+.iec-editor__document-actions,
+.iec-command-group__controls {
+    align-items: center;
+    display: flex;
+    gap: .5rem;
+}
+
+.iec-editor__identity {
+    min-width: 0;
+}
+
+.iec-editor__back {
+    border-right: 1px solid var(--iec-border);
+    color: #315d9b;
+    padding-right: 1rem;
+    white-space: nowrap;
+}
+
+.iec-editor__title {
+    font-size: 1.25rem;
+    line-height: 1.25;
+    margin: .1rem 0 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+}
+
+.iec-editor__document-actions {
+    justify-content: flex-end;
+}
+
+.iec-editor .iec-editor__document-actions {
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.iec-workspace-controls .btn[aria-pressed="false"] {
+    background: #eef1f5;
+    color: #5f6d7e;
+}
+
+.iec-editor__toolbar {
+    align-items: center;
+    background: #f9fafc;
+    border-bottom: 1px solid var(--iec-border);
+    border-top: 1px solid var(--iec-border);
+    display: flex;
+    flex-wrap: nowrap;
+    gap: .6rem;
+    overflow-x: auto;
+    padding: .45rem .75rem;
+}
+
+.iec-command-group {
+    border-right: 1px solid var(--iec-border);
+    flex: 0 0 auto;
+    margin-right: 0;
+    padding-right: .6rem;
+    min-width: 0;
+}
+
+.iec-command-group:last-child {
+    border-right: 0;
+    margin-right: 0;
+    padding-right: 0;
+}
+
+.iec-command-group__label {
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.iec-command-group__controls form {
+    margin: 0;
+}
+
+.iec-command-group__controls {
+    flex-wrap: nowrap;
+}
+
+.iec-command-group__controls > .btn-group {
+    flex-wrap: wrap;
+}
+
+.iec-command-group__controls .btn {
+    font-size: .875rem;
+    padding: .3rem .5rem;
+}
+
+#iec-save-status {
+    color: var(--iec-muted);
+    font-size: .875rem;
+    min-width: 6rem;
+    text-align: left;
+}
+
+.iec-editor__workspace {
+    display: grid;
+    grid-template-columns: minmax(200px, 250px) minmax(0, 1fr) minmax(270px, 330px);
+    height: calc(100vh - 180px);
+    max-height: 860px;
+    min-height: 620px;
+}
+
+.iec-scenes,
+.iec-properties {
+    background: var(--iec-panel);
+    overflow-y: auto;
+    padding: 1rem;
+}
+
+.iec-scenes {
+    border-right: 1px solid var(--iec-border);
+}
+
+.iec-properties {
+    border-left: 1px solid var(--iec-border);
+}
+
+.iec-panel-heading {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.iec-panel-heading h3 {
+    font-size: 1.05rem;
+    margin: .15rem 0 0;
+}
+
+.iec-panel-section {
+    border-bottom: 1px solid var(--iec-border);
+    padding: .25rem 0;
+}
+
+.iec-panel-section > summary {
+    color: #26384f;
+    cursor: pointer;
+    font-size: .9rem;
+    font-weight: 700;
+    padding: .65rem .1rem;
+}
+
+.iec-panel-section > summary:focus-visible {
+    border-radius: .25rem;
+    outline: 3px solid rgba(55, 105, 178, .3);
+}
+
+.iec-panel-section .iec-property-group,
+.iec-panel-section__body {
+    border: 0;
+    padding: .25rem 0 .85rem;
+}
+
+.iec-panel-section .iec-property-group > legend {
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.iec-scene-button {
+    background: #fff;
+    border: 1px solid var(--iec-border);
+    border-radius: .5rem;
+    display: block;
+    margin-bottom: .65rem;
+    padding: .4rem;
+    text-align: left;
+    width: 100%;
+}
+
+.iec-scene-button[aria-current="true"] {
+    border-color: #3769b2;
+    box-shadow: 0 0 0 2px rgba(55, 105, 178, .16);
+}
+
+.iec-scene-thumb {
+    align-items: center;
+    aspect-ratio: 16 / 9;
+    background: #f7f8fb;
+    border: 1px solid #cfd7e4;
+    color: #718096;
+    display: flex;
+    justify-content: center;
+    margin-bottom: .3rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-shadow: 0 1px 2px #fff;
+}
+
+.iec-scene-actions,
+.iec-format-actions {
+    display: grid;
+    gap: .35rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.iec-stage-wrap {
+    background: #e9edf3;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.iec-canvas-toolbar {
+    align-items: center;
+    background: rgba(255, 255, 255, .92);
+    border-bottom: 1px solid var(--iec-border);
+    display: flex;
+    flex: 0 0 auto;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-between;
+    min-height: 50px;
+    padding: .45rem .85rem;
+}
+
+.iec-canvas-title {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+}
+
+.iec-canvas-title span {
+    color: var(--iec-muted);
+    font-size: .72rem;
+}
+
+.iec-zoom-control {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .55rem;
+}
+
+.iec-zoom-control label,
+.iec-zoom-control output {
+    font-weight: 600;
+    margin: 0;
+}
+
+.iec-check-label {
+    align-items: center;
+    display: inline-flex;
+    gap: .25rem;
+}
+
+.iec-toolbar-separator {
+    align-self: stretch;
+    border-left: 1px solid #cbd3df;
+}
+
+.iec-stage-scroll {
+    align-items: center;
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: center;
+    min-height: 0;
+    overflow: auto;
+    padding: 2rem;
+    width: 100%;
+}
+
+.iec-stage {
+    aspect-ratio: 16 / 9;
+    background: #fff;
+    box-shadow: 0 16px 40px rgba(20, 35, 57, .2);
+    max-height: none;
+    overflow: hidden;
+    position: relative;
+    flex: 0 0 auto;
+    width: 960px;
+}
+
+.iec-stage.has-grid {
+    background-color: #fff;
+    background-image:
+        linear-gradient(to right, rgba(55, 105, 178, .12) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(55, 105, 178, .12) 1px, transparent 1px);
+    background-size: var(--iec-grid-x) var(--iec-grid-y);
+}
+
+.iec-element {
+    align-items: center;
+    border: 2px solid transparent;
+    cursor: move;
+    display: flex;
+    min-height: 20px;
+    overflow: hidden;
+    padding: .2rem;
+    position: absolute;
+    white-space: pre-wrap;
+}
+
+.iec-element:focus,
+.iec-element.is-selected {
+    border-color: #276fd0;
+    box-shadow: 0 0 0 2px rgba(39, 111, 208, .18);
+    outline: none;
+}
+
+.iec-element.is-multiselected {
+    border-style: dashed;
+}
+
+.iec-snap-guide {
+    background: #e83e8c;
+    pointer-events: none;
+    position: absolute;
+    z-index: 10000;
+}
+
+.iec-snap-guide--vertical {
+    bottom: 0;
+    top: 0;
+    width: 2px;
+}
+
+.iec-snap-guide--horizontal {
+    height: 2px;
+    left: 0;
+    right: 0;
+}
+
+.iec-element__resize {
+    background: #fff;
+    border: 2px solid #276fd0;
+    bottom: -6px;
+    cursor: nwse-resize;
+    height: 12px;
+    position: absolute;
+    right: -6px;
+    width: 12px;
+}
+
+.iec-property-group {
+    border: 1px solid #dce3ed;
+    border-radius: .45rem;
+    padding: .65rem;
+}
+
+.iec-properties > #iec-property-empty {
+    background: #f7f9fc;
+    border: 1px dashed #bdc8d7;
+    border-radius: .5rem;
+    color: var(--iec-muted);
+    padding: 1rem;
+    text-align: center;
+}
+
+.iec-properties label:not(.iec-check-label) {
+    color: #344760;
+    font-size: .84rem;
+    font-weight: 600;
+    margin-top: .35rem;
+}
+
+.iec-property-group legend {
+    font-size: .95rem;
+    font-weight: 700;
+    padding: 0 .25rem;
+    width: auto;
+}
+
+.iec-property-grid {
+    display: grid;
+    gap: .55rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.iec-property-grid label {
+    font-size: .8rem;
+    margin: 0;
+}
+
+.iec-element-actions > .btn {
+    margin: 0 .35rem .35rem 0;
+}
+
+.iec-layer-actions {
+    display: grid;
+    gap: .35rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.iec-align-actions {
+    display: grid;
+    gap: .35rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.iec-layer-list {
+    display: grid;
+    gap: .35rem;
+    max-height: 260px;
+    overflow-y: auto;
+}
+
+.iec-layer-row {
+    align-items: stretch;
+    display: grid;
+    gap: .25rem;
+    grid-template-columns: minmax(0, 1fr) auto auto;
+}
+
+.iec-layer-row.is-selected .iec-layer-select {
+    background: #eef3ff;
+    border-color: #3769b2;
+    color: #284e9b;
+}
+
+.iec-layer-select {
+    background: #fff;
+    border: 1px solid #cbd3df;
+    border-radius: .25rem;
+    min-width: 0;
+    overflow: hidden;
+    padding: .25rem .4rem;
+    text-align: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.iec-selection-count {
+    background: #eef3ff;
+    border-radius: .4rem;
+    color: #284e9b;
+    font-weight: 700;
+    padding: .4rem .55rem;
+}
+
+.iec-accessibility-status {
+    background: #fff4ce;
+    border-bottom: 1px solid #e1c76a;
+    color: #453b13;
+    display: block;
+    padding: .65rem 1rem;
+}
+
+.iec-accessibility-status.is-success {
+    background: #e7f6ed;
+    border-color: #7fbd92;
+    color: #173d24;
+}
+
+.iec-editor.is-scenes-collapsed .iec-scenes,
+.iec-editor.is-properties-collapsed .iec-properties {
+    display: none;
+}
+
+.iec-editor.is-scenes-collapsed .iec-editor__workspace {
+    grid-template-columns: minmax(0, 1fr) minmax(270px, 330px);
+}
+
+.iec-editor.is-properties-collapsed .iec-editor__workspace {
+    grid-template-columns: minmax(200px, 250px) minmax(0, 1fr);
+}
+
+.iec-editor.is-scenes-collapsed.is-properties-collapsed .iec-editor__workspace {
+    grid-template-columns: minmax(0, 1fr);
+}
+
+.iec-editor.is-focus-mode {
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    height: 100vh;
+    inset: 0;
+    max-height: none;
+    position: fixed;
+    width: 100vw;
+    z-index: 1050;
+}
+
+.iec-editor.is-focus-mode .iec-editor__identity,
+.iec-editor.is-focus-mode .iec-editor__document-actions > a {
+    display: none;
+}
+
+.iec-editor.is-focus-mode .iec-editor__header {
+    display: block;
+}
+
+.iec-editor.is-focus-mode .iec-editor__document-actions {
+    border: 0;
+    justify-content: flex-start;
+    padding: 0;
+}
+
+.iec-editor.is-focus-mode .iec-editor__workspace {
+    height: calc(100vh - 116px);
+    max-height: none;
+}
+
+.iec-editor.is-preview .iec-scenes,
+.iec-editor.is-preview .iec-properties,
+.iec-editor.is-preview .iec-canvas-toolbar,
+.iec-editor.is-preview .iec-editor__header,
+.iec-editor.is-preview .iec-command-group:not(.iec-command-group--review),
+.iec-editor.is-preview .iec-command-group--review .iec-command-group__label,
+.iec-editor.is-preview .iec-command-group--review .iec-command-group__controls > :not(#iec-preview) {
+    display: none;
+}
+
+.iec-editor.is-preview .iec-editor__toolbar {
+    justify-content: flex-end;
+}
+
+.iec-editor.is-preview .iec-editor__workspace {
+    display: block;
+}
+
+.iec-editor.is-preview .iec-stage-wrap {
+    background: #172033;
+    min-height: calc(100vh - 190px);
+}
+
+.iec-editor.is-preview .iec-command-group--review {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.iec-editor.is-preview .iec-stage-scroll {
+    min-height: calc(100vh - 250px);
+}
+
+.iec-editor.is-preview .iec-element {
+    border-color: transparent;
+    cursor: default;
+}
+
+@media (max-width: 1000px) {
+    .iec-library__hero {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .iec-library__hero-actions {
+        justify-content: flex-start;
+    }
+
+    .iec-library__toolbar {
+        grid-template-columns: 1fr;
+    }
+
+    .iec-library__search {
+        width: 100%;
+    }
+
+    .iec-library__import {
+        justify-self: start;
+    }
+
+    .iec-create-project {
+        grid-template-columns: 1fr;
+    }
+
+    .iec-create-project__fields {
+        grid-template-columns: minmax(180px, 1.4fr) minmax(180px, 1fr);
+    }
+
+    .iec-create-project__submit {
+        grid-column: 1 / -1;
+        justify-self: start;
+    }
+}
+
+@media (max-width: 1200px) {
+    .iec-editor__header {
+        align-items: stretch;
+        grid-template-columns: 1fr;
+    }
+
+    .iec-editor .iec-editor__document-actions {
+        border-top: 1px solid var(--iec-border);
+        justify-content: flex-start;
+        padding-top: .55rem;
+    }
+
+    .iec-editor__toolbar {
+        display: flex;
+        flex-wrap: wrap;
+        overflow: visible;
+    }
+
+    .iec-command-group {
+        border-right: 1px solid var(--iec-border);
+        margin: 0;
+        padding: 0 .6rem 0 0;
+    }
+
+    .iec-command-group:last-child {
+        border-right: 0;
+    }
+
+    .iec-scenes .iec-panel-heading {
+        align-items: stretch;
+        flex-direction: column;
+        gap: .65rem;
+    }
+
+    .iec-editor__workspace {
+        grid-template-columns: 210px minmax(400px, 1fr);
+        height: auto;
+    }
+
+    .iec-properties {
+        border-left: 0;
+        border-top: 1px solid var(--iec-border);
+        grid-column: 1 / -1;
+        max-height: none;
+    }
+
+    .iec-editor.is-focus-mode .iec-editor__workspace {
+        grid-template-columns: 210px minmax(0, 1fr) 280px;
+    }
+
+    .iec-editor.is-focus-mode .iec-properties {
+        border-left: 1px solid var(--iec-border);
+        border-top: 0;
+        grid-column: auto;
+        overflow-y: auto;
+    }
+
+    .iec-editor.is-focus-mode.is-scenes-collapsed .iec-editor__workspace {
+        grid-template-columns: minmax(0, 1fr) 280px;
+    }
+
+    .iec-editor.is-focus-mode.is-properties-collapsed .iec-editor__workspace {
+        grid-template-columns: 210px minmax(0, 1fr);
+    }
+
+    .iec-editor.is-focus-mode.is-scenes-collapsed.is-properties-collapsed .iec-editor__workspace {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+}
+
+@media (max-width: 767px) {
+    .iec-library__hero {
+        padding: 1rem;
+    }
+
+    .iec-showcase {
+        grid-template-columns: 1fr;
+    }
+
+    .iec-showcase__visual {
+        min-height: 10rem;
+    }
+
+    .iec-library__hero-actions,
+    .iec-library__views,
+    .iec-library__search {
+        width: 100%;
+    }
+
+    .iec-library__hero-actions .btn {
+        flex: 1 1 auto;
+    }
+
+    .iec-library__toolbar {
+        grid-template-columns: 1fr;
+    }
+
+    .iec-library__view {
+        flex: 1 1 50%;
+        text-align: center;
+    }
+
+    .iec-library__search {
+        flex-wrap: wrap;
+    }
+
+    .iec-library__search input[type="search"] {
+        flex: 1 1 12rem;
+    }
+
+    .iec-library__import {
+        grid-column: auto;
+    }
+
+    .iec-create-project__fields {
+        grid-template-columns: 1fr;
+    }
+
+    .iec-create-project__submit {
+        width: 100%;
+    }
+
+    .iec-project-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .iec-editor__header,
+    .iec-new-project > div {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .iec-editor__document-actions {
+        justify-content: flex-start;
+    }
+
+    .iec-editor__identity {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .iec-editor__back {
+        border-right: 0;
+        padding-right: 0;
+    }
+
+    .iec-editor__title {
+        white-space: normal;
+    }
+
+    .iec-editor__toolbar {
+        display: block;
+        overflow: visible;
+    }
+
+    .iec-command-group {
+        border-bottom: 1px solid var(--iec-border);
+        border-right: 0;
+        margin: 0;
+        padding: .55rem 0;
+    }
+
+    .iec-command-group:last-child {
+        border-bottom: 0;
+    }
+
+    .iec-command-group__controls {
+        align-items: stretch;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .iec-command-group__controls > .btn-group {
+        display: grid;
+        grid-column: 1 / -1;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        width: 100%;
+    }
+
+    .iec-command-group__controls > .btn,
+    .iec-command-group__controls > a,
+    .iec-command-group__controls > form,
+    .iec-command-group__controls > form .btn {
+        width: 100%;
+    }
+
+    .iec-editor__workspace {
+        display: block;
+    }
+
+    .iec-scenes {
+        border-bottom: 1px solid var(--iec-border);
+        border-right: 0;
+        overflow: visible;
+    }
+
+    .iec-scenes .iec-panel-heading {
+        align-items: stretch;
+        flex-direction: column;
+        gap: .65rem;
+    }
+
+    #iec-scene-list {
+        display: flex;
+        gap: .5rem;
+        overflow-x: auto;
+    }
+
+    .iec-scene-button {
+        flex: 0 0 130px;
+    }
+
+    .iec-stage-wrap {
+        min-height: 520px;
+    }
+
+    .iec-canvas-toolbar {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .iec-stage-scroll {
+        justify-content: flex-start;
+        padding: 1rem;
+    }
+}
+
+.iec-showcase {
+    align-items: stretch;
+    background: linear-gradient(135deg, #edf6ff, #f7fbff);
+    border: 1px solid #c9daf0;
+    border-radius: 1rem;
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: minmax(16rem, .8fr) minmax(20rem, 1.2fr);
+    margin: 1.25rem 0;
+    overflow: hidden;
+    padding: 1.25rem;
+}
+
+.iec-scope-switcher {
+    align-items: end;
+    background: #fff;
+    border: 1px solid #d7e1ec;
+    border-radius: .8rem;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: minmax(12rem, 1fr) auto minmax(20rem, 1.5fr);
+    margin: 1.25rem 0;
+    padding: 1rem 1.25rem;
+}
+
+.iec-scope-switcher h3,
+.iec-scope-switcher p {
+    margin: 0;
+}
+
+.iec-scope-switcher > div {
+    min-width: 0;
+}
+
+.iec-scope-switcher h3 {
+    overflow-wrap: break-word;
+}
+
+.iec-scope-switcher form {
+    align-items: end;
+    display: grid;
+    gap: .5rem;
+    grid-template-columns: minmax(12rem, 1fr) auto;
+}
+
+.iec-scope-switcher form label {
+    grid-column: 1 / -1;
+    margin: 0;
+}
+
+.iec-project-card__context {
+    color: #42617a;
+    font-size: .85rem;
+    font-weight: 600;
+    margin: -.2rem 0 .35rem;
+}
+
+.iec-copy-context {
+    border-top: 1px solid #e3e8ee;
+    display: grid;
+    gap: .4rem;
+    margin-top: .35rem;
+    padding-top: .65rem;
+}
+
+.iec-copy-context label {
+    font-size: .8rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.iec-showcase__visual {
+    align-items: center;
+    background: #123b66;
+    border-radius: .8rem;
+    color: #fff;
+    display: flex;
+    gap: .6rem;
+    justify-content: center;
+    min-height: 12rem;
+    padding: 1rem;
+    position: relative;
+}
+
+.iec-showcase__visual strong {
+    font-size: 1rem;
+    letter-spacing: .04em;
+}
+
+.iec-showcase__ratio {
+    background: rgba(255, 255, 255, .16);
+    border-radius: 2rem;
+    left: .75rem;
+    padding: .2rem .55rem;
+    position: absolute;
+    top: .75rem;
+}
+
+.iec-showcase__content {
+    align-self: center;
+}
+
+.iec-showcase__content h3 {
+    color: #183044;
+    margin: .15rem 0 .5rem;
+}
+
+.iec-showcase__actions {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75rem;
+    margin-top: 1rem;
+}
+
+.iec-showcase__actions form {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    margin: 0;
+}
+
+.iec-showcase-player-shell {
+    background: #edf1f6;
+    border: 1px solid #c9d2df;
+    border-radius: .75rem;
+    overflow: hidden;
+    width: 100%;
+}
+
+.iec-showcase-player-toolbar {
+    align-items: center;
+    background: #f8f9fa;
+    border-bottom: 1px solid #c9d2df;
+    display: flex;
+    justify-content: flex-end;
+    padding: .5rem;
+}
+
+.iec-showcase-player-toolbar .icon {
+    margin-right: .35rem;
+}
+
+.iec-showcase-player {
+    aspect-ratio: 16 / 10.5;
+    background: #edf1f6;
+    border: 0;
+    display: block;
+    min-height: 20rem;
+    width: 100%;
+}
+
+.iec-showcase-player-shell:fullscreen,
+.iec-showcase-player-shell.iec-showcase-fallback-fullscreen {
+    background: #edf1f6;
+    border: 0;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+}
+
+.iec-showcase-player-shell.iec-showcase-fallback-fullscreen {
+    inset: 0;
+    position: fixed;
+    z-index: 1050;
+}
+
+.iec-showcase-player-shell:fullscreen .iec-showcase-player,
+.iec-showcase-player-shell.iec-showcase-fallback-fullscreen .iec-showcase-player {
+    aspect-ratio: auto;
+    flex: 1 1 auto;
+    height: auto;
+    min-height: 0;
+}
+
+body.iec-showcase-fallback-open {
+    overflow: hidden;
+}
+
+@media (max-width: 1000px) {
+    .iec-scope-switcher,
+    .iec-scope-switcher form {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 767px) {
+    .iec-showcase {
+        grid-template-columns: 1fr;
+    }
+
+    .iec-showcase-player {
+        min-height: 18rem;
+    }
+}

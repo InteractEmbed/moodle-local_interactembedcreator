@@ -1,0 +1,67 @@
+* { box-sizing: border-box; }
+html, body { background: #edf1f6; font-family: Arial, sans-serif; margin: 0; min-height: 100%; }
+body { display: grid; min-height: 100vh; place-items: center; }
+.skip { background: #fff; left: -999px; padding: .7rem; position: fixed; top: .5rem; z-index: 2; }
+.skip:focus { left: .5rem; }
+#app { width: min(100vw, calc(177.778vh - 8rem), 1200px); }
+#stage {
+    aspect-ratio: 16 / 9;
+    background: #fff;
+    box-shadow: 0 1rem 3rem rgba(15, 30, 50, .18);
+    overflow: hidden;
+    position: relative;
+}
+.element {
+    align-items: center;
+    display: flex;
+    overflow: hidden;
+    padding: .2rem;
+    position: absolute;
+    white-space: pre-wrap;
+}
+.element-text, .element-button { overflow-wrap: anywhere; }
+.element-quiz { align-items: stretch; padding: clamp(.4rem, 1vw, 1rem); }
+.element-quiz fieldset {
+    background: rgba(255, 255, 255, .82);
+    border: 1px solid rgba(23, 32, 51, .12);
+    border-radius: .75rem;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(.25rem, .7vw, .65rem);
+    justify-content: center;
+    margin: 0;
+    min-width: 0;
+    padding: clamp(.65rem, 1.5vw, 1.25rem);
+    width: 100%;
+}
+.element-quiz legend { font-weight: 700; margin-bottom: .35rem; padding: 0; }
+.element-quiz label { align-items: flex-start; display: flex; gap: .45rem; }
+.element-quiz input { flex: 0 0 auto; margin-top: .18rem; }
+.element-quiz button { align-self: flex-start; margin-top: .35rem; }
+.element-quiz output { display: block; min-width: 0; text-align: left; }
+.element-audio, .element-video { align-items: stretch; flex-direction: column; }
+.transcript {
+    background: rgba(255, 255, 255, .96);
+    color: #172033;
+    flex: 0 0 auto;
+    max-height: 42%;
+    overflow: auto;
+    padding: .35rem .55rem;
+    width: 100%;
+}
+.transcript summary { cursor: pointer; font-weight: 700; }
+.transcript p { font-size: clamp(.75rem, 1.25vw, 1rem); margin: .35rem 0 0; }
+nav { align-items: center; display: flex; gap: 1rem; justify-content: center; padding: 1rem; }
+button {
+    background: #245ca8;
+    border: 0;
+    border-radius: .4rem;
+    color: #fff;
+    font: inherit;
+    padding: .65rem 1rem;
+}
+button:disabled { background: #8793a4; }
+output { min-width: 5rem; text-align: center; }
+@media (prefers-reduced-motion: reduce) {
+    * { scroll-behavior: auto !important; transition: none !important; }
+}

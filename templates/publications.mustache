@@ -1,0 +1,27 @@
+<div class="iec-publications">
+    <p><a class="btn btn-secondary" href="{{editurl}}">{{#str}}backtoeditor, local_interactembedcreator{{/str}}</a></p>
+    <h2>{{#str}}publications, local_interactembedcreator{{/str}}</h2>
+    <p>{{#str}}publicationshelp, local_interactembedcreator{{/str}}</p>
+    {{^haspublications}}<div class="alert alert-info">{{#str}}nopublications, local_interactembedcreator{{/str}}</div>{{/haspublications}}
+    {{#haspublications}}<div class="table-responsive"><table class="table table-striped">
+        <thead><tr><th scope="col">{{#str}}publicationnumber, local_interactembedcreator{{/str}}</th>
+            <th scope="col">{{#str}}status, local_interactembedcreator{{/str}}</th>
+            <th scope="col">{{#str}}date, local_interactembedcreator{{/str}}</th>
+            <th scope="col">{{#str}}runtimeversion, local_interactembedcreator{{/str}}</th>
+            <th scope="col">{{#str}}actions, local_interactembedcreator{{/str}}</th></tr></thead>
+        <tbody>{{#publications}}<tr>
+            <th scope="row">{{number}}</th><td><span class="badge {{#ready}}badge-success{{/ready}}{{#withdrawn}}badge-secondary{{/withdrawn}}">{{status}}</span></td>
+            <td>{{created}}<br><small><code>{{hash}}</code></small></td><td>{{engine}}</td>
+            <td><a class="btn btn-secondary" href="{{previewurl}}" target="_blank" rel="noopener">{{#str}}preview, local_interactembedcreator{{/str}}</a>
+                <a class="btn btn-link" href="{{downloadurl}}">{{#str}}downloadzip, local_interactembedcreator{{/str}}</a>
+                {{#canmanage}}<form class="d-inline" method="post" action="{{config.wwwroot}}/local/interactembedcreator/publications.php">
+                    <input type="hidden" name="id" value="{{projectid}}"><input type="hidden" name="publicationid" value="{{id}}">
+                    <input type="hidden" name="sesskey" value="{{sesskey}}">
+                    {{#ready}}<input type="hidden" name="action" value="withdraw"><button class="btn btn-link text-danger" type="submit">{{#str}}withdrawpublication, local_interactembedcreator{{/str}}</button>{{/ready}}
+                    {{#withdrawn}}<input type="hidden" name="action" value="enable"><button class="btn btn-link" type="submit">{{#str}}enablepublication, local_interactembedcreator{{/str}}</button>{{/withdrawn}}
+                </form>{{/canmanage}}
+            </td>
+        </tr>{{/publications}}</tbody>
+    </table></div>{{/haspublications}}
+    {{{paging}}}
+</div>

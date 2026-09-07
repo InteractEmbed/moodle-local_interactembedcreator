@@ -1,0 +1,30 @@
+<div class="iec-revisions">
+    <div class="mb-3">
+        <a class="btn btn-secondary" href="{{editurl}}">{{#str}}backtoeditor, local_interactembedcreator{{/str}}</a>
+        <a class="btn btn-link" href="{{libraryurl}}">{{#str}}backtolibrary, local_interactembedcreator{{/str}}</a>
+    </div>
+    <h2>{{#str}}revisionhistory, local_interactembedcreator{{/str}}</h2>
+    <p>{{#str}}revisionhistoryhelp, local_interactembedcreator{{/str}}</p>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead><tr>
+                <th scope="col">{{#str}}revision, local_interactembedcreator{{/str}}</th>
+                <th scope="col">{{#str}}type, local_interactembedcreator{{/str}}</th>
+                <th scope="col">{{#str}}author, local_interactembedcreator{{/str}}</th>
+                <th scope="col">{{#str}}date, local_interactembedcreator{{/str}}</th>
+                <th scope="col">{{#str}}actions, local_interactembedcreator{{/str}}</th>
+            </tr></thead>
+            <tbody>{{#revisions}}<tr>
+                <th scope="row">{{revisionno}} {{#current}}<span class="badge badge-success">{{#str}}currentrevision, local_interactembedcreator{{/str}}</span>{{/current}}</th>
+                <td>{{type}}{{#message}}<br><small>{{message}}</small>{{/message}}</td>
+                <td>{{author}}</td><td>{{created}}</td>
+                <td>{{#canrestore}}<form method="post" action="{{config.wwwroot}}/local/interactembedcreator/revisions.php">
+                    <input type="hidden" name="id" value="{{projectid}}"><input type="hidden" name="revisionid" value="{{id}}">
+                    <input type="hidden" name="action" value="restore"><input type="hidden" name="sesskey" value="{{sesskey}}">
+                    <button class="btn btn-secondary" type="submit">{{#str}}restorethisrevision, local_interactembedcreator{{/str}}</button>
+                </form>{{/canrestore}}</td>
+            </tr>{{/revisions}}</tbody>
+        </table>
+    </div>
+    {{{paging}}}
+</div>

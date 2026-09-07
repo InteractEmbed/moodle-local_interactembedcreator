@@ -1,0 +1,201 @@
+<div class="iec-library">
+    <header class="iec-library__hero">
+        <div class="iec-library__intro">
+            <p class="iec-eyebrow">{{#str}}pluginname, local_interactembedcreator{{/str}}</p>
+            <h2>{{#str}}library, local_interactembedcreator{{/str}}</h2>
+            <p>{{#str}}projectdescription, local_interactembedcreator{{/str}}</p>
+        </div>
+        <div class="iec-library__hero-actions">
+            <span class="iec-library__count">{{projectcount}}</span>
+            {{#cancreate}}<a class="btn btn-primary" href="#iec-create-project">＋ {{#str}}newproject, local_interactembedcreator{{/str}}</a>{{/cancreate}}
+            <a class="btn btn-outline-secondary" href="{{guideurl}}">{{#str}}guide, local_interactembedcreator{{/str}}</a>
+        </div>
+    </header>
+
+    <section class="iec-scope-switcher" aria-labelledby="iec-scope-title">
+        <div>
+            <p class="iec-eyebrow">{{#str}}libraryscope, local_interactembedcreator{{/str}}</p>
+            <h3 id="iec-scope-title">{{contextlabel}}</h3>
+        </div>
+        <a class="btn btn-outline-primary{{#myscope}} active{{/myscope}}" href="{{myurl}}"
+           {{#myscope}}aria-current="page"{{/myscope}}>{{#str}}myprojects, local_interactembedcreator{{/str}}</a>
+        <form method="get" action="{{config.wwwroot}}/local/interactembedcreator/index.php">
+            <label for="iec-context-select">{{#str}}browsecontext, local_interactembedcreator{{/str}}</label>
+            <select id="iec-context-select" class="form-control" name="contextid">
+                {{#contextoptions}}<option value="{{id}}" {{#selected}}selected{{/selected}}>{{label}}</option>{{/contextoptions}}
+            </select>
+            <button class="btn btn-secondary" type="submit">{{#str}}opencontext, local_interactembedcreator{{/str}}</button>
+        </form>
+    </section>
+
+    {{^archivedview}}
+    <section class="iec-showcase" aria-labelledby="iec-showcase-title">
+        <div class="iec-showcase__visual" aria-hidden="true">
+            <span class="iec-showcase__ratio">16:9</span>
+            <strong>{{#str}}workflowcreate, local_interactembedcreator{{/str}}</strong><span>→</span><strong>{{#str}}workflowcheck, local_interactembedcreator{{/str}}</strong><span>→</span><strong>{{#str}}workflowpublish, local_interactembedcreator{{/str}}</strong>
+        </div>
+        <div class="iec-showcase__content">
+            <p class="iec-eyebrow">{{#str}}gettingstarted, local_interactembedcreator{{/str}}</p>
+            <h3 id="iec-showcase-title">{{#str}}showcaseheadline, local_interactembedcreator{{/str}}</h3>
+            <p>{{#str}}showcasecarddescription, local_interactembedcreator{{/str}}</p>
+            <div class="iec-showcase__actions">
+                <a class="btn btn-outline-primary" href="{{showcaseurl}}">{{#str}}showcasepreview, local_interactembedcreator{{/str}}</a>
+                {{#cancreate}}
+                <form method="post" action="{{config.wwwroot}}/local/interactembedcreator/index.php">
+                    <input type="hidden" name="action" value="create">
+                    <input type="hidden" name="template" value="showcase">
+                    <input type="hidden" name="name" value="{{showcaseprojectname}}">
+                    <input type="hidden" name="sesskey" value="{{sesskey}}">
+                    <label class="sr-only" for="iec-showcase-context">{{#str}}destinationcontext, local_interactembedcreator{{/str}}</label>
+                    <select id="iec-showcase-context" class="form-control" name="targetcontextid">
+                        {{#createcontexts}}<option value="{{id}}" {{#selected}}selected{{/selected}}>{{label}}</option>{{/createcontexts}}
+                    </select>
+                    <button class="btn btn-primary" type="submit">{{#str}}showcaseusetemplate, local_interactembedcreator{{/str}}</button>
+                </form>
+                {{/cancreate}}
+            </div>
+        </div>
+    </section>
+    {{/archivedview}}
+
+    <section class="iec-library__toolbar" aria-label="{{#str}}librarytools, local_interactembedcreator{{/str}}">
+        <nav class="iec-library__views" aria-label="{{#str}}libraryviews, local_interactembedcreator{{/str}}">
+            <a class="iec-library__view{{#activeview}} is-active{{/activeview}}" href="{{activeurl}}" {{#activeview}}aria-current="page"{{/activeview}}>{{#str}}activeprojects, local_interactembedcreator{{/str}}</a>
+            <a class="iec-library__view{{#archivedview}} is-active{{/archivedview}}" href="{{archivedurl}}" {{#archivedview}}aria-current="page"{{/archivedview}}>{{#str}}archivedprojects, local_interactembedcreator{{/str}}</a>
+        </nav>
+        <form class="iec-library__search" method="get" action="{{config.wwwroot}}/local/interactembedcreator/index.php" role="search">
+            <input type="hidden" name="scope" value="{{scope}}">
+            <input type="hidden" name="contextid" value="{{contextid}}">
+            {{#archivedview}}<input type="hidden" name="view" value="archived">{{/archivedview}}
+            <label class="sr-only" for="iec-library-search">{{#str}}searchprojects, local_interactembedcreator{{/str}}</label>
+            <input id="iec-library-search" class="form-control" type="search" name="search" value="{{search}}" placeholder="{{#str}}searchprojects, local_interactembedcreator{{/str}}">
+            <button class="btn btn-secondary" type="submit">{{#str}}search, local_interactembedcreator{{/str}}</button>
+            {{#searching}}<a class="btn btn-link" href="{{#archivedview}}{{archivedurl}}{{/archivedview}}{{#activeview}}{{activeurl}}{{/activeview}}">{{#str}}clearsearch, local_interactembedcreator{{/str}}</a>{{/searching}}
+        </form>
+        {{#cancreate}}<a class="btn btn-link iec-library__import" href="{{importurl}}">⇧ {{#str}}importproject, local_interactembedcreator{{/str}}</a>{{/cancreate}}
+    </section>
+
+    {{#cancreate}}
+    <section id="iec-create-project" class="iec-create-project">
+        <header class="iec-create-project__intro">
+            <span class="iec-create-project__icon" aria-hidden="true">＋</span>
+            <div>
+                <h3>{{#str}}newproject, local_interactembedcreator{{/str}}</h3>
+                <p>{{#str}}newprojecthelp, local_interactembedcreator{{/str}}</p>
+            </div>
+        </header>
+        <form method="post" action="{{config.wwwroot}}/local/interactembedcreator/index.php">
+            <input type="hidden" name="action" value="create">
+            <input type="hidden" name="sesskey" value="{{sesskey}}">
+            <div class="iec-create-project__fields">
+                <div class="iec-form-field">
+                    <label for="iec-project-name">{{#str}}projectname, local_interactembedcreator{{/str}}</label>
+                    <input id="iec-project-name" class="form-control" type="text" name="name" maxlength="255" required>
+                </div>
+                <div class="iec-form-field">
+                    <label for="iec-project-context">{{#str}}destinationcontext, local_interactembedcreator{{/str}}</label>
+                    <select id="iec-project-context" class="form-control" name="targetcontextid">
+                        {{#createcontexts}}<option value="{{id}}" {{#selected}}selected{{/selected}}>{{label}}</option>{{/createcontexts}}
+                    </select>
+                </div>
+                <div class="iec-form-field">
+                    <label for="iec-project-template">{{#str}}startingtemplate, local_interactembedcreator{{/str}}</label>
+                    <select id="iec-project-template" class="form-control" name="template">
+                        <option value="blank">{{#str}}templateblank, local_interactembedcreator{{/str}}</option>
+                        <option value="presentation">{{#str}}templatepresentation, local_interactembedcreator{{/str}}</option>
+                        <option value="microcourse">{{#str}}templatemicrocourse, local_interactembedcreator{{/str}}</option>
+                        <option value="quiz">{{#str}}templatequiz, local_interactembedcreator{{/str}}</option>
+                        <option value="showcase">{{#str}}templateofficialguide, local_interactembedcreator{{/str}}</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary iec-create-project__submit" type="submit">{{#str}}createproject, local_interactembedcreator{{/str}}</button>
+            </div>
+        </form>
+    </section>
+    {{/cancreate}}
+
+    <section class="iec-project-section" aria-labelledby="iec-project-list-title">
+        <header class="iec-project-section__heading">
+            <div>
+                <p class="iec-eyebrow">{{#str}}projectlist, local_interactembedcreator{{/str}}</p>
+                <h3 id="iec-project-list-title">{{#activeview}}{{#str}}activeprojects, local_interactembedcreator{{/str}}{{/activeview}}{{#archivedview}}{{#str}}archivedprojects, local_interactembedcreator{{/str}}{{/archivedview}}</h3>
+            </div>
+            <span class="iec-library__count">{{projectcount}}</span>
+        </header>
+
+        {{^hasprojects}}
+            <div class="iec-library__empty">
+                <span aria-hidden="true">◇</span>
+                <p>{{#str}}emptylibrary, local_interactembedcreator{{/str}}</p>
+            </div>
+        {{/hasprojects}}
+
+        <div class="iec-project-grid">
+            {{#projects}}
+            <article class="iec-project-card">
+                <div class="iec-project-card__preview" aria-hidden="true">
+                    <span class="iec-project-card__ratio">16:9</span>
+                    <span class="iec-project-card__status">{{status}}</span>
+                </div>
+                <div class="iec-project-card__body">
+                    <h4>{{name}}</h4>
+                    <p class="iec-project-card__context">{{contextlabel}}</p>
+                    <p class="iec-project-card__meta">{{#str}}lastmodified, local_interactembedcreator{{/str}} · {{modified}}</p>
+                    <div class="iec-project-card__primary">
+                        {{#canopen}}<a class="btn btn-primary" href="{{editurl}}">{{#str}}openproject, local_interactembedcreator{{/str}}</a>{{/canopen}}
+                        {{#canrestore}}
+                        <form method="post" action="{{config.wwwroot}}/local/interactembedcreator/index.php">
+                            <input type="hidden" name="scope" value="{{scope}}"><input type="hidden" name="contextid" value="{{contextid}}"><input type="hidden" name="id" value="{{id}}">
+                            <input type="hidden" name="action" value="restore"><input type="hidden" name="sesskey" value="{{sesskey}}">
+                            <button class="btn btn-primary" type="submit">{{#str}}restoreproject, local_interactembedcreator{{/str}}</button>
+                        </form>
+                        {{/canrestore}}
+                        <details class="iec-project-more">
+                            <summary class="btn btn-outline-secondary">{{#str}}moreactions, local_interactembedcreator{{/str}}</summary>
+                            <div class="iec-project-more__menu">
+                                <a href="{{historyurl}}">{{#str}}revisionhistory, local_interactembedcreator{{/str}}</a>
+                                {{^isarchived}}<a href="{{exporturl}}">{{#str}}exportsource, local_interactembedcreator{{/str}}</a>{{/isarchived}}
+                                {{#canduplicate}}
+                                <form method="post" action="{{config.wwwroot}}/local/interactembedcreator/index.php">
+                                    <input type="hidden" name="scope" value="{{scope}}"><input type="hidden" name="contextid" value="{{contextid}}"><input type="hidden" name="id" value="{{id}}">
+                                    <input type="hidden" name="action" value="duplicate"><input type="hidden" name="sesskey" value="{{sesskey}}">
+                                    <button type="submit">{{#str}}duplicateproject, local_interactembedcreator{{/str}}</button>
+                                </form>
+                                {{/canduplicate}}
+                                {{#cancopy}}
+                                <form class="iec-copy-context" method="post" action="{{config.wwwroot}}/local/interactembedcreator/index.php">
+                                    <input type="hidden" name="scope" value="{{scope}}"><input type="hidden" name="contextid" value="{{contextid}}"><input type="hidden" name="id" value="{{id}}">
+                                    <input type="hidden" name="action" value="copy"><input type="hidden" name="sesskey" value="{{sesskey}}">
+                                    <label for="iec-copy-context-{{id}}">{{#str}}copyto, local_interactembedcreator{{/str}}</label>
+                                    <select id="iec-copy-context-{{id}}" class="form-control" name="targetcontextid">
+                                        {{#copycontexts}}<option value="{{id}}">{{label}}</option>{{/copycontexts}}
+                                    </select>
+                                    <button class="btn btn-secondary" type="submit">{{#str}}copyproject, local_interactembedcreator{{/str}}</button>
+                                </form>
+                                {{/cancopy}}
+                                {{#canmanage}}
+                                <details class="iec-project-rename"><summary>{{#str}}renameproject, local_interactembedcreator{{/str}}</summary>
+                                    <form method="post" action="{{config.wwwroot}}/local/interactembedcreator/index.php">
+                                        <input type="hidden" name="scope" value="{{scope}}"><input type="hidden" name="contextid" value="{{contextid}}"><input type="hidden" name="id" value="{{id}}">
+                                        <input type="hidden" name="action" value="rename"><input type="hidden" name="sesskey" value="{{sesskey}}">
+                                        <label class="sr-only" for="iec-rename-{{id}}">{{#str}}projectname, local_interactembedcreator{{/str}}</label>
+                                        <input id="iec-rename-{{id}}" class="form-control" name="name" value="{{name}}" maxlength="255" required>
+                                        <button class="btn btn-secondary" type="submit">{{#str}}savechanges{{/str}}</button>
+                                    </form>
+                                </details>
+                                <form method="post" action="{{config.wwwroot}}/local/interactembedcreator/index.php">
+                                    <input type="hidden" name="scope" value="{{scope}}"><input type="hidden" name="contextid" value="{{contextid}}"><input type="hidden" name="id" value="{{id}}">
+                                    <input type="hidden" name="action" value="archive"><input type="hidden" name="sesskey" value="{{sesskey}}">
+                                    <button class="text-danger" type="submit">{{#str}}archiveproject, local_interactembedcreator{{/str}}</button>
+                                </form>
+                                {{/canmanage}}
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </article>
+            {{/projects}}
+        </div>
+        {{{paging}}}
+    </section>
+</div>
