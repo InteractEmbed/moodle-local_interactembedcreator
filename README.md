@@ -42,8 +42,11 @@ asset locations before a project is created.
 
 ## Languages and help
 
-The interface and built-in user guide are supplied in English, French, and
-Spanish. The guide is available directly from the InteractEmbed library.
+The plugin package follows Moodle Marketplace policy and contains the English
+source strings. Complete French and Spanish translations are maintained
+through Moodle's AMOS language packs. The bundled interactive mini-course is
+available in English, French and Spanish directly from the InteractEmbed
+library.
 
 ## Privacy
 

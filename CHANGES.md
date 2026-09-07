@@ -9,6 +9,8 @@
 - Integrate with the InteractEmbed Activity and Block through portable,
   sandboxed package snapshots.
 - Support native Moodle backup, restore, privacy and context lifecycle APIs.
+- Distribute French and Spanish interface translations through Moodle AMOS,
+  while retaining the multilingual interactive mini-course in the plugin.
 - Validate the coordinated suite on IOMAD/Moodle 4.5 and Moodle 5.2, plus the
   public Moodle 4.5–5.2 MariaDB/PostgreSQL CI matrix.
 
