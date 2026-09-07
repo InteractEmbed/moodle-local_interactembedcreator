@@ -76,7 +76,7 @@ function local_interactembedcreator_extend_navigation_course(
 /**
  * Serves project assets and immutable publication files.
  *
- * @param stdClass $course
+ * @param stdClass|null $course Course record, or null for system-level files.
  * @param stdClass|null $cm
  * @param context $context
  * @param string $filearea

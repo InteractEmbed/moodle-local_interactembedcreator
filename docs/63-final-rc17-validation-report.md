@@ -1,4 +1,4 @@
-# InteractEmbed Creator 0.9.0-rc16 validation report
+# InteractEmbed Creator 0.9.0-rc17 validation report
 
 Date: 2026-09-07
 
@@ -55,10 +55,10 @@ remaining after their Moodle contexts were deleted. RC16 registers Moodle
 course and category deletion observers, removes the full related project graph
 and Files API areas, and reuses the same cleanup service for privacy erasure.
 Integration coverage now deletes real Moodle courses and categories and checks
-that projects, revisions, and publications are all removed. The complete rc16
+that projects, revisions, and publications are all removed. The complete rc17
 suite passes 15 tests and 100 assertions on Moodle 5.2.
 
-The code is technically validated as 0.9.0-rc16. It remains an RC: no stable
+The code is technically validated as 0.9.0-rc17. It remains an RC: no stable
 1.0 tag or Marketplace release is authorised by this report. Final visual
 acceptance and the coordinated Activity/Block readiness review remain the
 release gate.

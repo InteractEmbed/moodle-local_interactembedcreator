@@ -1,5 +1,10 @@
 # Change log
 
+## 0.9.0-rc17 — 2026-09-07
+
+- Correct the plugin-file callback PHPDoc for system-context publications so
+  the strict Moodle Plugin CI documentation check passes.
+
 ## 0.9.0-rc16 — 2026-09-07
 
 - Delete course- and category-scoped project graphs and files when their Moodle
