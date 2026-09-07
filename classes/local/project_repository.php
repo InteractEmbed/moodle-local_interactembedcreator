@@ -221,6 +221,10 @@ final class project_repository {
      *
      * @param context $context
      * @param int $userid
+     * @param bool $archived Whether to list archived projects.
+     * @param string $search Optional project-name search.
+     * @param int $offset Number of records to skip.
+     * @param int $limit Maximum number of records to return, or 0 for all records.
      * @return array
      */
     public function list(
@@ -294,6 +298,7 @@ final class project_repository {
      * @param int $projectid
      * @param int $userid
      * @param string $name
+     * @param context|null $targetcontext Destination context, or null to use the source context.
      * @return stdClass
      */
     public function rename(int $projectid, int $userid, string $name): stdClass {
@@ -394,6 +399,9 @@ final class project_repository {
     /**
      * Returns projects owned by a user in every context they may view.
      *
+     * @param int $userid User whose projects should be listed.
+     * @param bool $archived Whether to list archived projects.
+     * @param string $search Optional project-name search.
      * @return stdClass[]
      */
     public function list_owned(int $userid, bool $archived = false, string $search = ''): array {
@@ -419,6 +427,8 @@ final class project_repository {
      *
      * @param int $projectid
      * @param int $userid
+     * @param int $offset Number of records to skip.
+     * @param int $limit Maximum number of records to return, or 0 for all records.
      * @return array
      */
     public function list_revisions(int $projectid, int $userid, int $offset = 0, int $limit = 0): array {

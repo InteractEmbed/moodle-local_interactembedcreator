@@ -33,6 +33,8 @@ final class publication_manager {
      *
      * @param int $projectid
      * @param int $userid
+     * @param int $offset Number of records to skip.
+     * @param int $limit Maximum number of records to return, or 0 for all records.
      * @return array
      */
     public function list(int $projectid, int $userid, int $offset = 0, int $limit = 0): array {

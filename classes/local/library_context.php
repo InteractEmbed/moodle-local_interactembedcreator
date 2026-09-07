@@ -122,6 +122,8 @@ final class library_context {
     /**
      * Lists contexts in which the user has a capability.
      *
+     * @param int $userid User whose access should be checked.
+     * @param string $capability Capability required in each returned context.
      * @return context[] Contexts keyed by context id.
      */
     public static function available(int $userid, string $capability): array {

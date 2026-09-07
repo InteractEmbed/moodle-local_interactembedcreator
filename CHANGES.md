@@ -1,5 +1,20 @@
 # Change log
 
+## 0.9.0-rc13 — 2026-09-07
+
+- Complete PHP API and Mustache template documentation required by Moodle CI.
+- Remove duplicate language identifiers in English, French, and Spanish.
+- Use Moodle confirmation dialogs for destructive editor actions and pass the
+  JavaScript lint rules on every supported Moodle branch.
+- Keep the mini-course localization test independent of optional core language
+  packs in the test environment.
+
+## 0.9.0-rc12 — 2026-09-07
+
+- Rename database tables to the full Frankenstyle component prefix required by
+  Moodle, with an in-place upgrade that preserves projects, revisions, and
+  publications.
+
 ## 0.9.0-rc11 — 2026-09-02
 
 - Queue early progress initialisation until validated project data is ready.

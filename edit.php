@@ -96,6 +96,8 @@ $PAGE->requires->js_call_amd('local_interactembedcreator/editor', 'init', [[
         'copysuffix' => get_string('copysuffix', 'local_interactembedcreator'),
         'deletesceneconfirm' => get_string('deletesceneconfirm', 'local_interactembedcreator'),
         'deleteelementsconfirm' => get_string('deleteelementsconfirm', 'local_interactembedcreator'),
+        'deleteelement' => get_string('deleteelement', 'local_interactembedcreator'),
+        'confirm' => get_string('confirm'),
         'noimage' => get_string('noimage', 'local_interactembedcreator'),
         'linkinvalid' => get_string('linkinvalid', 'local_interactembedcreator'),
         'bringforward' => get_string('bringforward', 'local_interactembedcreator'),

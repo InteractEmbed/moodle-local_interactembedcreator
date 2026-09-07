@@ -253,6 +253,14 @@ final class official_template {
     /**
      * Creates a text element.
      *
+     * @param string $text Visible text.
+     * @param string $label Accessible label.
+     * @param int $x Horizontal position.
+     * @param int $y Vertical position.
+     * @param int $width Element width.
+     * @param int $height Element height.
+     * @param int $fontsize Font size.
+     * @param string $color Text colour.
      * @return array
      */
     private static function text(
@@ -277,6 +285,16 @@ final class official_template {
     /**
      * Creates a navigation button element.
      *
+     * @param string $text Visible button text.
+     * @param string $label Accessible label.
+     * @param string $action Navigation action.
+     * @param string $targetsceneid Destination scene identifier.
+     * @param int $x Horizontal position.
+     * @param int $y Vertical position.
+     * @param int $width Element width.
+     * @param int $height Element height.
+     * @param string $background Background colour.
+     * @param string $color Text colour.
      * @return array
      */
     private static function button(
@@ -304,6 +322,11 @@ final class official_template {
     /**
      * Creates a shape element.
      *
+     * @param string $label Accessible label.
+     * @param int $x Horizontal position.
+     * @param int $y Vertical position.
+     * @param int $width Element width.
+     * @param int $height Element height.
      * @return array
      */
     private static function shape(string $label, int $x, int $y, int $width, int $height): array {
@@ -318,6 +341,11 @@ final class official_template {
     /**
      * Creates an image element.
      *
+     * @param string $alt Alternative text.
+     * @param int $x Horizontal position.
+     * @param int $y Vertical position.
+     * @param int $width Element width.
+     * @param int $height Element height.
      * @return array
      */
     private static function image(string $alt, int $x, int $y, int $width, int $height): array {
@@ -332,6 +360,9 @@ final class official_template {
     /**
      * Creates the demonstration quiz element.
      *
+     * @param callable $string Localized-string callback.
+     * @param string $correctsceneid Destination after a correct answer.
+     * @param string $incorrectsceneid Destination after an incorrect answer.
      * @return array
      */
     private static function quiz(callable $string, string $correctsceneid, string $incorrectsceneid): array {

@@ -599,14 +599,18 @@ final class project_workflow_test extends advanced_testcase {
         $sceneids = array_map(static fn($scene) => $scene->id, $document->scenes);
         $this->assertCount(6, array_unique($sceneids));
 
-        $spanish = (new publication_builder())->compile_official_showcase('es');
-        $this->assertArrayHasKey('index.html', $spanish);
-        $this->assertStringContainsString('Descubrir Creator InteractEmbed', $spanish['project.json']);
-        $this->assertStringContainsString("fetch('project.json', {credentials: 'same-origin'})", $spanish['player.js']);
-        $this->assertStringContainsString('projectIsReady(project)', $spanish['player.js']);
-        $manifest = json_decode($spanish['interactembed-manifest.json'], true, 512, JSON_THROW_ON_ERROR);
-        $this->assertSame('es', $manifest['locale']);
+        $publication = (new publication_builder())->compile_official_showcase('en');
+        $this->assertArrayHasKey('index.html', $publication);
+        $this->assertStringContainsString("fetch('project.json', {credentials: 'same-origin'})", $publication['player.js']);
+        $this->assertStringContainsString('projectIsReady(project)', $publication['player.js']);
+        $manifest = json_decode($publication['interactembed-manifest.json'], true, 512, JSON_THROW_ON_ERROR);
+        $this->assertSame('en', $manifest['locale']);
         $this->assertSame('0.4.2', $manifest['runtime']['version']);
+
+        // Plugin strings follow Moodle's installed language packs; the bundled showcase also ships all three locales.
+        $spanishjson = file_get_contents(__DIR__ . '/../showcase/es/project.json');
+        $this->assertNotFalse($spanishjson);
+        $this->assertStringContainsString('Descubrir Creator InteractEmbed', $spanishjson);
     }
 
     /**

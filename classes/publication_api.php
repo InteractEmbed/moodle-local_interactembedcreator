@@ -62,6 +62,7 @@ final class publication_api {
      * Returns immutable publication metadata after access checks.
      *
      * @param int $publicationid
+     * @param context_course $consumercontext Course in which the publication will be consumed.
      * @return stdClass
      */
     public static function get_snapshot(int $publicationid, context_course $consumercontext): stdClass {

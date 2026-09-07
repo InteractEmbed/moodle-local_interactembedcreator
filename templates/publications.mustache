@@ -1,3 +1,17 @@
+{{!
+    @template local_interactembedcreator/publications
+
+    Immutable HTML5 publications for a project.
+
+    Example context (json):
+    {
+        "editurl": "/local/interactembedcreator/edit.php?id=42",
+        "projectid": 42,
+        "haspublications": false,
+        "publications": [],
+        "paging": ""
+    }
+}}
 <div class="iec-publications">
     <p><a class="btn btn-secondary" href="{{editurl}}">{{#str}}backtoeditor, local_interactembedcreator{{/str}}</a></p>
     <h2>{{#str}}publications, local_interactembedcreator{{/str}}</h2>

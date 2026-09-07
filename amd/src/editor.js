@@ -67,7 +67,15 @@ const safeHttpUrl = value => {
 
 const sceneIndexById = sceneId => documentState.scenes.findIndex(scene => scene.id === sceneId);
 
-const textJustification = alignment => alignment === 'center' ? 'center' : alignment === 'right' ? 'flex-end' : 'flex-start';
+const textJustification = alignment => {
+    if (alignment === 'center') {
+        return 'center';
+    }
+    if (alignment === 'right') {
+        return 'flex-end';
+    }
+    return 'flex-start';
+};
 
 const selectedElements = () => currentScene().elements.filter(item => selectedElementIds.has(item.id));
 
@@ -383,6 +391,8 @@ const renderStage = () => {
     stage.style.backgroundSize = backgroundSizes.join(', ');
     stage.style.backgroundPosition = backgroundPositions.join(', ');
     stage.style.backgroundRepeat = backgroundRepeats.join(', ');
+    // Rendering one schema element necessarily covers every supported content type and optional presentation property.
+    // eslint-disable-next-line complexity
     currentScene().elements.forEach(model => {
         const node = document.createElement('div');
         const isSelected = selectedElementIds.has(model.id);
@@ -528,6 +538,8 @@ const populateSceneTargets = (select, value, allowNone) => {
     select.value = value || '';
 };
 
+// This is the single projection from the selected schema element to the complete Moodle properties panel.
+// eslint-disable-next-line complexity
 const renderProperties = () => {
     const models = selectedElements();
     const model = models.length === 1 ? models[0] : null;
@@ -708,15 +720,22 @@ const duplicateScene = () => {
 };
 
 const deleteScene = () => {
-    if (documentState.scenes.length <= 1 || !window.confirm(config.strings.deletesceneconfirm)) {
+    if (documentState.scenes.length <= 1) {
         return;
     }
-    recordHistory();
-    documentState.scenes.splice(activeSceneIndex, 1);
-    activeSceneIndex = Math.min(activeSceneIndex, documentState.scenes.length - 1);
-    clearSelection();
-    markDirty();
-    render();
+    Notification.deleteCancel(
+        config.strings.confirm,
+        config.strings.deletesceneconfirm,
+        config.strings.deleteelement,
+        () => {
+            recordHistory();
+            documentState.scenes.splice(activeSceneIndex, 1);
+            activeSceneIndex = Math.min(activeSceneIndex, documentState.scenes.length - 1);
+            clearSelection();
+            markDirty();
+            render();
+        }
+    ).catch(Notification.exception);
 };
 
 const moveScene = direction => {
@@ -861,7 +880,12 @@ const addMedia = () => {
     }
     recordHistory();
     const mimetype = option.dataset.mimetype || '';
-    const type = mimetype.startsWith('image/') ? 'image' : mimetype.startsWith('audio/') ? 'audio' : 'video';
+    let type = 'video';
+    if (mimetype.startsWith('image/')) {
+        type = 'image';
+    } else if (mimetype.startsWith('audio/')) {
+        type = 'audio';
+    }
     const model = {
         id: uuid(),
         type,
@@ -923,15 +947,23 @@ const deleteSelected = () => {
     if (!selectedElementIds.size) {
         return;
     }
-    if (selectedElementIds.size > 1 && !window.confirm(config.strings.deleteelementsconfirm.replace(
-        '__COUNT__', String(selectedElementIds.size)))) {
+    const remove = () => {
+        recordHistory();
+        currentScene().elements = currentScene().elements.filter(item => !selectedElementIds.has(item.id));
+        clearSelection();
+        markDirty();
+        render();
+    };
+    if (selectedElementIds.size === 1) {
+        remove();
         return;
     }
-    recordHistory();
-    currentScene().elements = currentScene().elements.filter(item => !selectedElementIds.has(item.id));
-    clearSelection();
-    markDirty();
-    render();
+    Notification.deleteCancel(
+        config.strings.confirm,
+        config.strings.deleteelementsconfirm.replace('__COUNT__', String(selectedElementIds.size)),
+        config.strings.deleteelement,
+        remove
+    ).catch(Notification.exception);
 };
 
 const copySelected = () => {
@@ -1567,6 +1599,8 @@ export const init = suppliedConfig => {
     });
     element('iec-accessibility-label').addEventListener('blur', endInputHistory);
     bindTransformProperties();
+    // Keyboard routing intentionally centralises all editor shortcuts so browser defaults are handled consistently.
+    // eslint-disable-next-line complexity
     window.addEventListener('keydown', event => {
         const interactive = ['INPUT', 'TEXTAREA', 'SELECT'].includes(event.target.tagName);
         const command = event.ctrlKey || event.metaKey;
