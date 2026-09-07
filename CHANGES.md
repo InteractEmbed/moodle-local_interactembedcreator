@@ -1,5 +1,17 @@
 # Change log
 
+## 1.0.0 — 2026-09-07
+
+- First stable release of the contextual InteractEmbed library and visual
+  HTML5 presentation editor.
+- Provide system, category and course scopes, reusable immutable publications,
+  accessible 16:9 authoring, media, quizzes, branching and multilingual help.
+- Integrate with the InteractEmbed Activity and Block through portable,
+  sandboxed package snapshots.
+- Support native Moodle backup, restore, privacy and context lifecycle APIs.
+- Validate the coordinated suite on IOMAD/Moodle 4.5 and Moodle 5.2, plus the
+  public Moodle 4.5–5.2 MariaDB/PostgreSQL CI matrix.
+
 ## 0.9.0-rc17 — 2026-09-07
 
 - Correct the plugin-file callback PHPDoc for system-context publications so

@@ -8,8 +8,10 @@ that can be copied into the InteractEmbed activity or block.
 ## Requirements
 
 - Moodle 4.5 through 5.2.
-- `mod_interactembed` 0.9.0-beta9 (`2026090203`) or later.
-- `block_interactembed` 0.9.0-beta33 (`2026090202`) or later.
+- `mod_interactembed` 1.0.0 or later is recommended (minimum version
+  `2026090203`).
+- `block_interactembed` 1.0.0 or later is recommended (minimum version
+  `2026090202`).
 
 Both consumers remain usable without Creator. Creator deliberately requires
 both so every publication has the two supported Moodle destinations available.
