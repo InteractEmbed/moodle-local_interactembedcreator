@@ -29,9 +29,16 @@ restores it into a new course. It verifies fresh project and publication UUIDs,
 mapped database relations, updated JSON identifiers, restored files, and the
 canonical publication package hash.
 
+## Public CI
+
+GitHub Actions run 34138304718 passed all six jobs for Moodle 4.5 through 5.2,
+PHP 8.1 through 8.4, MariaDB and PostgreSQL. Each job installed the Activity
+and Block dependencies before running PHP lint, Moodle CodeSniffer, PHPDoc,
+plugin validation, savepoints, Mustache, Grunt and PHPUnit.
+
 ## Release status
 
-The code is technically ready for public CI as 0.9.0-rc14. It remains an RC:
-no stable 1.0 tag or Marketplace release is authorised by this report. Final
-visual acceptance and the coordinated Activity/Block readiness review remain
-the release gate.
+The code is technically validated as 0.9.0-rc14. It remains an RC: no stable
+1.0 tag or Marketplace release is authorised by this report. Final visual
+acceptance and the coordinated Activity/Block readiness review remain the
+release gate.
