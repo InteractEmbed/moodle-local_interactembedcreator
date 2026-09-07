@@ -298,7 +298,6 @@ final class project_repository {
      * @param int $projectid
      * @param int $userid
      * @param string $name
-     * @param context|null $targetcontext Destination context, or null to use the source context.
      * @return stdClass
      */
     public function rename(int $projectid, int $userid, string $name): stdClass {
@@ -352,6 +351,7 @@ final class project_repository {
      * @param int $projectid
      * @param int $userid
      * @param string $name
+     * @param context|null $targetcontext Destination context, or null to use the source context.
      * @return stdClass
      */
     public function duplicate(int $projectid, int $userid, string $name, ?context $targetcontext = null): stdClass {
