@@ -31,6 +31,47 @@ use local_interactembedcreator\local\publication_builder;
  */
 final class backup_restore_test extends \advanced_testcase {
     /**
+     * Deleting Moodle containers removes their complete Creator project graphs.
+     */
+    public function test_course_and_category_deletion_remove_projects(): void {
+        global $DB, $USER;
+
+        $this->resetAfterTest();
+        $this->setAdminUser();
+        $repository = new project_repository();
+
+        $course = $this->getDataGenerator()->create_course();
+        $coursecontext = \context_course::instance($course->id);
+        $courseproject = $repository->create($coursecontext, $USER->id, 'Course lifecycle project');
+        $coursepublication = (new publication_builder())->publish($courseproject, $USER->id);
+
+        delete_course($course, false);
+
+        $this->assertFalse($DB->record_exists('local_interactembedcreator_project', ['id' => $courseproject->id]));
+        $this->assertFalse($DB->record_exists('local_interactembedcreator_revision', [
+            'projectid' => $courseproject->id,
+        ]));
+        $this->assertFalse($DB->record_exists('local_interactembedcreator_publication', [
+            'id' => $coursepublication->id,
+        ]));
+
+        $categoryrecord = $this->getDataGenerator()->create_category();
+        $categorycontext = \context_coursecat::instance($categoryrecord->id);
+        $categoryproject = $repository->create($categorycontext, $USER->id, 'Category lifecycle project');
+        $categorypublication = (new publication_builder())->publish($categoryproject, $USER->id);
+
+        \core_course_category::get($categoryrecord->id)->delete_full(false);
+
+        $this->assertFalse($DB->record_exists('local_interactembedcreator_project', ['id' => $categoryproject->id]));
+        $this->assertFalse($DB->record_exists('local_interactembedcreator_revision', [
+            'projectid' => $categoryproject->id,
+        ]));
+        $this->assertFalse($DB->record_exists('local_interactembedcreator_publication', [
+            'id' => $categorypublication->id,
+        ]));
+    }
+
+    /**
      * A course-scoped project, its history, files, and publications follow the course.
      */
     public function test_course_project_backup_and_restore(): void {

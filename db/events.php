@@ -1,5 +1,5 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
+// This file is part of Moodle - https://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -15,22 +15,22 @@
 // along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
 
 /**
- * Version metadata for the InteractEmbed Creator.
+ * Event observers for InteractEmbed Creator.
  *
  * @package   local_interactembedcreator
  * @copyright 2026 Michel Cardinal
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @license   https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->component = 'local_interactembedcreator';
-$plugin->version = 2026090702;
-$plugin->requires = 2024100700;
-$plugin->supported = [405, 502];
-$plugin->maturity = MATURITY_RC;
-$plugin->release = '0.9.0-rc16';
-$plugin->dependencies = [
-    'block_interactembed' => 2026090202,
-    'mod_interactembed' => 2026090203,
+$observers = [
+    [
+        'eventname' => '\\core\\event\\course_deleted',
+        'callback' => '\\local_interactembedcreator\\observer::course_deleted',
+    ],
+    [
+        'eventname' => '\\core\\event\\course_category_deleted',
+        'callback' => '\\local_interactembedcreator\\observer::course_category_deleted',
+    ],
 ];

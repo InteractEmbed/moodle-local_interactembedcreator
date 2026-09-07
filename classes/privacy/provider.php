@@ -244,30 +244,6 @@ final class provider implements
      * @param int|null $ownerid
      */
     private static function delete_projects(int $contextid, ?int $ownerid): void {
-        global $DB;
-
-        $conditions = ['contextid' => $contextid];
-        if ($ownerid !== null) {
-            $conditions['ownerid'] = $ownerid;
-        }
-        $projects = $DB->get_records('local_interactembedcreator_project', $conditions, '', 'id');
-        if (!$projects) {
-            return;
-        }
-        $projectids = array_keys($projects);
-        [$insql, $params] = $DB->get_in_or_equal($projectids, SQL_PARAMS_NAMED);
-        $publications = $DB->get_records_select('local_interactembedcreator_publication', "projectid {$insql}", $params, '', 'id');
-        $DB->delete_records_select('local_interactembedcreator_publication', "projectid {$insql}", $params);
-        $DB->delete_records_select('local_interactembedcreator_revision', "projectid {$insql}", $params);
-        $DB->delete_records_select('local_interactembedcreator_project', "id {$insql}", $params);
-
-        $fs = get_file_storage();
-        foreach ($projectids as $projectid) {
-            $fs->delete_area_files($contextid, 'local_interactembedcreator', 'asset', $projectid);
-            $fs->delete_area_files($contextid, 'local_interactembedcreator', 'thumbnail', $projectid);
-        }
-        foreach (array_keys($publications) as $publicationid) {
-            $fs->delete_area_files($contextid, 'local_interactembedcreator', 'publication', $publicationid);
-        }
+        \local_interactembedcreator\local\project_lifecycle::delete_context_projects($contextid, $ownerid);
     }
 }

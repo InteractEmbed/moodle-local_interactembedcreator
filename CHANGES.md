@@ -1,5 +1,12 @@
 # Change log
 
+## 0.9.0-rc16 — 2026-09-07
+
+- Delete course- and category-scoped project graphs and files when their Moodle
+  context is deleted, preventing orphaned revisions and publications.
+- Reuse the same lifecycle cleanup for Moodle Privacy API erasure requests.
+- Add real course and category deletion regression coverage.
+
 ## 0.9.0-rc15 — 2026-09-07
 
 - Allow publication and asset files stored in the site or category library to

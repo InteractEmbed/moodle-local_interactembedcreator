@@ -1,4 +1,4 @@
-# InteractEmbed Creator 0.9.0-rc15 validation report
+# InteractEmbed Creator 0.9.0-rc16 validation report
 
 Date: 2026-09-07
 
@@ -48,7 +48,17 @@ the integrated accessibility checker, published, previewed and navigated in the
 generated player. The publication opened successfully and the quiz and scene
 navigation worked. The regression suite now contains 14 tests and 94 assertions.
 
-The code is technically validated as 0.9.0-rc15. It remains an RC: no stable
+## Lifecycle correction
+
+The coordinated Activity cleanup audit found course-scoped Creator records
+remaining after their Moodle contexts were deleted. RC16 registers Moodle
+course and category deletion observers, removes the full related project graph
+and Files API areas, and reuses the same cleanup service for privacy erasure.
+Integration coverage now deletes real Moodle courses and categories and checks
+that projects, revisions, and publications are all removed. The complete rc16
+suite passes 15 tests and 100 assertions on Moodle 5.2.
+
+The code is technically validated as 0.9.0-rc16. It remains an RC: no stable
 1.0 tag or Marketplace release is authorised by this report. Final visual
 acceptance and the coordinated Activity/Block readiness review remain the
 release gate.
