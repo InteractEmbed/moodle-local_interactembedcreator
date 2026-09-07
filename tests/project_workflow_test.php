@@ -347,11 +347,17 @@ final class project_workflow_test extends advanced_testcase {
         $categoryproject = $repository->create($categorycontext, $USER->id, 'Category publication');
         $courseproject = $repository->create($sourcecontext, $USER->id, 'Sibling course publication');
         $sitepublication = $builder->publish(
-            $DB->get_record('local_iec_project', ['id' => $siteproject->id], '*', MUST_EXIST), $USER->id);
+            $DB->get_record('local_iec_project', ['id' => $siteproject->id], '*', MUST_EXIST),
+            $USER->id
+        );
         $categorypublication = $builder->publish(
-            $DB->get_record('local_iec_project', ['id' => $categoryproject->id], '*', MUST_EXIST), $USER->id);
-        $builder->publish($DB->get_record('local_iec_project', ['id' => $courseproject->id], '*', MUST_EXIST),
-            $USER->id);
+            $DB->get_record('local_iec_project', ['id' => $categoryproject->id], '*', MUST_EXIST),
+            $USER->id
+        );
+        $builder->publish(
+            $DB->get_record('local_iec_project', ['id' => $courseproject->id], '*', MUST_EXIST),
+            $USER->id
+        );
 
         $available = publication_api::list_for_context($consumercontext);
         $this->assertCount(2, $available);
@@ -369,8 +375,14 @@ final class project_workflow_test extends advanced_testcase {
         $copy = $repository->duplicate($courseproject->id, $USER->id, 'Site copy', $systemcontext);
         $this->assertNotSame($courseproject->uuid, $copy->uuid);
         $this->assertSame($systemcontext->id, (int) $copy->contextid);
-        $this->assertNotFalse(get_file_storage()->get_file($systemcontext->id, 'local_interactembedcreator',
-            'asset', $copy->id, '/', 'copy-test.txt'));
+        $this->assertNotFalse(get_file_storage()->get_file(
+            $systemcontext->id,
+            'local_interactembedcreator',
+            'asset',
+            $copy->id,
+            '/',
+            'copy-test.txt'
+        ));
     }
 
     /**

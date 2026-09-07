@@ -1,5 +1,18 @@
 <?php
 // This file is part of Moodle - http://moodle.org/.
+//
+// Moodle is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// Moodle is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
 
 namespace local_interactembedcreator\local;
 
@@ -43,7 +56,17 @@ final class official_template {
                     self::text($string('showcasetitle'), $string('showcasetitlelabel'), 160, 100, 1600, 180, 72, '#ffffff'),
                     self::text($string('showcaseintro'), $string('showcaseintrolabel'), 180, 310, 1200, 260, 54, '#dcecff'),
                     self::text($string('showcasebadge'), $string('showcasebadgelabel'), 210, 620, 1500, 120, 54, '#9fe8db'),
-                    self::button($string('showcasestart'), $string('showcasestartlabel'), 'next', '', 710, 790, 500, 130, '#00a88f'),
+                    self::button(
+                        $string('showcasestart'),
+                        $string('showcasestartlabel'),
+                        'next',
+                        '',
+                        710,
+                        790,
+                        500,
+                        130,
+                        '#00a88f'
+                    ),
                 ],
             ],
             [
@@ -51,9 +74,37 @@ final class official_template {
                 'title' => $string('showcasescene2'),
                 'style' => ['backgroundColor' => '#f3f7fc', 'backgroundImage' => ''],
                 'elements' => [
-                    self::text($string('showcasestructuretitle'), $string('showcasestructuretitle'), 180, 120, 1560, 180, 60, '#123b66'),
-                    self::text($string('showcasestructurebody'), $string('showcasestructurelabel'), 360, 330, 1200, 390, 54, '#172033'),
-                    self::button($string('showcasenextelements'), $string('showcasenextelements'), 'next', '', 710, 790, 500, 130, '#2f67b3'),
+                    self::text(
+                        $string('showcasestructuretitle'),
+                        $string('showcasestructuretitle'),
+                        180,
+                        120,
+                        1560,
+                        180,
+                        60,
+                        '#123b66'
+                    ),
+                    self::text(
+                        $string('showcasestructurebody'),
+                        $string('showcasestructurelabel'),
+                        360,
+                        330,
+                        1200,
+                        390,
+                        54,
+                        '#172033'
+                    ),
+                    self::button(
+                        $string('showcasenextelements'),
+                        $string('showcasenextelements'),
+                        'next',
+                        '',
+                        710,
+                        790,
+                        500,
+                        130,
+                        '#2f67b3'
+                    ),
                 ],
             ],
             [
@@ -61,7 +112,16 @@ final class official_template {
                 'title' => $string('showcasescene3'),
                 'style' => ['backgroundColor' => '#eef6ff', 'backgroundImage' => ''],
                 'elements' => [
-                    self::text($string('showcaseelementstitle'), $string('showcaseelementstitle'), 80, 90, 1380, 160, 60, '#123b66'),
+                    self::text(
+                        $string('showcaseelementstitle'),
+                        $string('showcaseelementstitle'),
+                        80,
+                        90,
+                        1380,
+                        160,
+                        60,
+                        '#123b66'
+                    ),
                     self::shape($string('showcasecardtextlabel'), 60, 340, 440, 440),
                     self::shape($string('showcasecardmedialabel'), 540, 340, 440, 440),
                     self::shape($string('showcasecardpathlabel'), 1020, 340, 440, 440),
@@ -77,9 +137,40 @@ final class official_template {
                 'elements' => [
                     self::text($string('showcasebranchtitle'), $string('showcasebranchtitle'), 250, 100, 1420, 220, 60, '#ffffff'),
                     self::text($string('showcasebranchbody'), $string('showcasebranchlabel'), 260, 360, 1400, 280, 54, '#e7f6f5'),
-                    self::button($string('showcasebranchdesign'), $string('showcasebranchdesignlabel'), 'scene', $sceneids[1], 160, 780, 360, 110, '#00a88f'),
-                    self::button($string('showcasebranchpublish'), $string('showcasebranchpublishlabel'), 'scene', $sceneids[5], 600, 780, 360, 110, '#2f80ed'),
-                    self::button($string('showcasebranchquiz'), $string('showcasebranchquizlabel'), 'scene', $sceneids[4], 1040, 780, 360, 110, '#ffb000', '#183044'),
+                    self::button(
+                        $string('showcasebranchdesign'),
+                        $string('showcasebranchdesignlabel'),
+                        'scene',
+                        $sceneids[1],
+                        160,
+                        780,
+                        360,
+                        110,
+                        '#00a88f'
+                    ),
+                    self::button(
+                        $string('showcasebranchpublish'),
+                        $string('showcasebranchpublishlabel'),
+                        'scene',
+                        $sceneids[5],
+                        600,
+                        780,
+                        360,
+                        110,
+                        '#2f80ed'
+                    ),
+                    self::button(
+                        $string('showcasebranchquiz'),
+                        $string('showcasebranchquizlabel'),
+                        'scene',
+                        $sceneids[4],
+                        1040,
+                        780,
+                        360,
+                        110,
+                        '#ffb000',
+                        '#183044'
+                    ),
                 ],
             ],
             [
@@ -97,9 +188,28 @@ final class official_template {
                 'style' => ['backgroundColor' => '#f4f8fc', 'backgroundImage' => ''],
                 'elements' => [
                     self::text($string('showcasepublishtitle'), $string('showcasepublishtitle'), 360, 70, 1200, 160, 60, '#123b66'),
-                    self::text($string('showcasepublishsteps'), $string('showcasepublishstepslabel'), 80, 260, 720, 520, 48, '#172033'),
+                    self::text(
+                        $string('showcasepublishsteps'),
+                        $string('showcasepublishstepslabel'),
+                        80,
+                        260,
+                        720,
+                        520,
+                        48,
+                        '#172033'
+                    ),
                     self::image($string('showcaseworkflowalt'), 840, 280, 840, 400),
-                    self::button($string('showcaserestart'), $string('showcaserestartlabel'), 'scene', $sceneids[0], 710, 820, 500, 120, '#1769aa'),
+                    self::button(
+                        $string('showcaserestart'),
+                        $string('showcaserestartlabel'),
+                        'scene',
+                        $sceneids[0],
+                        710,
+                        820,
+                        500,
+                        120,
+                        '#1769aa'
+                    ),
                 ],
             ],
         ];
@@ -140,9 +250,21 @@ final class official_template {
         get_file_storage()->create_file_from_pathname($record, $source);
     }
 
-    /** @return array */
-    private static function text(string $text, string $label, int $x, int $y, int $width, int $height,
-            int $fontsize, string $color): array {
+    /**
+     * Creates a text element.
+     *
+     * @return array
+     */
+    private static function text(
+        string $text,
+        string $label,
+        int $x,
+        int $y,
+        int $width,
+        int $height,
+        int $fontsize,
+        string $color
+    ): array {
         return [
             'id' => project_repository::uuid(), 'type' => 'text',
             'transform' => compact('x', 'y', 'width', 'height') + ['rotation' => 0],
@@ -152,9 +274,23 @@ final class official_template {
         ];
     }
 
-    /** @return array */
-    private static function button(string $text, string $label, string $action, string $targetsceneid, int $x,
-            int $y, int $width, int $height, string $background, string $color = '#ffffff'): array {
+    /**
+     * Creates a navigation button element.
+     *
+     * @return array
+     */
+    private static function button(
+        string $text,
+        string $label,
+        string $action,
+        string $targetsceneid,
+        int $x,
+        int $y,
+        int $width,
+        int $height,
+        string $background,
+        string $color = '#ffffff'
+    ): array {
         return [
             'id' => project_repository::uuid(), 'type' => 'button',
             'transform' => compact('x', 'y', 'width', 'height') + ['rotation' => 0],
@@ -165,7 +301,11 @@ final class official_template {
         ];
     }
 
-    /** @return array */
+    /**
+     * Creates a shape element.
+     *
+     * @return array
+     */
     private static function shape(string $label, int $x, int $y, int $width, int $height): array {
         return [
             'id' => project_repository::uuid(), 'type' => 'shape',
@@ -175,7 +315,11 @@ final class official_template {
         ];
     }
 
-    /** @return array */
+    /**
+     * Creates an image element.
+     *
+     * @return array
+     */
     private static function image(string $alt, int $x, int $y, int $width, int $height): array {
         return [
             'id' => project_repository::uuid(), 'type' => 'image',
@@ -185,7 +329,11 @@ final class official_template {
         ];
     }
 
-    /** @return array */
+    /**
+     * Creates the demonstration quiz element.
+     *
+     * @return array
+     */
     private static function quiz(callable $string, string $correctsceneid, string $incorrectsceneid): array {
         return [
             'id' => project_repository::uuid(), 'type' => 'quiz',

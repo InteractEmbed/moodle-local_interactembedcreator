@@ -128,11 +128,15 @@ $data = [
     'sesskey' => sesskey(),
     'name' => format_string($project->name),
     'mediaurl' => (new moodle_url('/local/interactembedcreator/media.php', ['id' => $project->id]))->out(false),
-    'guideurl' => (new moodle_url('/local/interactembedcreator/guide.php',
-        library_context::url_params($context)))->out(false),
+    'guideurl' => (new moodle_url(
+        '/local/interactembedcreator/guide.php',
+        library_context::url_params($context)
+    ))->out(false),
     'publicationsurl' => (new moodle_url('/local/interactembedcreator/publications.php', ['id' => $project->id]))->out(false),
-    'libraryurl' => (new moodle_url('/local/interactembedcreator/index.php',
-        library_context::url_params($context)))->out(false),
+    'libraryurl' => (new moodle_url(
+        '/local/interactembedcreator/index.php',
+        library_context::url_params($context)
+    ))->out(false),
 ];
 
 echo $OUTPUT->header();

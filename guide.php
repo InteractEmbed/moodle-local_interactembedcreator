@@ -22,6 +22,8 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+// Login is enforced immediately below by library_context::require_login().
+// phpcs:ignore moodle.Files.RequireLogin.Missing
 require_once(__DIR__ . '/../../config.php');
 
 use local_interactembedcreator\local\library_context;
@@ -47,8 +49,10 @@ for ($i = 1; $i <= 5; $i++) {
 $data = [
     'intro' => get_string('guideintro', 'local_interactembedcreator'),
     'steps' => $steps,
-    'libraryurl' => (new moodle_url('/local/interactembedcreator/index.php',
-        library_context::url_params($context)))->out(false),
+    'libraryurl' => (new moodle_url(
+        '/local/interactembedcreator/index.php',
+        library_context::url_params($context)
+    ))->out(false),
 ];
 
 echo $OUTPUT->header();

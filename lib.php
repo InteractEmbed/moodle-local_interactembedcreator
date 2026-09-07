@@ -31,8 +31,10 @@ function local_interactembedcreator_extend_navigation(global_navigation $navigat
     if (!isloggedin() || isguestuser()) {
         return;
     }
-    if (!has_capability('local/interactembedcreator:view', context_system::instance()) &&
-            !get_user_capability_course('local/interactembedcreator:view', null, true, '', '', 1)) {
+    if (
+        !has_capability('local/interactembedcreator:view', context_system::instance()) &&
+            !get_user_capability_course('local/interactembedcreator:view', null, true, '', '', 1)
+    ) {
         return;
     }
     $navigation->add(

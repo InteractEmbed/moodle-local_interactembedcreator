@@ -1,7 +1,26 @@
 <?php
 // This file is part of Moodle - http://moodle.org/.
+//
+// Moodle is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// Moodle is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
 
-/** Context-aware InteractEmbed project library. */
+/**
+ * Context-aware InteractEmbed project library.
+ *
+ * @package   local_interactembedcreator
+ * @copyright 2026 Michel Cardinal
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 
 require_once(__DIR__ . '/../../config.php');
 
@@ -41,11 +60,18 @@ if ($action === 'create') {
     require_sesskey();
     $targetcontext = context::instance_by_id(required_param('targetcontextid', PARAM_INT), MUST_EXIST);
     library_context::validate($targetcontext);
-    $project = $repository->create($targetcontext, $USER->id, required_param('name', PARAM_TEXT),
-        optional_param('template', 'blank', PARAM_ALPHA));
-    redirect(new moodle_url('/local/interactembedcreator/edit.php', ['id' => $project->id]),
-        get_string('projectcreated', 'local_interactembedcreator'), null,
-        \core\output\notification::NOTIFY_SUCCESS);
+    $project = $repository->create(
+        $targetcontext,
+        $USER->id,
+        required_param('name', PARAM_TEXT),
+        optional_param('template', 'blank', PARAM_ALPHA)
+    );
+    redirect(
+        new moodle_url('/local/interactembedcreator/edit.php', ['id' => $project->id]),
+        get_string('projectcreated', 'local_interactembedcreator'),
+        null,
+        \core\output\notification::NOTIFY_SUCCESS
+    );
 }
 if (in_array($action, ['archive', 'restore', 'duplicate', 'copy', 'rename'], true)) {
     require_sesskey();
@@ -56,23 +82,38 @@ if (in_array($action, ['archive', 'restore', 'duplicate', 'copy', 'rename'], tru
             ? context::instance_by_id(required_param('targetcontextid', PARAM_INT), MUST_EXIST)
             : context::instance_by_id($source->contextid, MUST_EXIST);
         library_context::validate($targetcontext);
-        $copy = $repository->duplicate($projectid, $USER->id,
-            get_string('projectcopyname', 'local_interactembedcreator', $source->name), $targetcontext);
-        redirect(new moodle_url('/local/interactembedcreator/edit.php', ['id' => $copy->id]),
-            get_string($action === 'copy' ? 'projectcopiedtocontext' : 'projectduplicated',
-                'local_interactembedcreator'), null, \core\output\notification::NOTIFY_SUCCESS);
+        $copy = $repository->duplicate(
+            $projectid,
+            $USER->id,
+            get_string('projectcopyname', 'local_interactembedcreator', $source->name),
+            $targetcontext
+        );
+        redirect(
+            new moodle_url('/local/interactembedcreator/edit.php', ['id' => $copy->id]),
+            get_string(
+                $action === 'copy' ? 'projectcopiedtocontext' : 'projectduplicated',
+                'local_interactembedcreator'
+            ),
+            null,
+            \core\output\notification::NOTIFY_SUCCESS
+        );
     }
     if ($action === 'rename') {
         $repository->rename($projectid, $USER->id, required_param('name', PARAM_TEXT));
-        redirect(new moodle_url('/local/interactembedcreator/index.php', $baseparams),
-            get_string('projectrenamed', 'local_interactembedcreator'), null,
-            \core\output\notification::NOTIFY_SUCCESS);
+        redirect(
+            new moodle_url('/local/interactembedcreator/index.php', $baseparams),
+            get_string('projectrenamed', 'local_interactembedcreator'),
+            null,
+            \core\output\notification::NOTIFY_SUCCESS
+        );
     }
     $repository->set_archived($projectid, $USER->id, $action === 'archive');
     redirect(new moodle_url('/local/interactembedcreator/index.php', $baseparams + [
         'view' => $action === 'restore' ? 'archived' : 'active',
-    ]), get_string($action === 'archive' ? 'projectarchived' : 'projectrestored',
-        'local_interactembedcreator'), null, \core\output\notification::NOTIFY_SUCCESS);
+    ]), get_string(
+        $action === 'archive' ? 'projectarchived' : 'projectrestored',
+        'local_interactembedcreator'
+    ), null, \core\output\notification::NOTIFY_SUCCESS);
 }
 
 $archivedview = optional_param('view', 'active', PARAM_ALPHA) === 'archived';
@@ -148,27 +189,40 @@ $data = [
     'projects' => $cards,
     'hasprojects' => count($cards) > 0,
     'cancreate' => count($createoptions) > 0,
-    'projectcount' => get_string($total === 1 ? 'projectcountone' : 'projectcount',
-        'local_interactembedcreator', $total),
+    'projectcount' => get_string(
+        $total === 1 ? 'projectcountone' : 'projectcount',
+        'local_interactembedcreator',
+        $total
+    ),
     'myurl' => (new moodle_url('/local/interactembedcreator/index.php', ['scope' => 'my']))->out(false),
-    'guideurl' => (new moodle_url('/local/interactembedcreator/guide.php',
-        library_context::url_params($auxcontext)))->out(false),
-    'showcaseurl' => (new moodle_url('/local/interactembedcreator/showcase.php',
-        library_context::url_params($auxcontext)))->out(false),
+    'guideurl' => (new moodle_url(
+        '/local/interactembedcreator/guide.php',
+        library_context::url_params($auxcontext)
+    ))->out(false),
+    'showcaseurl' => (new moodle_url(
+        '/local/interactembedcreator/showcase.php',
+        library_context::url_params($auxcontext)
+    ))->out(false),
     'archivedview' => $archivedview,
     'activeview' => !$archivedview,
     'activeurl' => (new moodle_url('/local/interactembedcreator/index.php', $baseparams))->out(false),
-    'archivedurl' => (new moodle_url('/local/interactembedcreator/index.php',
-        $baseparams + ['view' => 'archived']))->out(false),
-    'importurl' => (new moodle_url('/local/interactembedcreator/import.php',
-        library_context::url_params($importcontext)))->out(false),
+    'archivedurl' => (new moodle_url(
+        '/local/interactembedcreator/index.php',
+        $baseparams + ['view' => 'archived']
+    ))->out(false),
+    'importurl' => (new moodle_url(
+        '/local/interactembedcreator/import.php',
+        library_context::url_params($importcontext)
+    ))->out(false),
     'search' => s($search),
     'searching' => trim($search) !== '',
     'showcaseprojectname' => get_string('showcaseprojectname', 'local_interactembedcreator'),
     'paging' => $OUTPUT->paging_bar($total, $page, $perpage, new moodle_url(
-        '/local/interactembedcreator/index.php', $baseparams + [
+        '/local/interactembedcreator/index.php',
+        $baseparams + [
             'view' => $archivedview ? 'archived' : 'active', 'search' => $search,
-        ])),
+        ]
+    )),
 ];
 
 echo $OUTPUT->header();

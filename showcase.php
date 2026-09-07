@@ -1,5 +1,18 @@
 <?php
 // This file is part of Moodle - http://moodle.org/.
+//
+// Moodle is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// Moodle is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
 
 /**
  * Read-only bundled Creator mini-course.
@@ -9,6 +22,8 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+// Login is enforced immediately below by library_context::require_login().
+// phpcs:ignore moodle.Files.RequireLogin.Missing
 require_once(__DIR__ . '/../../config.php');
 
 use local_interactembedcreator\local\library_context;
@@ -51,17 +66,20 @@ echo $OUTPUT->heading(get_string('showcaseheadline', 'local_interactembedcreator
 echo html_writer::tag('p', get_string('showcasecarddescription', 'local_interactembedcreator'));
 echo html_writer::start_div('iec-showcase-player-shell', ['id' => $shellid]);
 echo html_writer::start_div('iec-showcase-player-toolbar');
-echo html_writer::tag('button',
+echo html_writer::tag(
+    'button',
     $OUTPUT->pix_icon('e/fullscreen', '') . html_writer::span(
         get_string('showcasefullscreen', 'local_interactembedcreator'),
         'iec-showcase-fullscreen-label'
-    ), [
+    ),
+    [
         'id' => $fullscreenid,
         'class' => 'btn btn-secondary btn-sm',
         'type' => 'button',
         'aria-controls' => $playerid,
         'aria-pressed' => 'false',
-    ]);
+    ]
+);
 echo html_writer::end_div();
 echo html_writer::tag('iframe', '', [
     'id' => $playerid,

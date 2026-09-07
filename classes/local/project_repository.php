@@ -400,7 +400,7 @@ final class project_repository {
             $params['search'] = '%' . $DB->sql_like_escape($search) . '%';
         }
         $projects = $DB->get_records_select('local_iec_project', $where, $params, 'timemodified DESC');
-        return array_filter($projects, static function(stdClass $project) use ($userid): bool {
+        return array_filter($projects, static function (stdClass $project) use ($userid): bool {
             $context = context::instance_by_id($project->contextid, IGNORE_MISSING);
             return $context && has_capability('local/interactembedcreator:view', $context, $userid);
         });
