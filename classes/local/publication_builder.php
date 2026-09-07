@@ -61,7 +61,7 @@ final class publication_builder {
             throw new moodle_exception('projectisarchived', 'local_interactembedcreator');
         }
         $revision = $DB->get_record(
-            'local_iec_revision',
+            'local_interactembedcreator_revision',
             ['id' => $project->currentrevision, 'projectid' => $project->id],
             '*',
             MUST_EXIST
@@ -79,7 +79,7 @@ final class publication_builder {
 
         $publicationno = 1 + (int) $DB->get_field_sql(
             'SELECT COALESCE(MAX(publicationno), 0)
-               FROM {local_iec_publication}
+               FROM {local_interactembedcreator_publication}
               WHERE projectid = :projectid',
             ['projectid' => $project->id]
         );
@@ -98,7 +98,7 @@ final class publication_builder {
             'createdby' => $userid,
             'timecreated' => time(),
         ];
-        $publication->id = $DB->insert_record('local_iec_publication', $publication);
+        $publication->id = $DB->insert_record('local_interactembedcreator_publication', $publication);
 
         $fs = get_file_storage();
         try {
@@ -138,12 +138,12 @@ final class publication_builder {
                 false
             );
             $publication->packagehash = \local_interactembedcreator\publication_api::calculate_hash($publishedfiles);
-            $DB->update_record('local_iec_publication', $publication);
+            $DB->update_record('local_interactembedcreator_publication', $publication);
             $revision->revisiontype = 'published';
-            $DB->update_record('local_iec_revision', $revision);
+            $DB->update_record('local_interactembedcreator_revision', $revision);
             $project->status = 'published';
             $project->timemodified = time();
-            $DB->update_record('local_iec_project', $project);
+            $DB->update_record('local_interactembedcreator_project', $project);
             $transaction->allow_commit();
         } catch (\Throwable $exception) {
             $fs->delete_area_files(
@@ -167,7 +167,7 @@ final class publication_builder {
     public function create_zip(stdClass $publication): string {
         global $DB;
 
-        $project = $DB->get_record('local_iec_project', ['id' => $publication->projectid], '*', MUST_EXIST);
+        $project = $DB->get_record('local_interactembedcreator_project', ['id' => $publication->projectid], '*', MUST_EXIST);
         $context = context::instance_by_id($project->contextid, MUST_EXIST);
         require_capability('local/interactembedcreator:view', $context);
         $area = get_file_storage()->get_area_files(

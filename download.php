@@ -31,7 +31,7 @@ use local_interactembedcreator\local\library_context;
 $publicationid = required_param('id', PARAM_INT);
 require_login();
 require_sesskey();
-$publication = $DB->get_record('local_iec_publication', ['id' => $publicationid], '*', MUST_EXIST);
+$publication = $DB->get_record('local_interactembedcreator_publication', ['id' => $publicationid], '*', MUST_EXIST);
 $project = (new project_repository())->get((int) $publication->projectid, $USER->id);
 $context = context::instance_by_id($project->contextid, MUST_EXIST);
 library_context::validate($context);

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<XMLDB PATH="local/interactembedcreator/db" VERSION="20260901" COMMENT="XMLDB file for local_interactembedcreator"
+<XMLDB PATH="local/interactembedcreator/db" VERSION="20260907" COMMENT="XMLDB file for local_interactembedcreator"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd">
   <TABLES>
-    <TABLE NAME="local_iec_project" COMMENT="InteractEmbed editable projects">
+    <TABLE NAME="local_interactembedcreator_project" COMMENT="InteractEmbed editable projects">
       <FIELDS>
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
         <FIELD NAME="uuid" TYPE="char" LENGTH="36" NOTNULL="true" SEQUENCE="false"/>
@@ -29,7 +29,7 @@
         <INDEX NAME="ownerstatus" UNIQUE="false" FIELDS="ownerid, status"/>
       </INDEXES>
     </TABLE>
-    <TABLE NAME="local_iec_revision" COMMENT="Immutable and autosaved project snapshots">
+    <TABLE NAME="local_interactembedcreator_revision" COMMENT="Immutable and autosaved project snapshots">
       <FIELDS>
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
         <FIELD NAME="projectid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
@@ -44,7 +44,7 @@
       </FIELDS>
       <KEYS>
         <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
-        <KEY NAME="projectfk" TYPE="foreign" FIELDS="projectid" REFTABLE="local_iec_project" REFFIELDS="id"/>
+        <KEY NAME="projectfk" TYPE="foreign" FIELDS="projectid" REFTABLE="local_interactembedcreator_project" REFFIELDS="id"/>
         <KEY NAME="authorfk" TYPE="foreign" FIELDS="authorid" REFTABLE="user" REFFIELDS="id"/>
       </KEYS>
       <INDEXES>
@@ -52,7 +52,7 @@
         <INDEX NAME="projecttype" UNIQUE="false" FIELDS="projectid, revisiontype"/>
       </INDEXES>
     </TABLE>
-    <TABLE NAME="local_iec_publication" COMMENT="Immutable HTML5 project publications">
+    <TABLE NAME="local_interactembedcreator_publication" COMMENT="Immutable HTML5 project publications">
       <FIELDS>
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
         <FIELD NAME="uuid" TYPE="char" LENGTH="36" NOTNULL="true" SEQUENCE="false"/>
@@ -68,8 +68,8 @@
       </FIELDS>
       <KEYS>
         <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
-        <KEY NAME="projectfk" TYPE="foreign" FIELDS="projectid" REFTABLE="local_iec_project" REFFIELDS="id"/>
-        <KEY NAME="revisionfk" TYPE="foreign" FIELDS="revisionid" REFTABLE="local_iec_revision" REFFIELDS="id"/>
+        <KEY NAME="projectfk" TYPE="foreign" FIELDS="projectid" REFTABLE="local_interactembedcreator_project" REFFIELDS="id"/>
+        <KEY NAME="revisionfk" TYPE="foreign" FIELDS="revisionid" REFTABLE="local_interactembedcreator_revision" REFFIELDS="id"/>
         <KEY NAME="creatorfk" TYPE="foreign" FIELDS="createdby" REFTABLE="user" REFFIELDS="id"/>
       </KEYS>
       <INDEXES>

@@ -40,7 +40,7 @@ final class publication_manager {
 
         (new project_repository())->get($projectid, $userid);
         return $DB->get_records(
-            'local_iec_publication',
+            'local_interactembedcreator_publication',
             ['projectid' => $projectid],
             'publicationno DESC',
             '*',
@@ -60,7 +60,7 @@ final class publication_manager {
         global $DB;
 
         (new project_repository())->get($projectid, $userid);
-        return $DB->count_records('local_iec_publication', ['projectid' => $projectid]);
+        return $DB->count_records('local_interactembedcreator_publication', ['projectid' => $projectid]);
     }
 
     /**
@@ -76,7 +76,7 @@ final class publication_manager {
     public function set_available(int $publicationid, int $userid, bool $available): stdClass {
         global $DB;
 
-        $publication = $DB->get_record('local_iec_publication', ['id' => $publicationid], '*', MUST_EXIST);
+        $publication = $DB->get_record('local_interactembedcreator_publication', ['id' => $publicationid], '*', MUST_EXIST);
         $project = (new project_repository())->get((int) $publication->projectid, $userid, true);
         $context = context::instance_by_id($project->contextid, MUST_EXIST);
         require_capability('local/interactembedcreator:publish', $context);
@@ -84,7 +84,7 @@ final class publication_manager {
             throw new moodle_exception('invaliddata');
         }
         $publication->status = $available ? 'ready' : 'withdrawn';
-        $DB->update_record('local_iec_publication', $publication);
+        $DB->update_record('local_interactembedcreator_publication', $publication);
         return $publication;
     }
 }

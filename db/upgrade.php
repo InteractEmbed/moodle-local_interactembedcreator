@@ -29,6 +29,8 @@
  * @return bool
  */
 function xmldb_local_interactembedcreator_upgrade(int $oldversion): bool {
+    global $DB;
+
     if ($oldversion < 2026090101) {
         upgrade_plugin_savepoint(true, 2026090101, 'local', 'interactembedcreator');
     }
@@ -82,6 +84,22 @@ function xmldb_local_interactembedcreator_upgrade(int $oldversion): bool {
     }
     if ($oldversion < 2026090205) {
         upgrade_plugin_savepoint(true, 2026090205, 'local', 'interactembedcreator');
+    }
+    if ($oldversion < 2026090210) {
+        $dbman = $DB->get_manager();
+        $renames = [
+            'local_iec_publication' => 'local_interactembedcreator_publication',
+            'local_iec_revision' => 'local_interactembedcreator_revision',
+            'local_iec_project' => 'local_interactembedcreator_project',
+        ];
+        foreach ($renames as $oldname => $newname) {
+            $oldtable = new xmldb_table($oldname);
+            $newtable = new xmldb_table($newname);
+            if ($dbman->table_exists($oldtable) && !$dbman->table_exists($newtable)) {
+                $dbman->rename_table($oldtable, $newname);
+            }
+        }
+        upgrade_plugin_savepoint(true, 2026090210, 'local', 'interactembedcreator');
     }
     return true;
 }

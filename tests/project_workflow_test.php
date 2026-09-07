@@ -152,7 +152,7 @@ final class project_workflow_test extends advanced_testcase {
         $this->assertTrue($result['changed']);
         $this->assertSame(2, $result['revision']);
 
-        $project = $DB->get_record('local_iec_project', ['id' => $project->id], '*', MUST_EXIST);
+        $project = $DB->get_record('local_interactembedcreator_project', ['id' => $project->id], '*', MUST_EXIST);
         $publication = (new publication_builder())->publish($project, $USER->id);
         $this->assertSame('ready', $publication->status);
         $this->assertNotEmpty($publication->packagehash);
@@ -318,7 +318,7 @@ final class project_workflow_test extends advanced_testcase {
         $othercourse = $this->getDataGenerator()->create_course();
         $sourcecontext = context_course::instance($sourcecourse->id);
         $project = (new project_repository())->create($sourcecontext, $USER->id, 'Scoped publication');
-        $project = $DB->get_record('local_iec_project', ['id' => $project->id], '*', MUST_EXIST);
+        $project = $DB->get_record('local_interactembedcreator_project', ['id' => $project->id], '*', MUST_EXIST);
         $publication = (new publication_builder())->publish($project, $USER->id);
 
         $this->expectException(\dml_missing_record_exception::class);
@@ -347,15 +347,15 @@ final class project_workflow_test extends advanced_testcase {
         $categoryproject = $repository->create($categorycontext, $USER->id, 'Category publication');
         $courseproject = $repository->create($sourcecontext, $USER->id, 'Sibling course publication');
         $sitepublication = $builder->publish(
-            $DB->get_record('local_iec_project', ['id' => $siteproject->id], '*', MUST_EXIST),
+            $DB->get_record('local_interactembedcreator_project', ['id' => $siteproject->id], '*', MUST_EXIST),
             $USER->id
         );
         $categorypublication = $builder->publish(
-            $DB->get_record('local_iec_project', ['id' => $categoryproject->id], '*', MUST_EXIST),
+            $DB->get_record('local_interactembedcreator_project', ['id' => $categoryproject->id], '*', MUST_EXIST),
             $USER->id
         );
         $builder->publish(
-            $DB->get_record('local_iec_project', ['id' => $courseproject->id], '*', MUST_EXIST),
+            $DB->get_record('local_interactembedcreator_project', ['id' => $courseproject->id], '*', MUST_EXIST),
             $USER->id
         );
 
@@ -396,7 +396,7 @@ final class project_workflow_test extends advanced_testcase {
         $course = $this->getDataGenerator()->create_course();
         $context = context_course::instance($course->id);
         $project = (new project_repository())->create($context, $USER->id, 'Integrity publication');
-        $project = $DB->get_record('local_iec_project', ['id' => $project->id], '*', MUST_EXIST);
+        $project = $DB->get_record('local_interactembedcreator_project', ['id' => $project->id], '*', MUST_EXIST);
         $publication = (new publication_builder())->publish($project, $USER->id);
         $fs = get_file_storage();
         $entry = $fs->get_file(
@@ -450,14 +450,14 @@ final class project_workflow_test extends advanced_testcase {
         $this->assertSame(3, $result['revision']);
         $revisions = $repository->list_revisions($project->id, $USER->id);
         $this->assertCount(3, $revisions);
-        $restoredproject = $DB->get_record('local_iec_project', ['id' => $project->id], '*', MUST_EXIST);
+        $restoredproject = $DB->get_record('local_interactembedcreator_project', ['id' => $project->id], '*', MUST_EXIST);
         $restored = $repository->get_current_document($restoredproject);
         $this->assertSame('Lifecycle', $restored->metadata->title);
 
         $repository->set_archived($project->id, $USER->id, true);
         $this->assertCount(0, $repository->list($context, $USER->id));
         $this->assertCount(1, $repository->list($context, $USER->id, true));
-        $archivedproject = $DB->get_record('local_iec_project', ['id' => $project->id], '*', MUST_EXIST);
+        $archivedproject = $DB->get_record('local_interactembedcreator_project', ['id' => $project->id], '*', MUST_EXIST);
         $archiveddocument = $repository->get_current_document($archivedproject);
         $archivedlock = $archiveddocument->_lockversion;
         unset($archiveddocument->_revision, $archiveddocument->_lockversion);
@@ -547,7 +547,7 @@ final class project_workflow_test extends advanced_testcase {
         $course = $this->getDataGenerator()->create_course();
         $context = context_course::instance($course->id);
         $project = (new project_repository())->create($context, $USER->id, 'Versioned publication');
-        $project = $DB->get_record('local_iec_project', ['id' => $project->id], '*', MUST_EXIST);
+        $project = $DB->get_record('local_interactembedcreator_project', ['id' => $project->id], '*', MUST_EXIST);
         $publication = (new publication_builder())->publish($project, $USER->id);
         $manager = new publication_manager();
 
@@ -634,13 +634,13 @@ final class project_workflow_test extends advanced_testcase {
             'unexpected.php' => ['not allowed'],
         ], $archive, false);
         $this->assertTrue($created);
-        $before = $DB->count_records('local_iec_project');
+        $before = $DB->count_records('local_interactembedcreator_project');
         try {
             (new source_package())->import($archive, $context, $USER->id);
             $this->fail('Unexpected source entries must be rejected.');
         } catch (\moodle_exception $exception) {
             $this->assertSame('invalidsourcepackage', $exception->errorcode);
         }
-        $this->assertSame($before, $DB->count_records('local_iec_project'));
+        $this->assertSame($before, $DB->count_records('local_interactembedcreator_project'));
     }
 }

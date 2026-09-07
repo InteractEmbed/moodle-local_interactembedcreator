@@ -51,8 +51,8 @@ final class publication_api {
         [$insql, $inparams] = $DB->get_in_or_equal($contextids, SQL_PARAMS_NAMED, 'ctx');
         $sql = 'SELECT pub.id, pub.uuid, pub.publicationno, pub.entrypoint, pub.packagehash,
                        pub.engineversion, pub.timecreated, p.id AS projectid, p.name
-                  FROM {local_iec_publication} pub
-                  JOIN {local_iec_project} p ON p.id = pub.projectid
+                  FROM {local_interactembedcreator_publication} pub
+                  JOIN {local_interactembedcreator_project} p ON p.id = pub.projectid
                  WHERE p.contextid ' . $insql . ' AND pub.status = :status
               ORDER BY p.name ASC, pub.publicationno DESC';
         return array_values($DB->get_records_sql($sql, $inparams + ['status' => 'ready']));
@@ -72,8 +72,8 @@ final class publication_api {
         [$insql, $inparams] = $DB->get_in_or_equal($allowedcontextids, SQL_PARAMS_NAMED, 'ctx');
         $sql = 'SELECT pub.id, pub.uuid, pub.publicationno, pub.entrypoint, pub.packagehash,
                        pub.engineversion, pub.timecreated, p.name AS projectname, p.contextid
-                  FROM {local_iec_publication} pub
-                  JOIN {local_iec_project} p ON p.id = pub.projectid
+                  FROM {local_interactembedcreator_publication} pub
+                  JOIN {local_interactembedcreator_project} p ON p.id = pub.projectid
                  WHERE pub.id = :publicationid
                        AND pub.status = :status
                        AND p.contextid ' . $insql;

@@ -60,7 +60,7 @@ final class project_repository {
         $limit = max(0, (int) get_config('local_interactembedcreator', 'maxprojectsperuser'));
         if ($limit > 0) {
             $active = $DB->count_records_select(
-                'local_iec_project',
+                'local_interactembedcreator_project',
                 'ownerid = :ownerid AND status <> :archived',
                 ['ownerid' => $ownerid, 'archived' => 'archived']
             );
@@ -84,7 +84,7 @@ final class project_repository {
             'timecreated' => $now,
             'timemodified' => $now,
         ];
-        $project->id = $DB->insert_record('local_iec_project', $project);
+        $project->id = $DB->insert_record('local_interactembedcreator_project', $project);
 
         $contentjson = json_encode(
             self::default_document($project->uuid, $name, $template),
@@ -93,7 +93,7 @@ final class project_repository {
         $revision = $this->insert_revision($project, $ownerid, $contentjson, 'manual', 'Initial revision');
         $project->currentrevision = $revision->id;
         $project->lockversion = 1;
-        $DB->update_record('local_iec_project', $project);
+        $DB->update_record('local_interactembedcreator_project', $project);
         if ($template === 'showcase') {
             official_template::install_assets($context, $project->id, $ownerid);
         }
@@ -113,7 +113,7 @@ final class project_repository {
     public function get(int $projectid, int $userid, bool $foredit = false): stdClass {
         global $DB;
 
-        $project = $DB->get_record('local_iec_project', ['id' => $projectid], '*', MUST_EXIST);
+        $project = $DB->get_record('local_interactembedcreator_project', ['id' => $projectid], '*', MUST_EXIST);
         $context = context::instance_by_id($project->contextid, MUST_EXIST);
         require_capability('local/interactembedcreator:view', $context);
 
@@ -140,7 +140,7 @@ final class project_repository {
         global $DB;
 
         $revision = $DB->get_record(
-            'local_iec_revision',
+            'local_interactembedcreator_revision',
             ['id' => $project->currentrevision, 'projectid' => $project->id],
             '*',
             MUST_EXIST
@@ -178,7 +178,7 @@ final class project_repository {
 
         $transaction = $DB->start_delegated_transaction();
         $project = $DB->get_record_sql(
-            'SELECT * FROM {local_iec_project} WHERE id = :id FOR UPDATE',
+            'SELECT * FROM {local_interactembedcreator_project} WHERE id = :id FOR UPDATE',
             ['id' => $projectid],
             MUST_EXIST
         );
@@ -186,7 +186,7 @@ final class project_repository {
             throw new moodle_exception('saveconflict', 'local_interactembedcreator');
         }
 
-        $current = $DB->get_record('local_iec_revision', ['id' => $project->currentrevision], '*', MUST_EXIST);
+        $current = $DB->get_record('local_interactembedcreator_revision', ['id' => $project->currentrevision], '*', MUST_EXIST);
         $hash = hash('sha256', $contentjson);
         if (hash_equals($current->contenthash, $hash)) {
             $transaction->allow_commit();
@@ -203,7 +203,7 @@ final class project_repository {
         $project->currentrevision = $revision->id;
         $project->lockversion++;
         $project->timemodified = time();
-        $DB->update_record('local_iec_project', $project);
+        $DB->update_record('local_interactembedcreator_project', $project);
         $transaction->allow_commit();
 
         $this->prune_revisions($projectid);
@@ -248,7 +248,15 @@ final class project_repository {
             $where .= ' AND ' . $DB->sql_like('name', ':search', false);
             $params['search'] = '%' . $DB->sql_like_escape($search) . '%';
         }
-        return $DB->get_records_select('local_iec_project', $where, $params, 'timemodified DESC', '*', $offset, $limit);
+        return $DB->get_records_select(
+            'local_interactembedcreator_project',
+            $where,
+            $params,
+            'timemodified DESC',
+            '*',
+            $offset,
+            $limit
+        );
     }
 
     /**
@@ -277,7 +285,7 @@ final class project_repository {
             $where .= ' AND ' . $DB->sql_like('name', ':search', false);
             $params['search'] = '%' . $DB->sql_like_escape($search) . '%';
         }
-        return $DB->count_records_select('local_iec_project', $where, $params);
+        return $DB->count_records_select('local_interactembedcreator_project', $where, $params);
     }
 
     /**
@@ -308,10 +316,10 @@ final class project_repository {
             $lockversion,
             false
         );
-        $project = $DB->get_record('local_iec_project', ['id' => $projectid], '*', MUST_EXIST);
+        $project = $DB->get_record('local_interactembedcreator_project', ['id' => $projectid], '*', MUST_EXIST);
         $project->name = $name;
         $project->timemodified = time();
-        $DB->update_record('local_iec_project', $project);
+        $DB->update_record('local_interactembedcreator_project', $project);
         return $project;
     }
 
@@ -329,7 +337,7 @@ final class project_repository {
         $project = $this->get($projectid, $userid, true);
         $project->status = $archived ? 'archived' : 'draft';
         $project->timemodified = time();
-        $DB->update_record('local_iec_project', $project);
+        $DB->update_record('local_interactembedcreator_project', $project);
         return $project;
     }
 
@@ -399,7 +407,7 @@ final class project_repository {
             $where .= ' AND ' . $DB->sql_like('name', ':search', false);
             $params['search'] = '%' . $DB->sql_like_escape($search) . '%';
         }
-        $projects = $DB->get_records_select('local_iec_project', $where, $params, 'timemodified DESC');
+        $projects = $DB->get_records_select('local_interactembedcreator_project', $where, $params, 'timemodified DESC');
         return array_filter($projects, static function (stdClass $project) use ($userid): bool {
             $context = context::instance_by_id($project->contextid, IGNORE_MISSING);
             return $context && has_capability('local/interactembedcreator:view', $context, $userid);
@@ -417,7 +425,14 @@ final class project_repository {
         global $DB;
 
         $this->get($projectid, $userid);
-        return $DB->get_records('local_iec_revision', ['projectid' => $projectid], 'revisionno DESC', '*', $offset, $limit);
+        return $DB->get_records(
+            'local_interactembedcreator_revision',
+            ['projectid' => $projectid],
+            'revisionno DESC',
+            '*',
+            $offset,
+            $limit
+        );
     }
 
     /**
@@ -431,7 +446,7 @@ final class project_repository {
         global $DB;
 
         $this->get($projectid, $userid);
-        return $DB->count_records('local_iec_revision', ['projectid' => $projectid]);
+        return $DB->count_records('local_interactembedcreator_revision', ['projectid' => $projectid]);
     }
 
     /**
@@ -447,7 +462,7 @@ final class project_repository {
 
         $project = $this->get($projectid, $userid, true);
         $source = $DB->get_record(
-            'local_iec_revision',
+            'local_interactembedcreator_revision',
             ['id' => $revisionid, 'projectid' => $projectid],
             '*',
             MUST_EXIST
@@ -456,7 +471,7 @@ final class project_repository {
 
         $transaction = $DB->start_delegated_transaction();
         $project = $DB->get_record_sql(
-            'SELECT * FROM {local_iec_project} WHERE id = :id FOR UPDATE',
+            'SELECT * FROM {local_interactembedcreator_project} WHERE id = :id FOR UPDATE',
             ['id' => $projectid],
             MUST_EXIST
         );
@@ -471,7 +486,7 @@ final class project_repository {
         $project->lockversion++;
         $project->status = 'draft';
         $project->timemodified = time();
-        $DB->update_record('local_iec_project', $project);
+        $DB->update_record('local_interactembedcreator_project', $project);
         $transaction->allow_commit();
         $this->prune_revisions($projectid);
 
@@ -501,7 +516,7 @@ final class project_repository {
         global $DB;
 
         $maxrevision = (int) $DB->get_field_sql(
-            'SELECT COALESCE(MAX(revisionno), 0) FROM {local_iec_revision} WHERE projectid = :projectid',
+            'SELECT COALESCE(MAX(revisionno), 0) FROM {local_interactembedcreator_revision} WHERE projectid = :projectid',
             ['projectid' => $project->id]
         );
         $revision = (object) [
@@ -515,7 +530,7 @@ final class project_repository {
             'authorid' => $authorid,
             'timecreated' => time(),
         ];
-        $revision->id = $DB->insert_record('local_iec_revision', $revision);
+        $revision->id = $DB->insert_record('local_interactembedcreator_revision', $revision);
         return $revision;
     }
 
@@ -528,9 +543,9 @@ final class project_repository {
         global $DB;
 
         $limit = max(5, (int) get_config('local_interactembedcreator', 'maxrevisions'));
-        $project = $DB->get_record('local_iec_project', ['id' => $projectid], '*', MUST_EXIST);
+        $project = $DB->get_record('local_interactembedcreator_project', ['id' => $projectid], '*', MUST_EXIST);
         $records = $DB->get_records_select(
-            'local_iec_revision',
+            'local_interactembedcreator_revision',
             'projectid = :projectid AND revisiontype <> :published AND id <> :currentid',
             ['projectid' => $projectid, 'published' => 'published', 'currentid' => $project->currentrevision],
             'revisionno DESC',
@@ -540,7 +555,7 @@ final class project_repository {
             return;
         }
         $deleteids = array_slice(array_keys($records), $limit);
-        $DB->delete_records_list('local_iec_revision', 'id', $deleteids);
+        $DB->delete_records_list('local_interactembedcreator_revision', 'id', $deleteids);
     }
 
     /**

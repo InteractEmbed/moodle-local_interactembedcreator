@@ -25,11 +25,11 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'local_interactembedcreator';
-$plugin->version = 2026090209;
+$plugin->version = 2026090210;
 $plugin->requires = 2024100700;
 $plugin->supported = [405, 502];
 $plugin->maturity = MATURITY_RC;
-$plugin->release = '0.9.0-rc11';
+$plugin->release = '0.9.0-rc12';
 $plugin->dependencies = [
     'block_interactembed' => 2026090202,
     'mod_interactembed' => 2026090203,

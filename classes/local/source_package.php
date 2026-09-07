@@ -245,7 +245,7 @@ final class source_package {
             'asset',
             $project->id
         );
-        $DB->delete_records('local_iec_revision', ['projectid' => $project->id]);
-        $DB->delete_records('local_iec_project', ['id' => $project->id]);
+        $DB->delete_records('local_interactembedcreator_revision', ['projectid' => $project->id]);
+        $DB->delete_records('local_interactembedcreator_project', ['id' => $project->id]);
     }
 }
