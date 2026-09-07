@@ -51,7 +51,7 @@ function local_interactembedcreator_extend_navigation(global_navigation $navigat
  * Adds the library to the course secondary navigation.
  *
  * @param navigation_node $navigation
- * @param stdClass $course
+ * @param stdClass|null $course Course record, or null for system and category contexts.
  * @param context_course $context
  */
 function local_interactembedcreator_extend_navigation_course(
@@ -86,7 +86,7 @@ function local_interactembedcreator_extend_navigation_course(
  * @return bool
  */
 function local_interactembedcreator_pluginfile(
-    stdClass $course,
+    ?stdClass $course,
     ?stdClass $cm,
     context $context,
     string $filearea,

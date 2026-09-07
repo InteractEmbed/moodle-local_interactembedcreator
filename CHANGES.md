@@ -1,5 +1,11 @@
 # Change log
 
+## 0.9.0-rc15 — 2026-09-07
+
+- Allow publication and asset files stored in the site or category library to
+  be served when Moodle invokes the pluginfile callback without a course.
+- Add regression coverage for the system-context pluginfile contract.
+
 ## 0.9.0-rc14 — 2026-09-07
 
 - Include course-scoped projects, revision history, assets, thumbnails, and

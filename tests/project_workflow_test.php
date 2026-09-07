@@ -38,6 +38,23 @@ use local_interactembedcreator\publication_api;
  */
 final class project_workflow_test extends advanced_testcase {
     /**
+     * System-library files accept Moodle's null course callback argument.
+     */
+    public function test_pluginfile_accepts_system_context_without_course(): void {
+        global $CFG;
+
+        require_once($CFG->dirroot . '/local/interactembedcreator/lib.php');
+        $this->assertFalse(\local_interactembedcreator_pluginfile(
+            null,
+            null,
+            context_system::instance(),
+            'unknown',
+            [],
+            false
+        ));
+    }
+
+    /**
      * A project can be edited and published with a Moodle Files API asset.
      */
     public function test_project_can_be_saved_and_published(): void {
