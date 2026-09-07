@@ -4,6 +4,7 @@
 *.jpeg binary
 *.gif binary
 
+/.github export-ignore
 /.gitattributes export-ignore
 /.gitignore export-ignore
 /CONTRIBUTING.md export-ignore
