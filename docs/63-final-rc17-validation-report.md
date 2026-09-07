@@ -20,7 +20,7 @@ remapping, and package integrity after restoration into a new course.
 
 - PHP syntax: all plugin PHP files passed.
 - Moodle PHP_CodeSniffer standard: passed with no findings.
-- PHPUnit plugin suite: 13 tests, 93 assertions, all passed.
+- PHPUnit plugin suite: 15 tests, 100 assertions, all passed.
 - Backup/restore scenario: 1 test, 11 assertions, all passed.
 
 The backup/restore scenario creates a course-scoped project, adds a source
@@ -31,7 +31,7 @@ canonical publication package hash.
 
 ## Public CI baseline
 
-The preceding rc14 GitHub Actions run 34138304718 passed all six jobs for Moodle 4.5 through 5.2,
+The rc17 GitHub Actions run 34142247632 passed all six jobs for Moodle 4.5 through 5.2,
 PHP 8.1 through 8.4, MariaDB and PostgreSQL. Each job installed the Activity
 and Block dependencies before running PHP lint, Moodle CodeSniffer, PHPDoc,
 plugin validation, savepoints, Mustache, Grunt and PHPUnit.
@@ -58,7 +58,9 @@ Integration coverage now deletes real Moodle courses and categories and checks
 that projects, revisions, and publications are all removed. The complete rc17
 suite passes 15 tests and 100 assertions on Moodle 5.2.
 
-The code is technically validated as 0.9.0-rc17. It remains an RC: no stable
-1.0 tag or Marketplace release is authorised by this report. Final visual
-acceptance and the coordinated Activity/Block readiness review remain the
-release gate.
+The code is technically validated as 0.9.0-rc17. The Activity repeated its
+complete backup, restore and course-deletion scenario on Moodle 5.2 and
+IOMAD/Moodle 4.5, finding zero orphaned Creator projects. The Block's final
+integrated recipe is also green. The three pre-1.0 candidates are therefore
+ready for the human 1.0 release decision. No stable 1.0 tag or Marketplace
+release is authorised by this report.
