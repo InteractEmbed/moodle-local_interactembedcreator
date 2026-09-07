@@ -1,5 +1,12 @@
 # Change log
 
+## 0.9.0-rc14 — 2026-09-07
+
+- Include course-scoped projects, revision history, assets, thumbnails, and
+  immutable publications in Moodle course backup and restore.
+- Remap restored project, publication, and user identifiers so a course can be
+  copied safely on the same site or transferred to another Moodle site.
+
 ## 0.9.0-rc13 — 2026-09-07
 
 - Complete PHP API and Mustache template documentation required by Moodle CI.

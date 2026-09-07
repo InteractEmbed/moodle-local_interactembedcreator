@@ -14,6 +14,11 @@ that can be copied into the InteractEmbed activity or block.
 Both consumers remain usable without Creator. Creator deliberately requires
 both so every publication has the two supported Moodle destinations available.
 
+Course-scoped Creator projects, revision history, source files, and immutable
+publications are included in Moodle course backup and restore. System- and
+category-scoped library items remain independent shared resources; activities
+and blocks retain their own portable package snapshots.
+
 ## Installation
 
 Install the ZIP through **Site administration > Plugins > Install plugins**, or
