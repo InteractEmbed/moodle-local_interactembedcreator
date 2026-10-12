@@ -385,3 +385,12 @@ $string['workflowcreate'] = 'CREATE';
 $string['workflowpublish'] = 'PUBLISH';
 $string['workspaceview'] = 'Workspace view';
 $string['zoom'] = 'Zoom';
+
+// Capability descriptions.
+$string['interactembedcreator:view'] = 'View the InteractEmbed library';
+$string['interactembedcreator:create'] = 'Create InteractEmbed projects';
+$string['interactembedcreator:editown'] = 'Edit own InteractEmbed projects';
+$string['interactembedcreator:editany'] = 'Edit any InteractEmbed project';
+$string['interactembedcreator:publish'] = 'Publish InteractEmbed projects';
+$string['interactembedcreator:delete'] = 'Delete InteractEmbed projects';
+$string['interactembedcreator:use'] = 'Use InteractEmbed publications';

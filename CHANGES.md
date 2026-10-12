@@ -1,5 +1,15 @@
 # Change log
 
+## 1.0.1 — 2026-10-12
+
+- Addresses Marketplace MMR-213 issues #1 to #3: removes the redundant editor
+  stylesheet request, adds all seven capability descriptions in English and
+  synchronises French/Spanish AMOS sources outside the distribution.
+- Documents the licence, expected context and examples for every Mustache
+  template, including the library, editor and publications reviewed.
+- Keeps the existing optional companion role and minimum Block/Activity
+  dependency versions. No content engine or publication format changes.
+
 ## 1.0.0 — 2026-09-07
 
 - First stable release of the contextual InteractEmbed library and visual

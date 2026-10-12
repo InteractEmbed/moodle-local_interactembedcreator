@@ -71,7 +71,6 @@ $PAGE->set_url(new moodle_url('/local/interactembedcreator/edit.php', ['id' => $
 $PAGE->set_title(format_string($project->name));
 $PAGE->set_heading(format_string($project->name));
 $PAGE->add_body_class('local-interactembedcreator-editor');
-$PAGE->requires->css('/local/interactembedcreator/styles.css');
 $PAGE->requires->js_call_amd('local_interactembedcreator/editor', 'init', [[
     'projectId' => (int) $project->id,
     'document' => $document,
