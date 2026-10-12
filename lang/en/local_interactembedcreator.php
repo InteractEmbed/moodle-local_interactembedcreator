@@ -137,6 +137,13 @@ $string['importedproject'] = 'Imported InteractEmbed project';
 $string['importproject'] = 'Import editable project';
 $string['importprojecthelp'] = 'Import a .interactembed-source.zip archive previously exported by Creator. A new independent project is created; existing projects are never overwritten.';
 $string['insertcontent'] = 'Insert';
+$string['interactembedcreator:create'] = 'Create InteractEmbed projects';
+$string['interactembedcreator:delete'] = 'Delete InteractEmbed projects';
+$string['interactembedcreator:editany'] = 'Edit any InteractEmbed project';
+$string['interactembedcreator:editown'] = 'Edit own InteractEmbed projects';
+$string['interactembedcreator:publish'] = 'Publish InteractEmbed projects';
+$string['interactembedcreator:use'] = 'Use InteractEmbed publications';
+$string['interactembedcreator:view'] = 'View the InteractEmbed library';
 $string['invalidsourcepackage'] = 'This file is not a valid or safe InteractEmbed Creator source package.';
 $string['issueaudiotranscript'] = 'Add a transcript to the audio.';
 $string['issuebuttontext'] = 'Add meaningful text to the button.';
@@ -385,12 +392,3 @@ $string['workflowcreate'] = 'CREATE';
 $string['workflowpublish'] = 'PUBLISH';
 $string['workspaceview'] = 'Workspace view';
 $string['zoom'] = 'Zoom';
-
-// Capability descriptions.
-$string['interactembedcreator:view'] = 'View the InteractEmbed library';
-$string['interactembedcreator:create'] = 'Create InteractEmbed projects';
-$string['interactembedcreator:editown'] = 'Edit own InteractEmbed projects';
-$string['interactembedcreator:editany'] = 'Edit any InteractEmbed project';
-$string['interactembedcreator:publish'] = 'Publish InteractEmbed projects';
-$string['interactembedcreator:delete'] = 'Delete InteractEmbed projects';
-$string['interactembedcreator:use'] = 'Use InteractEmbed publications';
